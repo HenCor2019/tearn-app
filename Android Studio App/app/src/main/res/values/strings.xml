@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">TearnApp</string>
-    <string name="siguiente">Siguiente</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="label_on_boarding_title1">Enseñanza Profesional</string>
+    <string name="label_on_boarding_title2">Libros para tí</string>
+    <string name="label_on_boarding_title3">Recomendaciones Exclusivas</string>
+    <string name="label_on_boarding_description">Lorem ipmsum que no se que pone aca xd, Lorem ipmsum que no se que pone aca xd, Lorem ipmsum que no se que pone aca xd</string>
 </resources>

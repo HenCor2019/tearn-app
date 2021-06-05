@@ -7,15 +7,11 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-
-
-    <!-- Proyects colors: -->
-    <color name="primary_color">#40394A</color>
-    <color name="secundary_color">#42A835</color>
-    <color name="secundary_color_ligth">#67EA67</color>
-    <color name="background_color">#FFFFFFFF</color>
-    <color name="text_color">#060906</color>
-
-
+    <color name="gray">#707070</color>
+    <color name="yellow">#FFD800</color>
+    <color name="green_selection">#67EA67</color>
+    <color name="green_black">#42A835</color>
+    <color name="purple_black">#40394A</color>
+    <color name="purple_white">#665F70</color>
 
 </resources>
