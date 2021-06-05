@@ -5,56 +5,82 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.NavHostFragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.tearnsv.tearnapp.R
+import com.tearnsv.tearnapp.TearnApplication
+import com.tearnsv.tearnapp.data.Category
+import com.tearnsv.tearnapp.databinding.FragmentPreferencesBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class PreferencesFragment : Fragment(), PreferencesAdapter.OnClickSuccess {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [PreferencesFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class PreferencesFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private var _binding: FragmentPreferencesBinding? = null
+    private val binding get() = _binding!!
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+    private val application by lazy {
+        requireActivity().application as TearnApplication
+    }
+
+    private val preferencesFactory: PreferencesViewModelFactory by lazy {
+        val repository = application.tearnRepository
+        PreferencesViewModelFactory(repository)
+    }
+
+    private val preferencesViewModel: PreferencesViewModel by viewModels {
+        preferencesFactory
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_preferences, container, false)
+        _binding = FragmentPreferencesBinding.inflate(inflater, container, false)
+            .apply {
+                lifecycleOwner = viewLifecycleOwner
+                viewModel = preferencesViewModel
+            }
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment PreferencesFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            PreferencesFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        var preferencesAdapter = PreferencesAdapter(this)
+        var preferencesSelectedAdapter = PreferencesSelectedAdapter()
+
+        val navHostFragment =
+            requireActivity()
+                .supportFragmentManager
+                .findFragmentById(R.id.nav_host_fragment)
+                    as NavHostFragment
+        val navController = navHostFragment.navController
+
+        binding.button.setOnClickListener {
+            navController.navigate(R.id.navControllerActivity)
+        }
+
+        binding.recycleViewPreferences.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = preferencesSelectedAdapter
+        }
+
+        binding.recycleViewCategories.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = preferencesAdapter
+        }
+
+        preferencesViewModel.categories.observe(viewLifecycleOwner) {
+            preferencesAdapter.setData(it.results)
+        }
+
+        preferencesViewModel.preferencesLiveData.observe(viewLifecycleOwner) {
+            preferencesSelectedAdapter.setData(it)
+        }
     }
+
+    override fun onClickSuccess(category: Category): Boolean {
+        return preferencesViewModel.addOrRemovePreferences(category)
+    }
+
 }
