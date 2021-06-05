@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.tearnsv.tearnapp.R
 import com.tearnsv.tearnapp.TearnApplication
 import com.tearnsv.tearnapp.databinding.FragmentHomeBinding
@@ -76,16 +78,22 @@ class HomeFragment : Fragment() {
                     as NavHostFragment
         val navController = navHostFragment.navController
 
+        var bottomNav =
+            requireActivity().findViewById<BottomNavigationView>(R.id.bottom_navigation)
+
         binding.actionCategories.setOnClickListener {
             navController.navigate(R.id.categoriesFragment)
+            bottomNav.selectedItemId = R.id.page_1
         }
 
         binding.actionSearchTopics.setOnClickListener{
             navController.navigate(R.id.searchFragment)
+            bottomNav.selectedItemId = R.id.page_1
         }
 
         binding.actionSearchTutors.setOnClickListener{
             navController.navigate(R.id.searchFragment)
+            bottomNav.selectedItemId = R.id.page_1
         }
 
     }
