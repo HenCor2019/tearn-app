@@ -10,6 +10,6 @@ class TearnRepository(
     suspend fun findAll() = api.service.getAllCategories()
 
     //Home
-    //suspend fun findAllRecommendations(idUser : String) =
-    //    api.service.getAllRecommendations(idUser)
+    suspend fun findAllRecommendations(idUser : String) =
+    api.service.getAllRecommendations(idUser)
 }
