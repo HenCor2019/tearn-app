@@ -5,4 +5,19 @@
     <string name="label_on_boarding_title2">Libros para tí</string>
     <string name="label_on_boarding_title3">Recomendaciones Exclusivas</string>
     <string name="label_on_boarding_description">Lorem ipmsum que no se que pone aca xd, Lorem ipmsum que no se que pone aca xd, Lorem ipmsum que no se que pone aca xd</string>
+    <string name="course_tab">Materias</string>
+    <string name="tutor_tab">Tutores</string>
+    <string name="default_query">Cálculo</string>
+    <string name="tool_name">Cálculo II</string>
+    <string name="tool_count_tutors">3 tutores</string>
+    <string name="no_results">No hay resultados</string>
+    <string name="name_tool">Carlos Cortez</string>
+    <string name="tool_punctuation">3</string>
+    <string name="tool_course_name">Calculo II</string>
+    <string name="tool_category_name">Categorías</string>
+    <string name="category_name">Categorías</string>
+    <string name="tool_name_category">Ingenieria y Arquitectura</string>
+    <string name="tool_category_description">Formando a los mejores universitarios del pais sino del mundo</string>
+    <string name="tool_subject_tutor">Matematicas Sociales</string>
+    <string name="available_tutor">Tutores disponibles</string>
 </resources>

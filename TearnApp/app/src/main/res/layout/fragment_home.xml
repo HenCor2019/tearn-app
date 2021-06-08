@@ -29,7 +29,7 @@
                 android:textStyle="bold"
                 android:padding="@dimen/default_gap"
                 android:textColor="@color/white"
-                android:textSize="25sp"
+                android:textSize="@dimen/h1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
