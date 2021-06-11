@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="default_gap">16dp</dimen>
+    <dimen name="default_radius">15dp</dimen>
+    <dimen name="no_result_size">35sp</dimen>
+    <dimen name="default_margin">10sp</dimen>
+    <dimen name="tutor_search_size">23sp</dimen>
+    <dimen name="hr_line">1sp</dimen>
+    <dimen name="category_name_size">32sp</dimen>
+    <dimen name="view_height">1sp</dimen>
+    <dimen name="h1">25sp</dimen>
+    <dimen name="h3">20sp</dimen>
+    <dimen name="h2">23sp</dimen>
 </resources>
