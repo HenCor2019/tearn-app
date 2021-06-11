@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_controller_graph"
-    app:startDestination="@id/tutorPerfilFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -32,7 +32,12 @@
         tools:layout="@layout/fragment_categories" />
     <fragment
         android:id="@+id/tutorPerfilFragment"
-        android:name="com.tearnsv.tearnapp.ui.tutorPerfil.TutorPerfilFragment"
+        android:name="com.tearnsv.tearnapp.ui.tutorPerfil.TutorProfileFragment"
         android:label="fragment_tutor_perfil"
-        tools:layout="@layout/fragment_tutor_perfil" />
+        tools:layout="@layout/fragment_tutor_profile" />
+    <fragment
+        android:id="@+id/tutorValorationsFragment"
+        android:name="com.tearnsv.tearnapp.ui.tutorPerfil.TutorValorationsFragment"
+        android:label="fragment_tutor_valorations"
+        tools:layout="@layout/fragment_tutor_valorations" />
 </navigation>
