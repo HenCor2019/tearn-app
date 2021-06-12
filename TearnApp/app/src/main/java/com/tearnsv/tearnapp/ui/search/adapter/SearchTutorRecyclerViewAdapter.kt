@@ -8,17 +8,17 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.tearnsv.tearnapp.R
-import com.tearnsv.tearnapp.data.SearchTutor
+import com.tearnsv.tearnapp.data.Tutor
 
 class SearchTutorRecyclerViewAdapter(private val itemClickListener: ItemClickListener) :
     RecyclerView.Adapter<SearchTutorRecyclerViewAdapter.TutorSearchViewHolder>() {
 
-    private var tutors: List<SearchTutor>? = null
+    private var tutors: List<Tutor>? = null
 
     class TutorSearchViewHolder
         (itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(tutor: SearchTutor, itemClickListener: ItemClickListener) {
+        fun bind(tutor: Tutor, itemClickListener: ItemClickListener) {
             val userImg = itemView.findViewById<ImageView>(R.id.user_image)
             val username = itemView.findViewById<TextView>(R.id.user_name)
             val userSubjects = itemView.findViewById<TextView>(R.id.user_subject)
@@ -51,7 +51,7 @@ class SearchTutorRecyclerViewAdapter(private val itemClickListener: ItemClickLis
 
     override fun getItemCount(): Int = tutors?.size ?: 0
 
-    fun setData(tutors: List<SearchTutor>) {
+    fun setData(tutors: List<Tutor>) {
         this.tutors = tutors
         notifyDataSetChanged()
     }

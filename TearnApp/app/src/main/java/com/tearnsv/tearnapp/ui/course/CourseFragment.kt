@@ -37,7 +37,6 @@ class CourseFragment : Fragment() {
         arguments?.let {
             idCourse = it.getString(COURSE_ID).toString()
         }
-        courseViewModel.setId(idCourse)
     }
 
     override fun onCreateView(
@@ -45,6 +44,7 @@ class CourseFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentCourseBinding.inflate(inflater, container, false)
+        courseViewModel.setId(idCourse)
         return binding.root
     }
 
@@ -69,17 +69,17 @@ class CourseFragment : Fragment() {
                 return@observe
 
             if (it.tutorsCount == 0) {
-                binding.emptyContainer.visibility = View.VISIBLE
+
                 binding.recyclerViewPrincipalTutor.visibility = View.GONE
                 return@observe
 
             }
 
             rvAdapter.setData(it.tutors)
-            binding.emptyContainer.visibility = View.GONE
             binding.recyclerViewPrincipalTutor.visibility = View.VISIBLE
         }
     }
+
     companion object {
         const val COURSE_ID = "COURSE_ID"
     }

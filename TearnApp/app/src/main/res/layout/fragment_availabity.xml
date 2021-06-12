@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="availabilityViewModel"
+            type="com.tearnsv.tearnapp.ui.account.viewmodel.AccountViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="30sp"
+        android:orientation="vertical"
+        tools:context=".ui.account.formtutor.AvailabilityFragment">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_gap"
+            android:layout_marginBottom="@dimen/default_margin"
+            android:text="@string/hint_form_dropdown"
+            android:textColor="@color/green_black"
+            android:textSize="@dimen/h4" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/subject_option"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/default_gap"
+            app:boxBackgroundMode="outline"
+            app:hintEnabled="false">
+
+            <AutoCompleteTextView
+                android:id="@+id/user_subject"
+                android:hint="@string/hint_form_subjects"
+                android:layout_width="match_parent"
+                android:text="@={availabilityViewModel.subject}"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_input"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_gap"
+            android:layout_marginVertical="@dimen/default_margin"
+            android:text="@string/hint_form_course"
+            android:textColor="@color/green_black"
+            android:textSize="@dimen/h4" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/course_option"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/default_gap"
+            app:boxBackgroundMode="outline"
+            app:hintEnabled="false">
+
+            <AutoCompleteTextView
+                android:id="@+id/user_course"
+                android:hint="@string/hint_form_subjects"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={availabilityViewModel.course}"
+                android:background="@drawable/shape_input"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_gap"
+            android:layout_marginVertical="@dimen/default_margin"
+            android:text="@string/text_form_time_response"
+            android:textColor="@color/green_black"
+            android:textSize="@dimen/h4" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/time_option"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/default_gap"
+            app:boxBackgroundMode="outline"
+            app:hintEnabled="false">
+
+            <AutoCompleteTextView
+                android:id="@+id/user_time"
+                android:hint="@string/hint_form_time"
+                android:layout_width="match_parent"
+                android:text="@={availabilityViewModel.responseTime}"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_input"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_gap"
+            android:layout_marginVertical="@dimen/default_margin"
+            android:text="@string/text_form_availability"
+            android:textColor="@color/green_black"
+            android:textSize="@dimen/h4" />
+
+        <CheckBox
+            android:id="@+id/spanish_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_gap"
+            android:checked="true"
+            android:text="@string/check_availability_virtual" />
+
+        <CheckBox
+            android:id="@+id/english_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="@dimen/default_gap"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/check_availability_onsite" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/default_gap"
+            android:gravity="bottom">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="@dimen/default_margin"
+                android:orientation="horizontal">
+
+
+                <ImageView
+                    android:id="@+id/on_boarding_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:src="@drawable/ic_baseline_panorama_fish_eye_24" />
+
+                <ImageView
+                    android:id="@+id/on_boarding_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/default_gap"
+                    android:layout_marginStart="8dp"
+                    android:src="@drawable/ic_baseline_panorama_fish_eye_24" />
+
+                <ImageView
+                    android:id="@+id/on_boarding_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/default_gap"
+                    android:layout_marginStart="8dp"
+                    android:src="@drawable/ic_baseline_panorama_fish_eye_24" />
+
+                <ImageView
+                    android:id="@+id/on_boarding_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:src="@drawable/ic_baseline_lens_24" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/action_convert_form"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:gravity="bottom"
+                android:text="@string/button_tutor"
+                android:textColor="@color/black" />
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

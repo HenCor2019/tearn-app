@@ -5,7 +5,7 @@ data class SearchResponse(
     val coursesCount: Int,
     val tutorsCount: Int,
     val courses: List<SearchCourse>,
-    val tutors: List<SearchTutor>
+    val tutors: List<Tutor>
 )
 
 data class SearchCourse(
@@ -14,7 +14,7 @@ data class SearchCourse(
     var tutorsCount: Int
 )
 
-data class SearchTutor(
+data class Tutor(
     val id: String,
     val username: String,
     val puntuation: Int,

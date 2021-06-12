@@ -15,5 +15,6 @@
     <color name="purple_white">#665F70</color>
     <color name="semi_black">#555555</color>
     <color name="search">#8C8989</color>
+    <color name="red_200">#FF3D3D</color>
 
 </resources>

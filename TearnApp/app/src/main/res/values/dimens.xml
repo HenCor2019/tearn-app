@@ -8,7 +8,9 @@
     <dimen name="hr_line">1sp</dimen>
     <dimen name="category_name_size">32sp</dimen>
     <dimen name="view_height">1sp</dimen>
+
     <dimen name="h1">25sp</dimen>
-    <dimen name="h3">20sp</dimen>
     <dimen name="h2">23sp</dimen>
+    <dimen name="h3">20sp</dimen>
+    <dimen name="h4">18sp</dimen>
 </resources>

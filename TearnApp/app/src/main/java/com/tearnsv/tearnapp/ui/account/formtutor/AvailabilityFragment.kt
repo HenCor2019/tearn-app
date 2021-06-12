@@ -1,0 +1,152 @@
+package com.tearnsv.tearnapp.ui.account.formtutor
+
+import android.os.Bundle
+import android.os.Handler
+import android.util.Log
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.Toast
+import androidx.fragment.app.activityViewModels
+import com.tearnsv.tearnapp.R
+import com.tearnsv.tearnapp.TearnApplication
+import com.tearnsv.tearnapp.data.CourseResponse
+import com.tearnsv.tearnapp.databinding.FragmentAvailabityBinding
+import com.tearnsv.tearnapp.databinding.FragmentPersonalInformationBinding
+import com.tearnsv.tearnapp.ui.account.viewmodel.AccountVMFactory
+import com.tearnsv.tearnapp.ui.account.viewmodel.AccountViewModel
+import java.util.*
+import kotlin.concurrent.schedule
+
+class AvailabilityFragment : Fragment() {
+
+    private var _binding: FragmentAvailabityBinding? = null
+    private val binding get() = _binding!!
+
+    private var MAP_OF_SUBJECT: MutableMap<String, String> = mutableMapOf()
+    private var MAP_OF_COURSES: MutableMap<String, String> = mutableMapOf()
+
+    private val application by lazy { requireActivity().application as TearnApplication }
+    private val accountVMFactory: AccountVMFactory by lazy {
+        val repository = application.tearnRepository
+        AccountVMFactory(repository)
+    }
+
+    private val accountViewModel: AccountViewModel by activityViewModels { accountVMFactory }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentAvailabityBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.availabilityViewModel = accountViewModel
+        binding.lifecycleOwner = viewLifecycleOwner
+        setupObservers()
+        handleEvents()
+    }
+
+    private fun setupObservers() {
+        accountViewModel.fetchSubjectsResponse.observe(viewLifecycleOwner) {
+            val subjects = it.results.map { subject -> SimpleSubject(subject.id, subject.name) }
+
+            setupMaps(subjects)
+            setupDropDown()
+        }
+    }
+
+    private fun setupMaps(subjects: List<SimpleSubject>) {
+        for (subject in subjects)
+            MAP_OF_SUBJECT[subject.id] = subject.name
+
+    }
+
+    private fun setupDropDown() {
+        val subjectAdapter = ArrayAdapter(
+            requireActivity(),
+            android.R.layout.select_dialog_item,
+            MAP_OF_SUBJECT.values.toList()
+        )
+        val responseTimeAdapter = ArrayAdapter(
+            requireActivity(),
+            android.R.layout.select_dialog_item,
+            listOf("30min", "1h", "1h 30min", "2h")
+        )
+
+        binding.userSubject.threshold = 1
+        binding.userSubject.setAdapter(subjectAdapter)
+        binding.userTime.threshold = 1
+        binding.userTime.setAdapter(responseTimeAdapter)
+    }
+
+    private fun handleEvents() {
+        binding.userSubject.setOnItemClickListener { parent, view, position, id ->
+            MAP_OF_COURSES.clear()
+            val courses = accountViewModel.fetchSubjectsResponse.value!!.results[position].courses
+            for (course in courses)
+                MAP_OF_COURSES[course._id] = course.name
+            val courseAdapter = ArrayAdapter(
+                requireActivity(),
+                android.R.layout.select_dialog_item,
+                MAP_OF_COURSES.values.toList()
+            )
+            binding.userCourse.threshold = 1
+            binding.userCourse.setAdapter(courseAdapter)
+        }
+
+        binding.spanishCheckbox.setOnCheckedChangeListener { buttonView, isChecked ->
+            accountViewModel.availabilityList[0] = if (isChecked) 1 else 0
+        }
+
+        binding.englishCheckbox.setOnCheckedChangeListener { buttonView, isChecked ->
+            accountViewModel.availabilityList[1] = if (isChecked) 1 else 0
+        }
+
+        binding.actionConvertForm.setOnClickListener {
+            if (!accountViewModel.verifyDropdownInputs()) {
+                Toast.makeText(
+                    requireContext(),
+                    "Selecciona una materia y curso",
+                    Toast.LENGTH_SHORT
+                ).show()
+                return@setOnClickListener
+            }
+
+            if (accountViewModel.verifyAvailability()) {
+                Toast.makeText(
+                    requireContext(),
+                    "Selecciona una forma de dar clases",
+                    Toast.LENGTH_SHORT
+                ).show()
+                return@setOnClickListener
+
+            }
+
+            val idSubject = getKeyValue(MAP_OF_SUBJECT, accountViewModel.subject.value!!)
+            val idCourse = getKeyValue(MAP_OF_COURSES, accountViewModel.course.value!!)
+
+            accountViewModel.idCourse.value = mutableListOf(idCourse)
+            accountViewModel.idSubject.value = mutableListOf(idSubject)
+
+            val dialog = DialogConfirmFragment()
+            dialog.show(requireActivity().supportFragmentManager, "ConvertToTutor")
+
+        }
+    }
+
+    private fun getKeyValue(hashMap: MutableMap<String, String>, value: String) =
+        hashMap.filterValues { it == value }.keys.first()
+
+    data class SimpleSubject(val id: String, val name: String)
+
+}
