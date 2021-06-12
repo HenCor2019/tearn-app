@@ -29,7 +29,7 @@
         android:id="@+id/categoriesFragment"
         android:name="com.tearnsv.tearnapp.ui.categories.CategoryFragment"
         android:label="fragment_categories"
-        tools:layout="@layout/fragment_categories" />
+        tools:layout="@layout/fragment_category" />
     <fragment
         android:id="@+id/tutorPerfilFragment"
         android:name="com.tearnsv.tearnapp.ui.tutorPerfil.TutorProfileFragment"
@@ -40,14 +40,15 @@
         android:name="com.tearnsv.tearnapp.ui.tutorPerfil.TutorValorationsFragment"
         android:label="fragment_tutor_valorations"
         tools:layout="@layout/fragment_tutor_valorations" />
-        tools:layout="@layout/fragment_category" />
     <fragment
         android:id="@+id/categoryFragment"
         android:name="com.tearnsv.tearnapp.ui.category.CategoryFragment"
-        android:label="CategoryFragment" >
+        android:label="CategoryFragment"
+        tools:layout="@layout/fragment_category_one">
     </fragment>
     <fragment
         android:id="@+id/courseFragment"
         android:name="com.tearnsv.tearnapp.ui.course.CourseFragment"
-        android:label="CourseFragment" />
+        android:label="CourseFragment"
+        tools:layout="@layout/fragment_course"/>
 </navigation>

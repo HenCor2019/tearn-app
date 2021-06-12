@@ -14,6 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="15sp"
+        android:background="@color/white"
         android:layout_marginHorizontal="@dimen/default_margin"
         android:layout_marginBottom="@dimen/default_margin"
         tools:context=".ui.categories.CategoryFragment">
