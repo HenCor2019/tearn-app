@@ -89,7 +89,6 @@ class HomeFragment : Fragment() {
 
         binding.actionCategories.setOnClickListener {
             navController.navigate(R.id.categoriesFragment)
-            bottomNav.selectedItemId = R.id.page_1
         }
 
         binding.actionSearchTopics.setOnClickListener{

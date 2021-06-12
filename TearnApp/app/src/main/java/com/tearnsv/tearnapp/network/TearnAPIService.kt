@@ -18,4 +18,13 @@ interface TearnAPIService {
     @POST("commentary/")
     suspend fun createCommentary(@Body commentary: Commentary): ResponseApi
 
+    @GET("search")
+    suspend fun getAllSearchResponse(@Query(value = "pattern") pat: String): SearchResponse
+
+    @GET("course/{id}")
+    suspend fun getOneCourse(@Path("id") id: String): Course
+
+    @GET("category/{id}")
+    suspend fun getOneCategory(@Path("id") id: String): CategoryResponse
+
 }

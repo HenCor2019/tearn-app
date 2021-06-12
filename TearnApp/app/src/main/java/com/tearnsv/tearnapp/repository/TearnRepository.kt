@@ -25,4 +25,13 @@ class TearnRepository(
         var response = api.service.createCommentary(commentary)
         response
     }
+
+    // Search
+    suspend fun getAllSearchResponse(pattern: String) = api.service.getAllSearchResponse(pattern)
+
+    // Course
+    suspend fun getOneCourse(id: String) = api.service.getOneCourse(id)
+
+    // Category
+    suspend fun getOneCategory(id: String) = api.service.getOneCategory(id)
 }

@@ -9,6 +9,7 @@ data class CategoriesResponse (
 data class Category(
     var id: String,
     var name: String,
+    val imgUrl: String,
     var isPreference: Boolean = false
 )
 
