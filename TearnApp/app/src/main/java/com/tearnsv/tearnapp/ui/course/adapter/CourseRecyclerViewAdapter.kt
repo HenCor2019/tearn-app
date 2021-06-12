@@ -10,18 +10,20 @@ import com.bumptech.glide.Glide
 import com.tearnsv.tearnapp.R
 import com.tearnsv.tearnapp.data.TutorFromCourse
 
-class CourseRecyclerViewAdapter() :
+class CourseRecyclerViewAdapter(private val itemClickListener: ItemClickListener) :
     RecyclerView.Adapter<CourseRecyclerViewAdapter.CourseViewHolder>() {
 
     private var tutors: List<TutorFromCourse>? = null
 
     class CourseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(tutor: TutorFromCourse) {
+        fun bind(tutor: TutorFromCourse, itemClickListener: ItemClickListener) {
             val tutorImg = itemView.findViewById<ImageView>(R.id.img_tutor)
             val tutorName = itemView.findViewById<TextView>(R.id.label_name_tutor)
             val tutorSubject = itemView.findViewById<TextView>(R.id.label_topics_tutor)
             val tutorPunctuation = itemView.findViewById<TextView>(R.id.label_punctuation)
+
+            itemView.setOnClickListener { itemClickListener.onClickListener(tutor.id) }
 
             Glide.with(itemView).load(tutor.imgUrl).placeholder(R.drawable.default_photo)
                 .into(tutorImg)
@@ -42,7 +44,7 @@ class CourseRecyclerViewAdapter() :
     override fun onBindViewHolder(holder: CourseViewHolder, position: Int) {
         tutors?.let {
             val tutor = it[position]
-            holder.bind(tutor)
+            holder.bind(tutor, itemClickListener)
         }
     }
 

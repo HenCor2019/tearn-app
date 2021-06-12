@@ -63,7 +63,6 @@ class HomeFragment : Fragment() {
         var tutorsRVAdapter = TutorsRVAdapter{
             var bundle = Bundle()
             bundle.putString(TUTOR_ID,it)
-            bundle.putString(AUTHOR_ID,homeViewModel.ID.value)
             navController.navigate(R.id.tutorPerfilFragment,bundle)
         }
 

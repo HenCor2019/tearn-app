@@ -18,6 +18,10 @@ interface TearnAPIService {
     @POST("commentary/")
     suspend fun createCommentary(@Body commentary: Commentary): ResponseApi
 
+    @Headers("Content-Type: application/json")
+    @POST("report/")
+    suspend fun createReport(@Body report: Report): ResponseApi
+
     @GET("search")
     suspend fun getAllSearchResponse(@Query(value = "pattern") pat: String): SearchResponse
 
@@ -26,5 +30,6 @@ interface TearnAPIService {
 
     @GET("category/{id}")
     suspend fun getOneCategory(@Path("id") id: String): CategoryResponse
+
 
 }

@@ -104,6 +104,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="tutorReportFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="219" />
+                            <option name="y" value="604" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="tutorValorationsFragment">
                     <value>
                       <LayoutPositions>

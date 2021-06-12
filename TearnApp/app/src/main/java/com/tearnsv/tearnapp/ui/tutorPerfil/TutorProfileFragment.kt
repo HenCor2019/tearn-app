@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -24,8 +25,7 @@ class TutorProfileFragment : Fragment() {
 
     private var _binding : FragmentTutorProfileBinding? = null
     private val binding get() = _binding!!
-    private lateinit var idTutor : String
-    private lateinit var idAuthor : String
+    private var idTutor : String? = null
 
     private val application by lazy {
         requireActivity().application as TearnApplication
@@ -36,7 +36,7 @@ class TutorProfileFragment : Fragment() {
         TutorProfileViewModelFactory(repository)
     }
 
-    private val tutorProfileViewModel: TutorProfileViewModel by viewModels {
+    private val tutorProfileViewModel: TutorProfileViewModel by activityViewModels {
         tutorProfileFactory
     }
 
@@ -44,9 +44,8 @@ class TutorProfileFragment : Fragment() {
         super.onCreate(savedInstanceState)
         arguments?.let {
             idTutor = it.getString(TUTOR_ID).toString()
-            idAuthor = it.getString(AUTHOR_ID).toString()
         }
-        tutorProfileViewModel.setId(idTutor,idAuthor)
+        tutorProfileViewModel.setId(idTutor?:tutorProfileViewModel.ID_TUTOR.value!!)
     }
 
     override fun onCreateView(
@@ -152,13 +151,12 @@ class TutorProfileFragment : Fragment() {
         val navController = navHostFragment.navController
 
         binding.actionViewAllValorations.setOnClickListener {
-            var bundle = Bundle()
-            bundle.putString(TUTOR_ID,tutorProfileViewModel.ID_TUTOR.value)
-            bundle.putString(AUTHOR_ID,tutorProfileViewModel.ID_AUTHOR.value)
-            navController.navigate(R.id.tutorValorationsFragment,bundle)
+            navController.navigate(R.id.tutorValorationsFragment)
         }
 
-        
+        binding.floatingActionReportBtn.setOnClickListener {
+            navController.navigate(R.id.tutorReportFragment)
+        }
 
         binding.valorationStar1.setOnClickListener{
             binding.valorationStar1.setImageResource(R.drawable.ic_baseline_star_rate_24)
@@ -216,7 +214,6 @@ class TutorProfileFragment : Fragment() {
 
     companion object {
         const val TUTOR_ID = "TUTOR_ID"
-        const val AUTHOR_ID = "AUTHOR_ID"
     }
 
 }

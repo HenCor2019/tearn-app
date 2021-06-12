@@ -51,4 +51,9 @@
         android:name="com.tearnsv.tearnapp.ui.course.CourseFragment"
         android:label="CourseFragment"
         tools:layout="@layout/fragment_course"/>
+    <fragment
+        android:id="@+id/tutorReportFragment"
+        android:name="com.tearnsv.tearnapp.ui.tutorPerfil.TutorReportFragment"
+        android:label="TutorReportFragment"
+        tools:layout="@layout/fragment_tutor_report"/>
 </navigation>

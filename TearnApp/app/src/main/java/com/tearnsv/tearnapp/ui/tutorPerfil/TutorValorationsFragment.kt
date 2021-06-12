@@ -40,15 +40,6 @@ class TutorValorationsFragment : Fragment() {
         tutorProfileFactory
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            idTutor = it.getString(TutorProfileFragment.TUTOR_ID).toString()
-            idAuthor = it.getString(TutorProfileFragment.AUTHOR_ID).toString()
-        }
-        tutorProfileViewModel.setId(idTutor,idAuthor)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -80,10 +71,7 @@ class TutorValorationsFragment : Fragment() {
         val navController = navHostFragment.navController
 
         binding.actionBackIcon.setOnClickListener{
-            var bundle = Bundle()
-            bundle.putString(TUTOR_ID,tutorProfileViewModel.ID_TUTOR.value)
-            bundle.putString(AUTHOR_ID,tutorProfileViewModel.ID_AUTHOR.value)
-            navController.navigate(R.id.tutorPerfilFragment,bundle)
+            navController.navigate(R.id.tutorPerfilFragment)
         }
 
         tutorProfileViewModel.tutor.observe(viewLifecycleOwner){
@@ -97,10 +85,5 @@ class TutorValorationsFragment : Fragment() {
 
             valorationAdapter.setData(it.commentaries!!)
         }
-    }
-
-    companion object {
-        const val TUTOR_ID = "TUTOR_ID"
-        const val AUTHOR_ID = "AUTHOR_ID"
     }
 }
