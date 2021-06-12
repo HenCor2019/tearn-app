@@ -8,7 +8,7 @@ data class Tutor (
     var puntuation: Int?,
     var languages: List<String>?,
     var commentaries: List<Commentaries>?,
-    //var availability: List<Int>?,
+    var availability: List<String>?,
     var subjects: List<String>?,
     var responseTime: String?,
     var active: Boolean?

@@ -1,5 +1,6 @@
 package com.tearnsv.tearnapp.ui.tutorPerfil
 
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -79,66 +80,20 @@ class TutorProfileFragment : Fragment() {
             binding.labelTutorPerfilName.text = it.fullName
             binding.labelTutorPerfilDescription.text = it.description
 
-            var languages = ""
-            it.languages?.forEach {
-                languages+= "${it}, "
-            }
+            var languages = formatList(it.languages!!)
             binding.labelTutorPerfilLanguages.text = languages
 
             if(it.active!!){
-                binding.iconActive.setColorFilter(R.color.green_selection)
-            } else binding.iconActive.setColorFilter(R.color.red_fav)
+                binding.iconActive.setColorFilter(Color.parseColor("#67EA67"))
+            } else binding.iconActive.setColorFilter(Color.parseColor("#ff0000"))
 
             binding.labelTutorPerfilTimeRequest.text = it.responseTime
 
-            //TODO(Funcionalidad de la disponibilidad)
+            var availability = formatList(it.availability!!)
+            binding.labelTutorPerfilDisponibility.text = availability
 
             binding.labelTutorPerfilPuntuation.text = it.puntuation.toString()
-
-            when(it.puntuation){
-                0 -> {
-                    binding.iconStar1.setImageResource(R.drawable.ic_baseline_star_outline_24)
-                    binding.iconStar2.setImageResource(R.drawable.ic_baseline_star_outline_24)
-                    binding.iconStar3.setImageResource(R.drawable.ic_baseline_star_outline_24)
-                    binding.iconStar4.setImageResource(R.drawable.ic_baseline_star_outline_24)
-                    binding.iconStar5.setImageResource(R.drawable.ic_baseline_star_outline_24)
-                }
-                1 -> {
-                    binding.iconStar1.setImageResource(R.drawable.ic_baseline_star_rate_24)
-                    binding.iconStar2.setImageResource(R.drawable.ic_baseline_star_outline_24)
-                    binding.iconStar3.setImageResource(R.drawable.ic_baseline_star_outline_24)
-                    binding.iconStar4.setImageResource(R.drawable.ic_baseline_star_outline_24)
-                    binding.iconStar5.setImageResource(R.drawable.ic_baseline_star_outline_24)
-                }
-                2 -> {
-                    binding.iconStar1.setImageResource(R.drawable.ic_baseline_star_rate_24)
-                    binding.iconStar2.setImageResource(R.drawable.ic_baseline_star_rate_24)
-                    binding.iconStar3.setImageResource(R.drawable.ic_baseline_star_outline_24)
-                    binding.iconStar4.setImageResource(R.drawable.ic_baseline_star_outline_24)
-                    binding.iconStar5.setImageResource(R.drawable.ic_baseline_star_outline_24)
-                }
-                3 -> {
-                    binding.iconStar1.setImageResource(R.drawable.ic_baseline_star_rate_24)
-                    binding.iconStar2.setImageResource(R.drawable.ic_baseline_star_rate_24)
-                    binding.iconStar3.setImageResource(R.drawable.ic_baseline_star_rate_24)
-                    binding.iconStar4.setImageResource(R.drawable.ic_baseline_star_outline_24)
-                    binding.iconStar5.setImageResource(R.drawable.ic_baseline_star_outline_24)
-                }
-                4 -> {
-                    binding.iconStar1.setImageResource(R.drawable.ic_baseline_star_rate_24)
-                    binding.iconStar2.setImageResource(R.drawable.ic_baseline_star_rate_24)
-                    binding.iconStar3.setImageResource(R.drawable.ic_baseline_star_rate_24)
-                    binding.iconStar4.setImageResource(R.drawable.ic_baseline_star_rate_24)
-                    binding.iconStar5.setImageResource(R.drawable.ic_baseline_star_outline_24)
-                }
-                5 -> {
-                    binding.iconStar1.setImageResource(R.drawable.ic_baseline_star_rate_24)
-                    binding.iconStar2.setImageResource(R.drawable.ic_baseline_star_rate_24)
-                    binding.iconStar3.setImageResource(R.drawable.ic_baseline_star_rate_24)
-                    binding.iconStar4.setImageResource(R.drawable.ic_baseline_star_rate_24)
-                    binding.iconStar5.setImageResource(R.drawable.ic_baseline_star_rate_24)
-                }
-            }
+            puntuationStar(it.puntuation!!)
 
             valorationAdapter.setData(it.commentaries!!)
         }
@@ -158,6 +113,65 @@ class TutorProfileFragment : Fragment() {
             navController.navigate(R.id.tutorReportFragment)
         }
 
+        setValorationStar()
+
+        tutorProfileViewModel.statusCreateCommentary.observe(viewLifecycleOwner){
+            if(it){
+                Toast
+                    .makeText(requireContext(),"Comentario creado!",Toast.LENGTH_LONG)
+                    .show()
+            }
+        }
+    }
+
+    private fun puntuationStar(puntuation: Int){
+        when(puntuation){
+            0 -> {
+                binding.iconStar1.setImageResource(R.drawable.ic_baseline_star_outline_24)
+                binding.iconStar2.setImageResource(R.drawable.ic_baseline_star_outline_24)
+                binding.iconStar3.setImageResource(R.drawable.ic_baseline_star_outline_24)
+                binding.iconStar4.setImageResource(R.drawable.ic_baseline_star_outline_24)
+                binding.iconStar5.setImageResource(R.drawable.ic_baseline_star_outline_24)
+            }
+            1 -> {
+                binding.iconStar1.setImageResource(R.drawable.ic_baseline_star_rate_24)
+                binding.iconStar2.setImageResource(R.drawable.ic_baseline_star_outline_24)
+                binding.iconStar3.setImageResource(R.drawable.ic_baseline_star_outline_24)
+                binding.iconStar4.setImageResource(R.drawable.ic_baseline_star_outline_24)
+                binding.iconStar5.setImageResource(R.drawable.ic_baseline_star_outline_24)
+            }
+            2 -> {
+                binding.iconStar1.setImageResource(R.drawable.ic_baseline_star_rate_24)
+                binding.iconStar2.setImageResource(R.drawable.ic_baseline_star_rate_24)
+                binding.iconStar3.setImageResource(R.drawable.ic_baseline_star_outline_24)
+                binding.iconStar4.setImageResource(R.drawable.ic_baseline_star_outline_24)
+                binding.iconStar5.setImageResource(R.drawable.ic_baseline_star_outline_24)
+            }
+            3 -> {
+                binding.iconStar1.setImageResource(R.drawable.ic_baseline_star_rate_24)
+                binding.iconStar2.setImageResource(R.drawable.ic_baseline_star_rate_24)
+                binding.iconStar3.setImageResource(R.drawable.ic_baseline_star_rate_24)
+                binding.iconStar4.setImageResource(R.drawable.ic_baseline_star_outline_24)
+                binding.iconStar5.setImageResource(R.drawable.ic_baseline_star_outline_24)
+            }
+            4 -> {
+                binding.iconStar1.setImageResource(R.drawable.ic_baseline_star_rate_24)
+                binding.iconStar2.setImageResource(R.drawable.ic_baseline_star_rate_24)
+                binding.iconStar3.setImageResource(R.drawable.ic_baseline_star_rate_24)
+                binding.iconStar4.setImageResource(R.drawable.ic_baseline_star_rate_24)
+                binding.iconStar5.setImageResource(R.drawable.ic_baseline_star_outline_24)
+            }
+            5 -> {
+                binding.iconStar1.setImageResource(R.drawable.ic_baseline_star_rate_24)
+                binding.iconStar2.setImageResource(R.drawable.ic_baseline_star_rate_24)
+                binding.iconStar3.setImageResource(R.drawable.ic_baseline_star_rate_24)
+                binding.iconStar4.setImageResource(R.drawable.ic_baseline_star_rate_24)
+                binding.iconStar5.setImageResource(R.drawable.ic_baseline_star_rate_24)
+            }
+        }
+    }
+
+    private fun setValorationStar(){
         binding.valorationStar1.setOnClickListener{
             binding.valorationStar1.setImageResource(R.drawable.ic_baseline_star_rate_24)
             binding.valorationStar2.setImageResource(R.drawable.ic_baseline_star_outline_24)
@@ -202,14 +216,15 @@ class TutorProfileFragment : Fragment() {
             binding.valorationStar5.setImageResource(R.drawable.ic_baseline_star_rate_24)
             tutorProfileViewModel.addPuntuation(5)
         }
+    }
 
-        tutorProfileViewModel.statusCreateCommentary.observe(viewLifecycleOwner){
-            if(it){
-                Toast
-                    .makeText(requireContext(),"Comentario creado!",Toast.LENGTH_LONG)
-                    .show()
-            }
+    private fun formatList(list : List<String>): String{
+        var text = ""
+        list.forEach {
+            text+= "${it.toLowerCase().capitalize()}, "
         }
+
+        return text.dropLast(2)
     }
 
     companion object {

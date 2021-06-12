@@ -23,6 +23,11 @@ class TutorsRVAdapter(private var onCLickTutor: (id: String) -> Unit):
                 tutor.puntuation.toString()
 
             val imageView = itemView.findViewById<ImageView>(R.id.img_tutor)
+            val iconFav = itemView.findViewById<ImageView>(R.id.icon_fav_tutor)
+
+            iconFav.setOnClickListener{
+
+            }
 
             var topicsTutor = ""
             tutor.subjects.forEach {
@@ -40,6 +45,7 @@ class TutorsRVAdapter(private var onCLickTutor: (id: String) -> Unit):
             itemView.setOnClickListener {
                 onCLickTutor(tutor.id)
             }
+
         }
     }
 
