@@ -6,10 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.tearnsv.tearnapp.R
 import com.tearnsv.tearnapp.TearnApplication
 import com.tearnsv.tearnapp.databinding.FragmentSearchTutorBinding
+import com.tearnsv.tearnapp.ui.home.HomeFragment.Companion.AUTHOR_ID
+import com.tearnsv.tearnapp.ui.home.HomeFragment.Companion.TUTOR_ID
 import com.tearnsv.tearnapp.ui.search.adapter.SearchTutorRecyclerViewAdapter
 import com.tearnsv.tearnapp.ui.search.viewmodel.SearchVMFactory
 import com.tearnsv.tearnapp.ui.search.viewmodel.SearchViewModel
@@ -64,7 +67,9 @@ class SearchTutorFragment : Fragment() , SearchTutorRecyclerViewAdapter.ItemClic
     }
 
     override fun onClickListener(id: String) {
-        val bundle = Bundle()
+        var bundle = Bundle()
+        bundle.putString(TUTOR_ID,id)
+        findNavController().navigate(R.id.tutorPerfilFragment,bundle)
     }
 
 }

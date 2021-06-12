@@ -12,7 +12,7 @@ class HomeViewModel(private val repository: TearnRepository) : ViewModel() {
 
     var recommendations = MutableLiveData<Recommendations>()
     var loading = MutableLiveData(View.GONE)
-    val ID = "60b0aafa4e7b0819456099da"
+    val ID = MutableLiveData("60b0a724b4099b13d593ce39")
     val pattern = MutableLiveData("")
 
     init {
@@ -21,10 +21,8 @@ class HomeViewModel(private val repository: TearnRepository) : ViewModel() {
 
         viewModelScope.launch {
             try {
-                recommendations.value = repository.findAllRecommendations(ID)
-                ///algo
-                //otra cosa
-            } catch (e: Exception) {
+                recommendations.value = repository.findAllRecommendations(ID.value!!)
+            }catch (e: Exception){
                 Log.e("error", e.toString())
             } finally {
                 loading.value = View.GONE

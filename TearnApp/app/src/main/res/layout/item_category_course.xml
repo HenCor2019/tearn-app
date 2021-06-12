@@ -16,12 +16,12 @@
         <TextView
             android:id="@+id/course_name"
             android:layout_width="wrap_content"
-            android:layout_height="65sp"
             android:layout_centerVertical="true"
+            android:layout_height="55dp"
             android:layout_marginStart="@dimen/default_margin"
             android:gravity="center"
-            android:textAlignment="center"
             android:textColor="@color/black"
+            android:textAlignment="center"
             android:textSize="@dimen/h3"
             tools:text="@string/tool_course_name" />
     </RelativeLayout>

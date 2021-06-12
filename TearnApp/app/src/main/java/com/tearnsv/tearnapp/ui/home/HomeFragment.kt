@@ -3,12 +3,14 @@ package com.tearnsv.tearnapp.ui.home
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.tearnsv.tearnapp.R
@@ -55,9 +57,21 @@ class HomeFragment : Fragment(), BooksRVAdapter.ItemClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val navHostFragment =
+            requireActivity()
+                .supportFragmentManager
+                .findFragmentById(R.id.nav_host_controller_fragment)
+                    as NavHostFragment
+        val navController = navHostFragment.navController
+
         var topicsRVAdapter = TopicsRVAdapter()
         var tutorsRVAdapter = TutorsRVAdapter()
         val booksRVAdapter = BooksRVAdapter(this)
+        var tutorsRVAdapter = TutorsRVAdapter{
+            var bundle = Bundle()
+            bundle.putString(TUTOR_ID,it)
+            navController.navigate(R.id.tutorPerfilFragment,bundle)
+        }
 
         binding.topicsRecycleView.apply {
             layoutManager =
@@ -111,7 +125,11 @@ class HomeFragment : Fragment(), BooksRVAdapter.ItemClickListener {
             navController.navigate(R.id.searchFragment)
             bottomNav.selectedItemId = R.id.page_1
         }
+    }
 
+    companion object {
+        const val TUTOR_ID = "TUTOR_ID"
+        const val AUTHOR_ID = "AUTHOR_ID"
     }
 
     override fun onClickItem(url: String) {

@@ -10,18 +10,24 @@ import com.bumptech.glide.Glide
 import com.tearnsv.tearnapp.R
 import com.tearnsv.tearnapp.data.Tutors
 
-class TutorsRVAdapter: RecyclerView.Adapter<TutorsRVAdapter.TutorsRVViewHolder>() {
+class TutorsRVAdapter(private var onCLickTutor: (id: String) -> Unit):
+    RecyclerView.Adapter<TutorsRVAdapter.TutorsRVViewHolder>() {
 
     private var tutorsRecommendations : List<Tutors>? = null
 
     class TutorsRVViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
-        fun bind(tutor : Tutors){
+        fun bind(tutor : Tutors, onCLickTutor: (id: String) -> Unit){
             itemView.findViewById<TextView>(R.id.label_name_tutor).text =
                 tutor.fullName.capitalize()
             itemView.findViewById<TextView>(R.id.label_punctuation).text =
                 tutor.puntuation.toString()
 
             val imageView = itemView.findViewById<ImageView>(R.id.img_tutor)
+            val iconFav = itemView.findViewById<ImageView>(R.id.icon_fav_tutor)
+
+            iconFav.setOnClickListener{
+
+            }
 
             var topicsTutor = ""
             tutor.subjects.forEach {
@@ -35,6 +41,11 @@ class TutorsRVAdapter: RecyclerView.Adapter<TutorsRVAdapter.TutorsRVViewHolder>(
                 .centerCrop()
                 .placeholder(R.drawable.default_photo)
                 .into(imageView)
+
+            itemView.setOnClickListener {
+                onCLickTutor(tutor.id)
+            }
+
         }
     }
 
@@ -47,7 +58,7 @@ class TutorsRVAdapter: RecyclerView.Adapter<TutorsRVAdapter.TutorsRVViewHolder>(
     override fun onBindViewHolder(holder: TutorsRVViewHolder, position: Int) {
         tutorsRecommendations?.let{
             val tutor = it[position]
-            holder.bind(tutor)
+            holder.bind(tutor, onCLickTutor)
         }
     }
 

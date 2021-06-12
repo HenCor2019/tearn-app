@@ -41,13 +41,31 @@
         android:label="fragment_categories"
         tools:layout="@layout/fragment_category" />
     <fragment
+        android:id="@+id/tutorPerfilFragment"
+        android:name="com.tearnsv.tearnapp.ui.tutorPerfil.TutorProfileFragment"
+        android:label="fragment_tutor_perfil"
+        tools:layout="@layout/fragment_tutor_profile" />
+    <fragment
+        android:id="@+id/tutorValorationsFragment"
+        android:name="com.tearnsv.tearnapp.ui.tutorPerfil.TutorValorationsFragment"
+        android:label="fragment_tutor_valorations"
+        tools:layout="@layout/fragment_tutor_valorations" />
+    <fragment
         android:id="@+id/categoryFragment"
         android:name="com.tearnsv.tearnapp.ui.category.CategoryFragment"
-        android:label="CategoryFragment" >
+        android:label="CategoryFragment"
+        tools:layout="@layout/fragment_category_one">
     </fragment>
     <fragment
         android:id="@+id/courseFragment"
         android:name="com.tearnsv.tearnapp.ui.course.CourseFragment"
+        android:label="CourseFragment"
+        tools:layout="@layout/fragment_course"/>
+    <fragment
+        android:id="@+id/tutorReportFragment"
+        android:name="com.tearnsv.tearnapp.ui.tutorPerfil.TutorReportFragment"
+        android:label="TutorReportFragment"
+        tools:layout="@layout/fragment_tutor_report"/>
         android:label="CourseFragment" />
     <fragment
         android:id="@+id/favoriteFragment"

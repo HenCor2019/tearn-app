@@ -47,6 +47,7 @@
 
             <TextView
                 android:id="@+id/user_subject"
+                android:textColor="@color/gray"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="15sp"
@@ -78,6 +79,7 @@
                 android:layout_marginEnd="20sp"
                 android:textAlignment="center"
                 android:textSize="20sp"
+                android:textColor="@color/black"
                 tools:text="@string/tool_punctuation" />
 
         </LinearLayout>

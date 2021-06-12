@@ -11,6 +11,17 @@ interface TearnAPIService {
     @GET("home/{idUser}/")
     suspend fun getAllRecommendations(@Path("idUser") idUser : String) : Recommendations
 
+    @GET("user/tutor/{idTutor}")
+    suspend fun getTutor(@Path("idTutor") idTutor : String) : Tutor
+
+    @Headers("Content-Type: application/json")
+    @POST("commentary/")
+    suspend fun createCommentary(@Body commentary: Commentary): ResponseApi
+
+    @Headers("Content-Type: application/json")
+    @POST("report/")
+    suspend fun createReport(@Body report: Report): ResponseApi
+
     @GET("search")
     suspend fun getAllSearchResponse(@Query(value = "pattern") pat: String): SearchResponse
 
@@ -36,5 +47,6 @@ interface TearnAPIService {
     // POST SERVICES
     @POST("user/login")
     suspend fun loginWithGoogle(@Body user: User): LoginResponse
+
 
 }
