@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@color/white"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_marginBottom="@dimen/default_gap"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/image_user_valoration"
+        android:layout_height="50dp"
+        android:layout_width="50dp"
+        android:src="@drawable/default_photo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/label_user_valoration_name"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_gap"
+        android:layout_marginTop="4dp"
+        android:layout_width="wrap_content"
+        android:text="Mario Alexander"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/image_user_valoration"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Hace 1 mes"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/image_user_valoration"
+        app:layout_constraintStart_toStartOf="@+id/label_user_valoration_name"
+        app:layout_constraintTop_toBottomOf="@+id/label_user_valoration_name" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_width="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/label_user_valoration_puntuation"
+        app:layout_constraintTop_toTopOf="@+id/label_user_valoration_puntuation"
+        app:srcCompat="@drawable/ic_baseline_star_rate_24" />
+
+    <TextView
+        android:id="@+id/label_user_valoration_puntuation"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="4.3"
+        android:textColor="@color/yellow"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/label_user_valoration_name" />
+
+    <TextView
+        android:id="@+id/label_user_valoration_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="italic"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_user_valoration"
+        tools:text="@string/label_on_boarding_description" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@color/green_black"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label_user_valoration_description" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

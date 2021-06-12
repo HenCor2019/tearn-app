@@ -1,6 +1,7 @@
 package com.tearnsv.tearnapp.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -51,8 +52,19 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val navHostFragment =
+            requireActivity()
+                .supportFragmentManager
+                .findFragmentById(R.id.nav_host_controller_fragment)
+                    as NavHostFragment
+        val navController = navHostFragment.navController
+
         var topicsRVAdapter = TopicsRVAdapter()
-        var tutorsRVAdapter = TutorsRVAdapter()
+        var tutorsRVAdapter = TutorsRVAdapter{
+            var bundle = Bundle()
+            bundle.putString(TUTOR_ID,it)
+            navController.navigate(R.id.tutorPerfilFragment,bundle)
+        }
 
         binding.topicsRecycleView.apply{
             layoutManager =
@@ -71,13 +83,6 @@ class HomeFragment : Fragment() {
             tutorsRVAdapter.setData(it.tutors)
         }
 
-        val navHostFragment =
-            requireActivity()
-                .supportFragmentManager
-                .findFragmentById(R.id.nav_host_controller_fragment)
-                    as NavHostFragment
-        val navController = navHostFragment.navController
-
         var bottomNav =
             requireActivity().findViewById<BottomNavigationView>(R.id.bottom_navigation)
 
@@ -94,6 +99,10 @@ class HomeFragment : Fragment() {
             navController.navigate(R.id.searchFragment)
             bottomNav.selectedItemId = R.id.page_1
         }
+    }
 
+    companion object {
+        const val TUTOR_ID = "TUTOR_ID"
+        const val AUTHOR_ID = "AUTHOR_ID"
     }
 }

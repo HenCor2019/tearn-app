@@ -10,8 +10,6 @@
         android:id="@+id/subject_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="@dimen/default_margin"
-        android:layout_marginStart="@dimen/default_margin"
         android:textColor="@color/black"
         android:textSize="@dimen/h2"
         android:textStyle="bold"
@@ -21,12 +19,10 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/hr_line"
         android:layout_marginBottom="@dimen/default_gap"
-        android:layout_marginHorizontal="@dimen/default_margin"
         android:background="@color/black" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_courses"
-        android:layout_marginHorizontal="@dimen/default_margin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:listitem="@layout/item_category_course"

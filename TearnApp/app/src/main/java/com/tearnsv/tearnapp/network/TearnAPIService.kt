@@ -1,9 +1,7 @@
 package com.tearnsv.tearnapp.network
 
 import com.tearnsv.tearnapp.data.*
-import retrofit2.http.GET
-import retrofit2.http.Path
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface TearnAPIService {
 
@@ -13,6 +11,17 @@ interface TearnAPIService {
     @GET("home/{idUser}/")
     suspend fun getAllRecommendations(@Path("idUser") idUser : String) : Recommendations
 
+    @GET("user/tutor/{idTutor}")
+    suspend fun getTutor(@Path("idTutor") idTutor : String) : Tutor
+
+    @Headers("Content-Type: application/json")
+    @POST("commentary/")
+    suspend fun createCommentary(@Body commentary: Commentary): ResponseApi
+
+    @Headers("Content-Type: application/json")
+    @POST("report/")
+    suspend fun createReport(@Body report: Report): ResponseApi
+
     @GET("search")
     suspend fun getAllSearchResponse(@Query(value = "pattern") pat: String): SearchResponse
 
@@ -21,5 +30,6 @@ interface TearnAPIService {
 
     @GET("category/{id}")
     suspend fun getOneCategory(@Path("id") id: String): CategoryResponse
+
 
 }

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -15,8 +16,9 @@ import com.tearnsv.tearnapp.databinding.FragmentCourseBinding
 import com.tearnsv.tearnapp.ui.course.adapter.CourseRecyclerViewAdapter
 import com.tearnsv.tearnapp.ui.course.viewmodel.CourseVMFactory
 import com.tearnsv.tearnapp.ui.course.viewmodel.CourseViewModel
+import com.tearnsv.tearnapp.ui.home.HomeFragment
 
-class CourseFragment : Fragment() {
+class CourseFragment : Fragment(), CourseRecyclerViewAdapter.ItemClickListener {
 
     private lateinit var idCourse: String
 
@@ -54,7 +56,8 @@ class CourseFragment : Fragment() {
         binding.courseViewModel = courseViewModel
         binding.lifecycleOwner = viewLifecycleOwner
 
-        val rvAdapter = CourseRecyclerViewAdapter()
+        val rvAdapter = CourseRecyclerViewAdapter(this)
+
         view.findViewById<RecyclerView>(R.id.recycler_view_principal_tutor).apply {
             layoutManager = GridLayoutManager(requireContext(), 2)
             adapter = rvAdapter
@@ -80,6 +83,13 @@ class CourseFragment : Fragment() {
             binding.recyclerViewPrincipalTutor.visibility = View.VISIBLE
         }
     }
+
+    override fun onClickListener(id: String) {
+        var bundle = Bundle()
+        bundle.putString(HomeFragment.TUTOR_ID,id)
+        findNavController().navigate(R.id.tutorPerfilFragment,bundle)
+    }
+
     companion object {
         const val COURSE_ID = "COURSE_ID"
     }

@@ -13,7 +13,9 @@
     <color name="green_black">#42A835</color>
     <color name="purple_black">#40394A</color>
     <color name="purple_white">#665F70</color>
+    <color name="blue_black">#3596a8</color>
+    <color name="red_fav">#ff0000</color>
+    <color name="yellow_alert">#d3d33e</color>
     <color name="semi_black">#555555</color>
     <color name="search">#8C8989</color>
-
 </resources>

@@ -12,11 +12,3 @@ data class Subjects(
     var url : String ,
     var courseCount : Int
 )
-
-data class Tutors(
-    var fullName: String,
-    var imgUrl : String,
-    var puntuation : Int,
-    var url : String,
-    var subjects: List<String>
-)
