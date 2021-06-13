@@ -1,5 +1,6 @@
 package com.tearnsv.tearnapp.ui.course.adapter
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,20 +11,27 @@ import com.bumptech.glide.Glide
 import com.tearnsv.tearnapp.R
 import com.tearnsv.tearnapp.data.TutorFromCourse
 
-class CourseRecyclerViewAdapter(private val itemClickListener: ItemClickListener) :
+class CourseRecyclerViewAdapter(private val onClickHandler: OnClickHandler) :
     RecyclerView.Adapter<CourseRecyclerViewAdapter.CourseViewHolder>() {
 
     private var tutors: List<TutorFromCourse>? = null
+    private var favTutors : List<String>? = null
 
     class CourseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(tutor: TutorFromCourse, itemClickListener: ItemClickListener) {
+        fun bind(tutor: TutorFromCourse,
+                 onClickHandler: OnClickHandler,
+                 favTutors: List<String>) {
             val tutorImg = itemView.findViewById<ImageView>(R.id.img_tutor)
             val tutorName = itemView.findViewById<TextView>(R.id.label_name_tutor)
             val tutorSubject = itemView.findViewById<TextView>(R.id.label_topics_tutor)
             val tutorPunctuation = itemView.findViewById<TextView>(R.id.label_punctuation)
 
-            itemView.setOnClickListener { itemClickListener.onClickListener(tutor.id) }
+            val iconFav = itemView.findViewById<ImageView>(R.id.icon_fav_tutor)
+
+            val isFav = isFav(tutor.id, favTutors)
+            if(isFav) iconFav.setColorFilter(Color.parseColor("#ff0000"))
+            else iconFav.setColorFilter(Color.parseColor("#707070"))
 
             Glide.with(itemView).load(tutor.imgUrl).placeholder(R.drawable.default_photo)
                 .into(tutorImg)
@@ -32,6 +40,16 @@ class CourseRecyclerViewAdapter(private val itemClickListener: ItemClickListener
             tutorPunctuation.text = tutor.puntuation.toString()
             tutorSubject.text = tutor.subjects.reduce { acc, subject -> "$acc $subject" }
 
+            itemView.setOnClickListener { onClickHandler.onClickListener(tutor.id) }
+            iconFav.setOnClickListener{ onClickHandler.onClickFavButton(tutor.id) }
+        }
+
+        fun isFav(id : String, favTutors: List<String>): Boolean{
+            var exists = false
+            favTutors.forEach{
+                if(it == id) exists = true
+            }
+            return exists
         }
     }
 
@@ -44,7 +62,7 @@ class CourseRecyclerViewAdapter(private val itemClickListener: ItemClickListener
     override fun onBindViewHolder(holder: CourseViewHolder, position: Int) {
         tutors?.let {
             val tutor = it[position]
-            holder.bind(tutor, itemClickListener)
+            holder.bind(tutor, onClickHandler, favTutors!!)
         }
     }
 
@@ -55,7 +73,13 @@ class CourseRecyclerViewAdapter(private val itemClickListener: ItemClickListener
         notifyDataSetChanged()
     }
 
-    interface ItemClickListener {
+    fun setFavTutors(favTutors : List<String>){
+        this.favTutors = favTutors
+        notifyDataSetChanged()
+    }
+
+    interface OnClickHandler {
+        fun onClickFavButton(id: String)
         fun onClickListener(id: String)
     }
 }

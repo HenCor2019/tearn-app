@@ -1,5 +1,6 @@
 package com.tearnsv.tearnapp.ui.tutorPerfil
 
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
@@ -16,6 +17,7 @@ import com.bumptech.glide.Glide
 import com.tearnsv.tearnapp.R
 import com.tearnsv.tearnapp.TearnApplication
 import com.tearnsv.tearnapp.databinding.FragmentTutorProfileBinding
+import com.tearnsv.tearnapp.ui.home.HomeViewModelFactory
 
 /**
  * A simple [Fragment] subclass.
@@ -30,6 +32,15 @@ class TutorProfileFragment : Fragment() {
 
     private val application by lazy {
         requireActivity().application as TearnApplication
+    }
+
+    private val tutorFavoriteViewModelFactory: TutorFavoriteViewModelFactory by lazy {
+        val repository = application.tearnRepository
+        TutorFavoriteViewModelFactory(repository)
+    }
+
+    private val tutorFavoriteViewModel: TutorFavoriteViewModel by activityViewModels {
+        tutorFavoriteViewModelFactory
     }
 
     private val tutorProfileFactory: TutorProfileViewModelFactory by lazy {
@@ -77,6 +88,8 @@ class TutorProfileFragment : Fragment() {
                 .placeholder(R.drawable.default_photo)
                 .into(binding.imageTutorPerfil)
 
+            setColorFav()
+
             binding.labelTutorPerfilName.text = it.fullName
             binding.labelTutorPerfilDescription.text = it.description
 
@@ -111,6 +124,14 @@ class TutorProfileFragment : Fragment() {
 
         binding.floatingActionReportBtn.setOnClickListener {
             navController.navigate(R.id.tutorReportFragment)
+        }
+
+        binding.floatingActionFavBtn.setOnClickListener {
+            tutorFavoriteViewModel.addOrRemoveFav(tutorProfileViewModel.ID_TUTOR.value!!)
+        }
+
+        tutorFavoriteViewModel.favTutors.observe(viewLifecycleOwner){
+            setColorFav()
         }
 
         setValorationStar()
@@ -225,6 +246,20 @@ class TutorProfileFragment : Fragment() {
         }
 
         return text.dropLast(2)
+    }
+
+    private fun setColorFav(){
+        var exists = false
+        tutorFavoriteViewModel.favTutors.value!!.forEach {
+            if(it.idTutor == tutorProfileViewModel.ID_TUTOR.value!!) exists = true
+        }
+
+        if(exists)
+            binding.floatingActionFavBtn.backgroundTintList =
+                ColorStateList.valueOf(Color.parseColor("#ff0000"))
+        else
+            binding.floatingActionFavBtn.backgroundTintList =
+                ColorStateList.valueOf(Color.parseColor("#707070"))
     }
 
     companion object {

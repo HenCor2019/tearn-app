@@ -1,6 +1,7 @@
 package com.tearnsv.tearnapp.network
 
 import com.tearnsv.tearnapp.data.*
+import com.tearnsv.tearnapp.data.entity.User
 import retrofit2.http.*
 
 interface TearnAPIService {
@@ -31,5 +32,10 @@ interface TearnAPIService {
     @GET("category/{id}")
     suspend fun getOneCategory(@Path("id") id: String): CategoryResponse
 
+    @GET("user/{id}")
+    suspend fun getUser(@Path("id") id: String): User
+
+    @PUT("user/")
+    suspend fun addOrRemoveFavTutor(@Body favTutor : FavTutorPetition) : FavTutorResponse
 
 }
