@@ -23,7 +23,7 @@ class AccountRVAdapter() : RecyclerView.Adapter<AccountRVAdapter.AccountViewHold
             val userPunctuation = itemView.findViewById<TextView>(R.id.label_punctuation)
 
             username.text = tutor.username
-            userSubjects.text = tutor.subjects.reduce { acc, subject -> "$acc $subject" }
+            userSubjects.text = tutor.subjects?.reduce { acc, subject -> "$acc $subject" }
             userPunctuation.text = tutor.puntuation.toString()
 
             Glide.with(itemView).load(tutor.imgUrl).centerCrop()

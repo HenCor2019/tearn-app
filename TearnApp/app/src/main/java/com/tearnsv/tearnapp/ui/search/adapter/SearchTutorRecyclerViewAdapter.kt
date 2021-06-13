@@ -27,7 +27,7 @@ class SearchTutorRecyclerViewAdapter(private val itemClickListener: ItemClickLis
             itemView.setOnClickListener { itemClickListener.onClickListener(tutor.id) }
 
             username.text = tutor.username
-            userSubjects.text = tutor.subjects.reduce { acc, subject -> "$acc $subject" }
+            userSubjects.text = tutor.subjects?.reduce { acc, subject -> "$acc $subject" }
             userPunctuation.text = tutor.puntuation.toString()
 
             Glide.with(itemView).load(tutor.imgUrl).centerCrop()

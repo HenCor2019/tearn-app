@@ -8,6 +8,8 @@ class Prefs(val context: Context) {
     val ID_LOGIN_USER = "ID_LOGIN_USER"
     val IS_TUTOR = "IS_TUTOR"
     val ACCESS_TOKEN = "ACCESS_TOKEN"
+    val PREFERENCES = "PREFERENCES"
+    val FAV_TUTORS = "FAV_TUTORS"
 
     val storage = context.getSharedPreferences(SHARED_NAME, 0)
 
@@ -19,6 +21,14 @@ class Prefs(val context: Context) {
         storage.edit().putBoolean(IS_TUTOR, isTutor).apply()
     }
 
+    fun savePreferences(preferences: List<String>) {
+        storage.edit().putString(PREFERENCES, preferences.reduce { acc, pref -> "$acc $pref" })
+    }
+
+    fun saveFavTutors(favTutors: List<String>) {
+        storage.edit().putString(FAV_TUTORS, favTutors.reduce { acc, tutor -> "$acc $tutor" })
+    }
+
     fun saveAccessToken(accessToken: String) {
         storage.edit().putString(ACCESS_TOKEN, accessToken).apply()
     }
@@ -26,6 +36,8 @@ class Prefs(val context: Context) {
     fun getId() = storage.getString(ID_LOGIN_USER, "")
     fun getIsTutor() = storage.getBoolean(IS_TUTOR, false)
     fun getAccessToken() = storage.getString(ACCESS_TOKEN, "")
+    fun getPreferences() = storage.getString(PREFERENCES, "")
+    fun getFavTutors() = storage.getString(PREFERENCES, "")
 
     fun wipe() {
         storage.edit().clear()

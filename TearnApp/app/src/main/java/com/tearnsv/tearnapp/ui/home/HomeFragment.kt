@@ -44,7 +44,7 @@ class HomeFragment : Fragment(), BooksRVAdapter.ItemClickListener {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
             .apply {
@@ -57,20 +57,13 @@ class HomeFragment : Fragment(), BooksRVAdapter.ItemClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val navHostFragment =
-            requireActivity()
-                .supportFragmentManager
-                .findFragmentById(R.id.nav_host_controller_fragment)
-                    as NavHostFragment
-        val navController = navHostFragment.navController
 
         var topicsRVAdapter = TopicsRVAdapter()
-        var tutorsRVAdapter = TutorsRVAdapter()
         val booksRVAdapter = BooksRVAdapter(this)
         var tutorsRVAdapter = TutorsRVAdapter{
             var bundle = Bundle()
             bundle.putString(TUTOR_ID,it)
-            navController.navigate(R.id.tutorPerfilFragment,bundle)
+            findNavController().navigate(R.id.tutorPerfilFragment,bundle)
         }
 
         binding.topicsRecycleView.apply {
@@ -97,32 +90,25 @@ class HomeFragment : Fragment(), BooksRVAdapter.ItemClickListener {
 
         }
 
-
         homeViewModel.fetchBookResponse.observe(viewLifecycleOwner) {
             booksRVAdapter.setData(it.items)
         }
 
-        val navHostFragment =
-            requireActivity()
-                .supportFragmentManager
-                .findFragmentById(R.id.nav_host_controller_fragment)
-                    as NavHostFragment
-        val navController = navHostFragment.navController
 
         var bottomNav =
             requireActivity().findViewById<BottomNavigationView>(R.id.bottom_navigation)
 
         binding.actionCategories.setOnClickListener {
-            navController.navigate(R.id.categoriesFragment)
+            findNavController().navigate(R.id.categoriesFragment)
         }
 
         binding.actionSearchTopics.setOnClickListener {
-            navController.navigate(R.id.searchFragment)
+            findNavController().navigate(R.id.searchFragment)
             bottomNav.selectedItemId = R.id.page_1
         }
 
         binding.actionSearchTutors.setOnClickListener {
-            navController.navigate(R.id.searchFragment)
+            findNavController().navigate(R.id.searchFragment)
             bottomNav.selectedItemId = R.id.page_1
         }
     }

@@ -9,6 +9,8 @@ data class LoginResponse(
     val imgUrl: String,
     val isTutor: Boolean,
     val fullName: String,
+    val favTutors: List<String>,
+    val preferences: List<String>
 )
 
 data class User(

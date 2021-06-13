@@ -1,10 +1,12 @@
 package com.tearnsv.tearnapp.data
 
-data class Tutor (
+data class Tutor(
     var error: Boolean,
     var fullName: String?,
     var imgUrl: String?,
     var description: String?,
+    val id: String,
+    val username: String?,
     var puntuation: Int?,
     var languages: List<String>?,
     var commentaries: List<Commentaries>?,
@@ -12,7 +14,7 @@ data class Tutor (
     var subjects: List<String>?,
     var responseTime: String?,
     var active: Boolean?
-    )
+)
 
 data class Author(
     var username: String,
@@ -22,8 +24,8 @@ data class Author(
 data class Tutors(
     var id: String,
     var fullName: String,
-    var imgUrl : String,
-    var puntuation : Int,
-    var url : String,
+    var imgUrl: String,
+    var puntuation: Int,
+    var url: String,
     var subjects: List<String>
 )

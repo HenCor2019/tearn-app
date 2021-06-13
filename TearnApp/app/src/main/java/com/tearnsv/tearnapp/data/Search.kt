@@ -14,12 +14,5 @@ data class SearchCourse(
     var tutorsCount: Int
 )
 
-data class Tutor(
-    val id: String,
-    val username: String,
-    val puntuation: Int,
-    val imgUrl: String,
-    val subjects: List<String>
-)
 
 

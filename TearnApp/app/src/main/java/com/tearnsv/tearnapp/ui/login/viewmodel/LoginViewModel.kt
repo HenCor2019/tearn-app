@@ -15,6 +15,10 @@ class LoginViewModel(private val repository: TearnRepository) : ViewModel() {
             try {
                 val response = repository.loginWithGoogle(User(username, email, imgUrl))
                 TearnApplication.prefs.saveId(response.id)
+                TearnApplication.prefs.saveAccessToken(response.accessToken)
+                TearnApplication.prefs.savePreferences(response.preferences)
+                TearnApplication.prefs.saveFavTutors(response.favTutors)
+                TearnApplication.prefs.saveIsTutor(response.isTutor)
 
                 Log.d("RESPONSE", response.toString())
 
