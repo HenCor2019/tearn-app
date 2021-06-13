@@ -59,6 +59,7 @@ class LoginFragment : Fragment() {
         binding.lifecycleOwner = viewLifecycleOwner
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.web_client))
             .requestEmail()
             .build()
 
