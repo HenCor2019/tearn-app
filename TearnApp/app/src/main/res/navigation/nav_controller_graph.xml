@@ -29,6 +29,9 @@
         <action
             android:id="@+id/action_accountFragment_to_onBoardingFragment2"
             app:destination="@id/onBoardingFragment2" />
+        <action
+            android:id="@+id/action_accountFragment_to_informationFragment"
+            app:destination="@id/informationFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
@@ -69,7 +72,7 @@
         android:label="CourseFragment" />
     <fragment
         android:id="@+id/favoriteFragment"
-        android:name="com.tearnsv.tearnapp.ui.account.FavoriteFragment"
+        android:name="com.tearnsv.tearnapp.ui.account.favorite.FavoriteFragment"
         android:label="FavoriteFragment" >
         <action
             android:id="@+id/action_favoriteFragment_to_accountFragment"
@@ -124,4 +127,13 @@
         android:id="@+id/onBoardingFragment2"
         android:name="com.tearnsv.tearnapp.ui.onBoarding.OnBoardingFragment"
         android:label="OnBoardingFragment" />
+    <fragment
+        android:id="@+id/informationFragment"
+        android:name="com.tearnsv.tearnapp.ui.account.information.InformationFragment"
+        android:label="fragment_information"
+        tools:layout="@layout/fragment_information" >
+        <action
+            android:id="@+id/action_informationFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+    </fragment>
 </navigation>

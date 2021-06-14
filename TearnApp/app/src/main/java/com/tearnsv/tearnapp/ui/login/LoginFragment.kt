@@ -90,7 +90,6 @@ class LoginFragment : Fragment() {
             val account = completedTask.getResult(ApiException::class.java)
 
             val imgUrl = account?.photoUrl ?: DEFAULT_IMG
-
             loginViewModel.saveUser(
                 account!!.displayName.toString(),
                 imgUrl.toString(),

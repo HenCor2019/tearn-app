@@ -18,6 +18,14 @@
         android:orientation="vertical"
         tools:context=".ui.account.AccountFragment">
 
+        <ProgressBar
+            android:id="@+id/progress_circular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
             android:id="@+id/linearLayout3"
@@ -50,6 +58,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:visibility="gone"
             android:layout_marginTop="@dimen/default_margin"
             android:text="@{accountViewModel.fetchUserAccountResponse.username}"
             android:textColor="@color/black"
@@ -60,11 +69,12 @@
             tools:text="Henry Cortez" />
 
         <LinearLayout
-            android:id="@+id/linearLayout4"
+            android:id="@+id/linear_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/default_gap"
             android:orientation="vertical"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -97,6 +107,7 @@
             </RelativeLayout>
 
             <View
+                android:id="@+id/view_tutor"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/hr_line"
                 android:layout_marginHorizontal="@dimen/default_gap"
@@ -104,6 +115,7 @@
 
 
             <RelativeLayout
+                android:id="@+id/layout_no_tutor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/default_gap">
@@ -129,12 +141,14 @@
             </RelativeLayout>
 
             <View
+                android:id="@+id/view_tutor_info"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/hr_line"
                 android:layout_marginHorizontal="@dimen/default_gap"
                 android:background="@color/black" />
 
             <RelativeLayout
+                android:id="@+id/layout_is_tutor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/default_gap">
@@ -197,6 +211,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:visibility="gone"
             android:text="@{accountViewModel.fetchUserAccountResponse.email}"
             android:textColor="@color/gray"
             android:textSize="18sp"

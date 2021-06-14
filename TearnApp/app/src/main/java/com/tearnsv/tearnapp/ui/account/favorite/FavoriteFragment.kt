@@ -1,4 +1,4 @@
-package com.tearnsv.tearnapp.ui.account
+package com.tearnsv.tearnapp.ui.account.favorite
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,8 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.tearnsv.tearnapp.R
 import com.tearnsv.tearnapp.TearnApplication
 import com.tearnsv.tearnapp.databinding.FragmentFavoriteBinding
 import com.tearnsv.tearnapp.ui.account.adapter.AccountRVAdapter
@@ -29,10 +27,6 @@ class FavoriteFragment : Fragment() {
     }
 
     private val accountViewModel: AccountViewModel by activityViewModels { accountVMFactory }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
