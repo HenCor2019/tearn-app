@@ -20,4 +20,5 @@
     <string name="tool_category_description">Formando a los mejores universitarios del pais sino del mundo</string>
     <string name="tool_subject_tutor">Matematicas Sociales</string>
     <string name="available_tutor">Tutores disponibles</string>
+    <string name="btn_text_onboarding">Siguiente</string>
 </resources>

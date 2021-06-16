@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="categoryViewModel"
+            type="com.tearnsv.tearnapp.ui.category.viewmodel.CategoryViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:padding="@dimen/default_gap"
+        android:orientation="vertical"
+        tools:context=".ui.category.CategoryFragment">
+
+        <ImageView
+            android:id="@+id/category_image"
+            android:layout_width="235dp"
+            android:layout_height="237dp"
+            android:layout_gravity="center"
+            android:layout_marginVertical="@dimen/default_margin"
+            tools:src="@drawable/ic_launcher_background" />
+
+        <TextView
+            android:id="@+id/category_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap_img_title_category"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/h1_tablet"
+            android:textStyle="bold"
+            tools:text="@string/tool_name_category" />
+
+        <TextView
+            android:id="@+id/category_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/gap_subtitle_frag_category"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/h3_tablet"
+            tools:text="@string/tool_category_description" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycle_view_subjects"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_one_subject" />
+
+    </LinearLayout>
+</layout>

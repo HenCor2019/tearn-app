@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    app:cardUseCompatPadding="true"
+    app:cardCornerRadius="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:minWidth="200dp"
+        android:layout_height="215dp"
+        android:background="@color/green_black"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+
+        <TextView
+            android:id="@+id/label_topic_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Calculo"
+            android:textColor="@color/black"
+            android:textSize="@dimen/h1_tablet"/>
+
+        <TextView
+            android:id="@+id/label_counter_topics"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="@dimen/h2_tablet"
+            android:text="3 cursos"/>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
