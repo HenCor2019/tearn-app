@@ -13,4 +13,5 @@
     <dimen name="h2">23sp</dimen>
     <dimen name="h3">20sp</dimen>
     <dimen name="h4">18sp</dimen>
+    <dimen name="category_name_size_tablet">42sp</dimen>
 </resources>
