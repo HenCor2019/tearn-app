@@ -19,8 +19,8 @@
 
         <ImageView
             android:id="@+id/image_course"
-            android:layout_width="150sp"
-            android:layout_height="150sp"
+            android:layout_width="@dimen/img_size_frag_course_tablet"
+            android:layout_height="@dimen/img_size_frag_course_tablet"
             android:layout_marginStart="@dimen/default_gap"
             android:layout_marginTop="@dimen/gap_title_top_category_tablet"
             app:layout_constraintStart_toStartOf="parent"
@@ -57,8 +57,8 @@
         <TextView
             android:id="@+id/recommended_tutor_result"
             android:layout_width="wrap_content"
-            android:layout_height="60sp"
-            android:layout_marginTop="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap_title_top_category_tablet"
             android:gravity="center"
             android:text="@string/available_tutor"
             android:textColor="@color/black"

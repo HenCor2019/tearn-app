@@ -25,7 +25,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TEARN"
+                android:text="@string/titleapp_uppercase"
                 android:textStyle="bold"
                 android:padding="@dimen/default_gap"
                 android:textColor="@color/white"
@@ -36,8 +36,8 @@
 
             <ImageView
                 android:id="@+id/action_categories"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="@dimen/home_icon_size"
+                android:layout_height="@dimen/home_icon_size"
                 android:layout_marginEnd="@dimen/default_gap"
                 android:src="@drawable/ic_baseline_category_24"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -49,7 +49,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/home_container"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="@dimen/height_gap_0"
             android:background="@color/white"
             android:padding="@dimen/default_gap"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -61,9 +61,9 @@
                 android:id="@+id/label_topics"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Temas de Interés"
+                android:text="@string/home_theme_interest_title"
                 android:textColor="@color/black"
-                android:textSize="23sp"
+                android:textSize="@dimen/h2"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -72,9 +72,9 @@
                 android:id="@+id/action_search_topics"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ver Todo"
+                android:text="@string/action_theme_interest_title"
                 android:textColor="@color/green_black"
-                android:textSize="15sp"
+                android:textSize="@dimen/h4"
                 app:layout_constraintBottom_toBottomOf="@+id/label_topics"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/label_topics" />
@@ -82,8 +82,8 @@
             <LinearLayout
                 android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="8dp"
+                android:layout_height="@dimen/bar_height_1"
+                android:layout_marginTop="@dimen/bar_gap_home"
                 android:background="@color/gray"
                 android:orientation="vertical"
                 app:layout_constraintTop_toBottomOf="@+id/label_topics"
@@ -106,9 +106,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/default_gap"
-                android:text="Tutores recomendados"
+                android:text="@string/reco_tutors_title_text"
                 android:textColor="@color/black"
-                android:textSize="23sp"
+                android:textSize="@dimen/h3"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/topics_recycle_view" />
@@ -117,9 +117,9 @@
                 android:id="@+id/action_search_tutors"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Buscar tutores"
+                android:text="@string/action_reco_title_text"
                 android:textColor="@color/green_black"
-                android:textSize="15sp"
+                android:textSize="@dimen/h4"
                 app:layout_constraintBottom_toBottomOf="@+id/label_tutors"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/label_tutors" />
@@ -127,8 +127,8 @@
             <LinearLayout
                 android:id="@+id/linearLayout2"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="8dp"
+                android:layout_height="@dimen/bar_height_1"
+                android:layout_marginTop="@dimen/bar_gap_home"
                 android:background="@color/gray"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"

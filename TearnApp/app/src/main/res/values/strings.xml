@@ -21,4 +21,13 @@
     <string name="tool_subject_tutor">Matematicas Sociales</string>
     <string name="available_tutor">Tutores disponibles</string>
     <string name="btn_text_onboarding">Siguiente</string>
+    <string name="titleapp_uppercase">TEARN</string>
+    <string name="home_theme_interest_title">Temas de Interés</string>
+    <string name="action_theme_interest_title">Ver Todo</string>
+    <string name="reco_tutors_title_text">Tutores recomendados</string>
+    <string name="action_reco_title_text">Buscar tutores</string>
+    <string name="comment_box_text">Escribe una reseña al tutor</string>
+    <string name="info_tutor_text">Información del tutor</string>
+    <string name="account_text">Account</string>
+    <string name="chats_text">Chats</string>
 </resources>

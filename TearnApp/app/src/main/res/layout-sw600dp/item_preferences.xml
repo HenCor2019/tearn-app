@@ -20,7 +20,7 @@
             android:id="@+id/label_category_preferences"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textSize="@dimen/h1_tablet"
+            android:textSize="@dimen/h2_tablet"
             android:textStyle="bold"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"

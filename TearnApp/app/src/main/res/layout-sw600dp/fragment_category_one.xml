@@ -19,8 +19,8 @@
 
         <ImageView
             android:id="@+id/category_image"
-            android:layout_width="235dp"
-            android:layout_height="237dp"
+            android:layout_width="@dimen/img_size_category"
+            android:layout_height="@dimen/img_size_category"
             android:layout_gravity="center"
             android:layout_marginVertical="@dimen/default_margin"
             tools:src="@drawable/ic_launcher_background" />

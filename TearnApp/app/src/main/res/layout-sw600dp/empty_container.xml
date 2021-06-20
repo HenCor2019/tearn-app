@@ -7,18 +7,18 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:layout_width="604dp"
-        android:layout_height="567dp"
+        android:layout_width="@dimen/empty_container_img_width"
+        android:layout_height="@dimen/empty_container_img_height"
         android:layout_marginBottom="@dimen/gap_img_subtitle_empty_cont"
         android:src="@drawable/ic_undraw_no_data_"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintBottom_toTopOf="@+id/no_result_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/no_result_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/no_results"

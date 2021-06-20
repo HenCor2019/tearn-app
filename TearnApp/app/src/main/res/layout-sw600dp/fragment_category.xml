@@ -19,8 +19,8 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="70dp"
-            android:layout_height="77dp"
+            android:layout_width="@dimen/icon_category_width"
+            android:layout_height="@dimen/icon_category_height"
             android:layout_marginTop="@dimen/gap_title_top_category_tablet"
             android:src="@drawable/ic_baseline_category_black_24"
             app:layout_constraintEnd_toEndOf="parent"
@@ -31,7 +31,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="@dimen/default_gap"
             android:layout_marginTop="@dimen/gap_title_top_category_tablet"
             android:text="@string/category_name"
             android:textAlignment="viewEnd"
@@ -50,7 +50,6 @@
             android:layout_height="@dimen/view_height"
             android:layout_marginHorizontal="@dimen/default_margin"
             android:layout_marginVertical="@dimen/default_margin"
-            android:layout_marginTop="116dp"
             android:background="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -60,9 +59,9 @@
             android:id="@+id/recycle_view_categories"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="@dimen/gap_category_subjects"
             app:layout_constraintTop_toBottomOf="@+id/view2"
-            tools:itemCount="15"
+            tools:itemCount="10"
             tools:listitem="@layout/item_category_principal" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

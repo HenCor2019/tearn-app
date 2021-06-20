@@ -25,7 +25,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/info_wrapper"
             android:layout_width="250dp"
-            android:layout_height="210dp"
+            android:layout_height="200dp"
             android:background="@color/white"
             android:padding="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -60,8 +60,8 @@
 
             <ImageView
                 android:id="@+id/icon_star"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginTop="8dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/label_topics_tutor"
@@ -69,8 +69,8 @@
 
             <ImageView
                 android:id="@+id/icon_fav_tutor"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 app:layout_constraintBottom_toBottomOf="@+id/icon_star"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/icon_star"
@@ -83,7 +83,7 @@
                 android:layout_marginStart="4dp"
                 android:text="4.4"
                 android:textColor="@color/yellow"
-                android:textSize="@dimen/h2_tablet"
+                android:textSize="@dimen/h3_tablet"
                 app:layout_constraintBottom_toBottomOf="@+id/icon_star"
                 app:layout_constraintStart_toEndOf="@+id/icon_star"
                 app:layout_constraintTop_toTopOf="@+id/icon_star"
