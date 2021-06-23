@@ -18,4 +18,6 @@
     <color name="yellow_alert">#d3d33e</color>
     <color name="semi_black">#555555</color>
     <color name="search">#8C8989</color>
+    <color name="red_200">#FF3D3D</color>
+
 </resources>

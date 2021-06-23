@@ -57,12 +57,10 @@ class SearchTutorFragment : Fragment() , SearchTutorRecyclerViewAdapter.ItemClic
         searchViewModel.fetchSearchResponse.observe(viewLifecycleOwner){ response ->
             binding.progressBar.visibility = View.GONE
             if(response.tutorsCount == 0){
-                binding.emptyContainer.visibility = View.VISIBLE
                 binding.recyclerViewSearchCourses.visibility = View.GONE
                 return@observe
             }
             binding.recyclerViewSearchCourses.visibility = View.VISIBLE
-            binding.emptyContainer.visibility = View.GONE
             rvAdapter.setData(response.tutors)
         }
 

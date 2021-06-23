@@ -5,7 +5,7 @@ import androidx.lifecycle.*
 import com.tearnsv.tearnapp.repository.TearnRepository
 import kotlinx.coroutines.Dispatchers
 
-class SearchViewModel(repository: TearnRepository): ViewModel() {
+class SearchViewModel(repository: TearnRepository) : ViewModel() {
     var pattern = MutableLiveData("")
 
     init {
@@ -14,15 +14,26 @@ class SearchViewModel(repository: TearnRepository): ViewModel() {
 
     val fetchSearchResponse = pattern.distinctUntilChanged().switchMap { newPattern ->
         liveData(Dispatchers.IO) {
-            try{
+            try {
                 emit(repository.getAllSearchResponse(newPattern))
-            }catch (error: Exception) {
+            } catch (error: Exception) {
                 Log.e("SEARCHING", error.toString())
             }
         }
     }
 
-    fun setPattern(newPattern: String){
+    val fetchBooksResponse = pattern.distinctUntilChanged().switchMap { newPattern ->
+        liveData(Dispatchers.IO) {
+            try {
+                val modifiedPattern = if(newPattern == "") "calculo" else newPattern
+                emit(repository.getBooks(modifiedPattern))
+            } catch (error: Exception) {
+                Log.e("BOOK_ERROR", error.toString())
+            }
+        }
+    }
+
+    fun setPattern(newPattern: String) {
         pattern.value = newPattern
 
     }

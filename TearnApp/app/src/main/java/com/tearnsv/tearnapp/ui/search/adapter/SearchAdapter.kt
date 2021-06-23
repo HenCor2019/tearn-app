@@ -3,13 +3,14 @@ package com.tearnsv.tearnapp.ui.search.adapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.tearnsv.tearnapp.ui.search.SearchBookFragment
 import com.tearnsv.tearnapp.ui.search.SearchCourseFragment
 import com.tearnsv.tearnapp.ui.search.SearchTutorFragment
 
 class SearchAdapter(fragmentActivity: FragmentActivity) :
     FragmentStateAdapter(fragmentActivity) {
     override fun getItemCount(): Int {
-        val TAB_COUNT = 2
+        val TAB_COUNT = 3
         return TAB_COUNT
     }
 
@@ -17,6 +18,7 @@ class SearchAdapter(fragmentActivity: FragmentActivity) :
         return when (position) {
             0 -> SearchCourseFragment()
             1 -> SearchTutorFragment()
+            2 -> SearchBookFragment()
             else -> SearchCourseFragment()
         }
     }
