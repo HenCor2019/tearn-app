@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.tearnsv.tearnapp.ui.home.HomeViewModel" />
@@ -16,28 +17,29 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:background="@color/purple_black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_weight="1">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/titleapp_uppercase"
-                android:textStyle="bold"
                 android:padding="@dimen/default_gap"
+                android:text="TEARN"
                 android:textColor="@color/white"
                 android:textSize="@dimen/h1"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/action_categories"
-                android:layout_width="@dimen/home_icon_size"
-                android:layout_height="@dimen/home_icon_size"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_marginEnd="@dimen/default_gap"
                 android:src="@drawable/ic_baseline_category_24"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -46,120 +48,176 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/home_container"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="@dimen/height_gap_0"
-            android:background="@color/white"
-            android:padding="@dimen/default_gap"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_height="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+            app:layout_constraintVertical_weight="2">
 
-            <TextView
-                android:id="@+id/label_topics"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/home_theme_interest_title"
-                android:textColor="@color/black"
-                android:textSize="@dimen/h2"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/action_search_topics"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/action_theme_interest_title"
-                android:textColor="@color/green_black"
-                android:textSize="@dimen/h4"
-                app:layout_constraintBottom_toBottomOf="@+id/label_topics"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/label_topics" />
-
-            <LinearLayout
-                android:id="@+id/linearLayout"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/home_container"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/bar_height_1"
-                android:layout_marginTop="@dimen/bar_gap_home"
-                android:background="@color/gray"
-                android:orientation="vertical"
-                app:layout_constraintTop_toBottomOf="@+id/label_topics"
-                tools:layout_editor_absoluteX="16dp" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/topics_recycle_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/default_gap"
-                android:orientation="horizontal"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/linearLayout"
-                tools:listitem="@layout/item_topics_recomended" />
-
-            <TextView
-                android:id="@+id/label_tutors"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/default_gap"
-                android:text="@string/reco_tutors_title_text"
-                android:textColor="@color/black"
-                android:textSize="@dimen/h3"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/topics_recycle_view" />
-
-            <TextView
-                android:id="@+id/action_search_tutors"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/action_reco_title_text"
-                android:textColor="@color/green_black"
-                android:textSize="@dimen/h4"
-                app:layout_constraintBottom_toBottomOf="@+id/label_tutors"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/label_tutors" />
-
-            <LinearLayout
-                android:id="@+id/linearLayout2"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/bar_height_1"
-                android:layout_marginTop="@dimen/bar_gap_home"
-                android:background="@color/gray"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/label_tutors" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/tutors_recycle_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/default_gap"
-                android:orientation="horizontal"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-                tools:listitem="@layout/item_tutors_recomended" />
-
-            <ProgressBar
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility="@{viewModel.loading}"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:padding="@dimen/default_gap"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/label_topics"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Temas de Interés"
+                    android:textColor="@color/black"
+                    android:textSize="23sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/action_search_topics"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ver Todo"
+                    android:textColor="@color/green_black"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/label_topics"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/label_topics" />
+
+                <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/gray"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@+id/label_topics"
+                    tools:layout_editor_absoluteX="16dp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/topics_recycle_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_gap"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/linearLayout"
+                    tools:listitem="@layout/item_topics_recomended" />
+
+                <TextView
+                    android:id="@+id/label_tutors"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_gap"
+                    android:text="Tutores recomendados"
+                    android:textColor="@color/black"
+                    android:textSize="23sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/topics_recycle_view" />
+
+                <TextView
+                    android:id="@+id/action_search_tutors"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Buscar tutores"
+                    android:textColor="@color/green_black"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/label_tutors"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/label_tutors" />
+
+                <LinearLayout
+                    android:id="@+id/linearLayout2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/gray"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/label_tutors" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/tutors_recycle_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_gap"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+                    tools:listitem="@layout/item_tutors_recomended" />
+
+                <TextView
+                    android:id="@+id/recommended_book_result"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_gap"
+                    android:text="Libros recomendados"
+                    android:textColor="@color/black"
+                    android:textSize="23sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tutors_recycle_view" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="11dp"
+                    android:text="Buscar libros"
+                    android:textColor="@color/green_black"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/recommended_book_result"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tutors_recycle_view" />
+
+                <LinearLayout
+                    android:id="@+id/linearLayoutBook"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/gray"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/recommended_book_result" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/books_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="250sp"
+                    android:layout_marginTop="@dimen/default_gap"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayoutBook"
+                    tools:listitem="@layout/item_book" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{viewModel.loading}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </layout>

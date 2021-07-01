@@ -58,12 +58,10 @@ class SearchCourseFragment : Fragment(), SearchCourseRecyclerViewAdapter.ItemCli
         searchViewModel.fetchSearchResponse.observe(viewLifecycleOwner) { response ->
             binding.progressCircular.visibility = View.GONE
             if (response.coursesCount == 0) {
-                binding.emptyContainer.visibility = View.VISIBLE
                 binding.recyclerViewSearchTutors.visibility = View.GONE
                 return@observe
             }
             binding.recyclerViewSearchTutors.visibility = View.VISIBLE
-            binding.emptyContainer.visibility = View.GONE
             rvAdapter.setData(response.courses)
         }
 

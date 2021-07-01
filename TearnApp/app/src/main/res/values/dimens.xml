@@ -25,7 +25,7 @@
     <dimen name="h3">20sp</dimen>
     <dimen name="h3_tablet">30sp</dimen>
 
-    <dimen name="h4">15sp</dimen>
+    <dimen name="h4">18sp</dimen>
     <dimen name="h4_tablet">25sp</dimen>
 
     <dimen name="gap_img_subtitle_empty_cont"> 32dp</dimen>
@@ -68,4 +68,5 @@
     <dimen name="gap_img_top_onboarding">116dp</dimen>
     <dimen name="gap_process_btn">8dp</dimen>
     <dimen name="comment_box_height_tablet">80dp</dimen>
+
 </resources>

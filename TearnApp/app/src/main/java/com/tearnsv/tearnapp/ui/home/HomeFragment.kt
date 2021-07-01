@@ -1,5 +1,7 @@
 package com.tearnsv.tearnapp.ui.home
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -14,35 +16,38 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.tearnsv.tearnapp.R
 import com.tearnsv.tearnapp.TearnApplication
 import com.tearnsv.tearnapp.databinding.FragmentHomeBinding
+import com.tearnsv.tearnapp.ui.bookadapter.BooksRVAdapter
 
 /**
  * A simple [Fragment] subclass.
  * Use the [HomeFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), BooksRVAdapter.ItemClickListener {
 
-    private var _binding : FragmentHomeBinding? = null
-    private val binding get() =_binding!!
+    private var _binding: FragmentHomeBinding? = null
+    private val binding get() = _binding!!
 
-    private val application by lazy{
+    private val application by lazy {
         requireActivity().application as TearnApplication
     }
 
-    private val homeViewModelFactory: HomeViewModelFactory by lazy{
+    private val homeViewModelFactory: HomeViewModelFactory by lazy {
         val repository = application.tearnRepository
         HomeViewModelFactory(repository)
     }
 
-    private  val homeViewModel: HomeViewModel by viewModels{
+    private val homeViewModel: HomeViewModel by viewModels {
         homeViewModelFactory
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-            .apply{
+            .apply {
                 lifecycleOwner = viewLifecycleOwner
                 viewModel = homeViewModel
             }
@@ -52,27 +57,22 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val navHostFragment =
-            requireActivity()
-                .supportFragmentManager
-                .findFragmentById(R.id.nav_host_controller_fragment)
-                    as NavHostFragment
-        val navController = navHostFragment.navController
 
         var topicsRVAdapter = TopicsRVAdapter()
+        val booksRVAdapter = BooksRVAdapter(this)
         var tutorsRVAdapter = TutorsRVAdapter{
             var bundle = Bundle()
             bundle.putString(TUTOR_ID,it)
-            navController.navigate(R.id.tutorPerfilFragment,bundle)
+            findNavController().navigate(R.id.tutorPerfilFragment,bundle)
         }
 
-        binding.topicsRecycleView.apply{
+        binding.topicsRecycleView.apply {
             layoutManager =
                 LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             adapter = topicsRVAdapter
         }
 
-        binding.tutorsRecycleView.apply{
+        binding.tutorsRecycleView.apply {
             layoutManager =
                 LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             adapter = tutorsRVAdapter
@@ -83,20 +83,32 @@ class HomeFragment : Fragment() {
             tutorsRVAdapter.setData(it.tutors)
         }
 
+        binding.booksRecyclerView.apply {
+            layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            adapter = booksRVAdapter
+
+        }
+
+        homeViewModel.fetchBookResponse.observe(viewLifecycleOwner) {
+            booksRVAdapter.setData(it.items)
+        }
+
+
         var bottomNav =
             requireActivity().findViewById<BottomNavigationView>(R.id.bottom_navigation)
 
         binding.actionCategories.setOnClickListener {
-            navController.navigate(R.id.categoriesFragment)
+            findNavController().navigate(R.id.categoriesFragment)
         }
 
-        binding.actionSearchTopics.setOnClickListener{
-            navController.navigate(R.id.searchFragment)
+        binding.actionSearchTopics.setOnClickListener {
+            findNavController().navigate(R.id.searchFragment)
             bottomNav.selectedItemId = R.id.page_1
         }
 
-        binding.actionSearchTutors.setOnClickListener{
-            navController.navigate(R.id.searchFragment)
+        binding.actionSearchTutors.setOnClickListener {
+            findNavController().navigate(R.id.searchFragment)
             bottomNav.selectedItemId = R.id.page_1
         }
     }
@@ -104,5 +116,11 @@ class HomeFragment : Fragment() {
     companion object {
         const val TUTOR_ID = "TUTOR_ID"
         const val AUTHOR_ID = "AUTHOR_ID"
+    }
+
+    override fun onClickItem(url: String) {
+        val uri = Uri.parse(url)
+        val intent = Intent(Intent.ACTION_VIEW, uri)
+        startActivity(intent)
     }
 }
