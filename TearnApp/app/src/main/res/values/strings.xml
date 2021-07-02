@@ -62,4 +62,8 @@
     <string name="title_activity_maps">Map</string>
     <string name="web_client">704366497875-bnmdtr17a45qv2dlmjdq0ob81tf7vem1.apps.googleusercontent.com</string>
 
+    <string name="tearn_text">TEARN</string>
+    <string name="temas_de_interes_text">Temas de Interés</string>
+    <string name="ver_todo_text">Ver Todo</string>
+    <string name="tutor_text">Tutor</string>
 </resources>

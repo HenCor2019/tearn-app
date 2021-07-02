@@ -69,4 +69,5 @@
     <dimen name="gap_process_btn">8dp</dimen>
     <dimen name="comment_box_height_tablet">80dp</dimen>
 
+    <dimen name="category_name_size_tablet">42sp</dimen>
 </resources>
