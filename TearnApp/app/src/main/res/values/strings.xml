@@ -1,9 +1,11 @@
 <resources>
     <string name="app_name">TearnApp</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
     <string name="label_on_boarding_title1">Enseñanza Profesional</string>
     <string name="label_on_boarding_title2">Libros para tí</string>
     <string name="label_on_boarding_title3">Recomendaciones Exclusivas</string>
+
     <string name="label_on_boarding_description">Lorem ipmsum que no se que pone aca xd, Lorem ipmsum que no se que pone aca xd, Lorem ipmsum que no se que pone aca xd</string>
     <string name="course_tab">Materias</string>
     <string name="tutor_tab">Tutores</string>
@@ -20,7 +22,7 @@
     <string name="tool_category_description">Formando a los mejores universitarios del pais sino del mundo</string>
     <string name="tool_subject_tutor">Matematicas Sociales</string>
     <string name="available_tutor">Tutores disponibles</string>
-    <string name="btn_text_onboarding">Siguiente</string>
+    <string name="btn_next_text">Siguiente</string>
     <string name="titleapp_uppercase">TEARN</string>
     <string name="home_theme_interest_title">Temas de Interés</string>
     <string name="action_theme_interest_title">Ver Todo</string>

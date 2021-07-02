@@ -62,7 +62,7 @@
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="44dp"
             android:backgroundTint="@color/white"
-            android:text="@string/btn_text_onboarding"
+            android:text="@string/btn_next_text"
             android:textSize="@dimen/h3_tablet"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
