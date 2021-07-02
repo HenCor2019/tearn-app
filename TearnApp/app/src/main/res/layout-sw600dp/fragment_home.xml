@@ -147,6 +147,53 @@
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
                 tools:listitem="@layout/item_tutors_recomended" />
 
+            <TextView
+                android:id="@+id/recommended_book_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_gap"
+                android:text="Libros recomendados"
+                android:textColor="@color/black"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tutors_recycle_view" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:text="Buscar libros"
+                android:textColor="@color/green_black"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="@+id/recommended_book_result"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tutors_recycle_view" />
+
+            <LinearLayout
+                android:id="@+id/linearLayoutBook"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/gray"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recommended_book_result" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/books_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:layout_marginTop="@dimen/default_gap"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayoutBook"
+                tools:listitem="@layout/item_book" />
+
             <ProgressBar
                 android:layout_width="@dimen/progressbar_size_tablet"
                 android:layout_height="@dimen/progressbar_size_tablet"

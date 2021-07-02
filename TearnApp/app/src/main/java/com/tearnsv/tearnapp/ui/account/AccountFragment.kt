@@ -94,10 +94,12 @@ class AccountFragment : Fragment() {
     binding.actionFavoriteTutors.setOnClickListener {
       findNavController().navigate(R.id.favoriteFragment)
     }
+
     binding.actionConvertToTutor.setOnClickListener {
       findNavController().navigate(R.id.landingFormFragment)
 
     }
+
     binding.actionLogout.setOnClickListener {
       val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
         .requestEmail()
