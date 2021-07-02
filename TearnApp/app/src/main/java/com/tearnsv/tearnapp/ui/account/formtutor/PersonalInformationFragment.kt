@@ -18,44 +18,41 @@ import com.tearnsv.tearnapp.ui.account.viewmodel.AccountViewModel
 
 class PersonalInformationFragment : Fragment() {
 
-    private var _binding: FragmentPersonalInformationBinding? = null
-    private val binding get() = _binding!!
+  private var _binding: FragmentPersonalInformationBinding? = null
+  private val binding get() = _binding!!
 
-    private val application by lazy { requireActivity().application as TearnApplication }
-    private val accountVMFactory: AccountVMFactory by lazy {
-        val repository = application.tearnRepository
-        AccountVMFactory(repository)
+  private val application by lazy { requireActivity().application as TearnApplication }
+  private val accountVMFactory: AccountVMFactory by lazy {
+    val repository = application.tearnRepository
+    AccountVMFactory(repository)
+  }
+
+  private val accountViewModel: AccountViewModel by activityViewModels { accountVMFactory }
+
+
+  override fun onCreateView(
+    inflater: LayoutInflater, container: ViewGroup?,
+    savedInstanceState: Bundle?
+  ): View {
+    _binding = FragmentPersonalInformationBinding.inflate(inflater, container, false)
+    return binding.root
+  }
+
+  override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    super.onViewCreated(view, savedInstanceState)
+    binding.principalViewModel = accountViewModel
+    binding.lifecycleOwner = viewLifecycleOwner
+    handlerEvents()
+  }
+
+  private fun handlerEvents() {
+    binding.actionNextForm.setOnClickListener {
+      if (!accountViewModel.verifyInputsPrincipalFragment()) {
+        Toast.makeText(requireContext(), "Entradas invalidas", Toast.LENGTH_SHORT).show()
+        return@setOnClickListener
+      }
+      findNavController().navigate(R.id.personalInformationTwoFragment)
     }
-
-    private val accountViewModel: AccountViewModel by activityViewModels { accountVMFactory }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentPersonalInformationBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        binding.principalViewModel = accountViewModel
-        binding.lifecycleOwner = viewLifecycleOwner
-        handlerEvents()
-    }
-
-    private fun handlerEvents() {
-        binding.actionNextForm.setOnClickListener {
-            if (!accountViewModel.verifyInputsPrincipalFragment()) {
-                Toast.makeText(requireContext(), "Entradas invalidas", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-            findNavController().navigate(R.id.personalInformationTwoFragment)
-        }
-    }
+  }
 
 }

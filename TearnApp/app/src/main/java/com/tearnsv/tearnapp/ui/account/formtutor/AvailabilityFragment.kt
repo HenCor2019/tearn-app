@@ -22,131 +22,139 @@ import kotlin.concurrent.schedule
 
 class AvailabilityFragment : Fragment() {
 
-    private var _binding: FragmentAvailabityBinding? = null
-    private val binding get() = _binding!!
+  private var _binding: FragmentAvailabityBinding? = null
+  private val binding get() = _binding!!
 
-    private var MAP_OF_SUBJECT: MutableMap<String, String> = mutableMapOf()
-    private var MAP_OF_COURSES: MutableMap<String, String> = mutableMapOf()
+  private var MAP_OF_SUBJECT: MutableMap<String, String> = mutableMapOf()
+  private var MAP_OF_COURSES: MutableMap<String, String> = mutableMapOf()
 
-    private val application by lazy { requireActivity().application as TearnApplication }
-    private val accountVMFactory: AccountVMFactory by lazy {
-        val repository = application.tearnRepository
-        AccountVMFactory(repository)
+  private val application by lazy { requireActivity().application as TearnApplication }
+  private val accountVMFactory: AccountVMFactory by lazy {
+    val repository = application.tearnRepository
+    AccountVMFactory(repository)
+  }
+
+  private val accountViewModel: AccountViewModel by activityViewModels { accountVMFactory }
+
+  override fun onCreateView(
+    inflater: LayoutInflater, container: ViewGroup?,
+    savedInstanceState: Bundle?
+  ): View {
+    _binding = FragmentAvailabityBinding.inflate(inflater, container, false)
+    return binding.root
+  }
+
+  override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    super.onViewCreated(view, savedInstanceState)
+    binding.availabilityViewModel = accountViewModel
+    binding.lifecycleOwner = viewLifecycleOwner
+    setupObservers()
+    handleEvents()
+  }
+
+  private fun setupObservers() {
+    accountViewModel.fetchSubjectsResponse.observe(viewLifecycleOwner) {
+      val subjects = it.results.map { subject -> SimpleSubject(subject.id, subject.name) }
+
+      setupMaps(subjects)
+      setupDropDown()
+    }
+  }
+
+  private fun setupMaps(subjects: List<SimpleSubject>) {
+    for (subject in subjects)
+      MAP_OF_SUBJECT[subject.id] = subject.name
+
+  }
+
+  private fun setupDropDown() {
+    val subjectAdapter = ArrayAdapter(
+      requireActivity(),
+      android.R.layout.select_dialog_item,
+      MAP_OF_SUBJECT.values.toList()
+    )
+    val responseTimeAdapter = ArrayAdapter(
+      requireActivity(),
+      android.R.layout.select_dialog_item,
+      listOf("30min", "1h", "1h 30min", "2h")
+    )
+
+    binding.userSubject.threshold = 1
+    binding.userSubject.setAdapter(subjectAdapter)
+    binding.userTime.threshold = 1
+    binding.userTime.setAdapter(responseTimeAdapter)
+  }
+
+  private fun handleEvents() {
+    binding.userSubject.setOnItemClickListener { parent, view, position, id ->
+      MAP_OF_COURSES.clear()
+      val courses = accountViewModel.fetchSubjectsResponse.value!!.results[position].courses
+      for (course in courses)
+        MAP_OF_COURSES[course._id] = course.name
+      val courseAdapter = ArrayAdapter(
+        requireActivity(),
+        android.R.layout.select_dialog_item,
+        MAP_OF_COURSES.values.toList()
+      )
+      binding.userCourse.threshold = 1
+      binding.userCourse.setAdapter(courseAdapter)
     }
 
-    private val accountViewModel: AccountViewModel by activityViewModels { accountVMFactory }
+    binding.virtualCheckbox.setOnCheckedChangeListener { buttonView, isChecked ->
+      if (isChecked) {
+        accountViewModel.availabilityList.add("Virtual")
+        return@setOnCheckedChangeListener
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+      }
+      accountViewModel.availabilityList =
+        accountViewModel.availabilityList.filter { it != "Virtual" }.toMutableList()
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentAvailabityBinding.inflate(inflater, container, false)
-        return binding.root
+    binding.onsiteCheckbox.setOnCheckedChangeListener { buttonView, isChecked ->
+      if (isChecked) {
+        accountViewModel.availabilityList.add("Presencial")
+        return@setOnCheckedChangeListener
+
+      }
+      accountViewModel.availabilityList =
+        accountViewModel.availabilityList.filter { it != "Presencial" }.toMutableList()
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        binding.availabilityViewModel = accountViewModel
-        binding.lifecycleOwner = viewLifecycleOwner
-        setupObservers()
-        handleEvents()
+    binding.actionConvertForm.setOnClickListener {
+      if (!accountViewModel.verifyDropdownInputs()) {
+        Toast.makeText(
+          requireContext(),
+          "Selecciona una materia y curso",
+          Toast.LENGTH_SHORT
+        ).show()
+        return@setOnClickListener
+      }
+
+      if(accountViewModel.verifyAvailability()){
+        Toast.makeText(
+          requireContext(),
+          "Selecciona una disponibilidad",
+          Toast.LENGTH_SHORT
+        ).show()
+        return@setOnClickListener
+
+      }
+
+      val idSubject = getKeyValue(MAP_OF_SUBJECT, accountViewModel.subject.value!!)
+      val idCourse = getKeyValue(MAP_OF_COURSES, accountViewModel.course.value!!)
+
+      accountViewModel.idCourse.value = mutableListOf(idCourse)
+      accountViewModel.idSubject.value = mutableListOf(idSubject)
+
+      val dialog = DialogConfirmFragment()
+      dialog.show(requireActivity().supportFragmentManager, "ConvertToTutor")
+
     }
+  }
 
-    private fun setupObservers() {
-        accountViewModel.fetchSubjectsResponse.observe(viewLifecycleOwner) {
-            val subjects = it.results.map { subject -> SimpleSubject(subject.id, subject.name) }
+  private fun getKeyValue(hashMap: MutableMap<String, String>, value: String) =
+    hashMap.filterValues { it == value }.keys.first()
 
-            setupMaps(subjects)
-            setupDropDown()
-        }
-    }
-
-    private fun setupMaps(subjects: List<SimpleSubject>) {
-        for (subject in subjects)
-            MAP_OF_SUBJECT[subject.id] = subject.name
-
-    }
-
-    private fun setupDropDown() {
-        val subjectAdapter = ArrayAdapter(
-            requireActivity(),
-            android.R.layout.select_dialog_item,
-            MAP_OF_SUBJECT.values.toList()
-        )
-        val responseTimeAdapter = ArrayAdapter(
-            requireActivity(),
-            android.R.layout.select_dialog_item,
-            listOf("30min", "1h", "1h 30min", "2h")
-        )
-
-        binding.userSubject.threshold = 1
-        binding.userSubject.setAdapter(subjectAdapter)
-        binding.userTime.threshold = 1
-        binding.userTime.setAdapter(responseTimeAdapter)
-    }
-
-    private fun handleEvents() {
-        binding.userSubject.setOnItemClickListener { parent, view, position, id ->
-            MAP_OF_COURSES.clear()
-            val courses = accountViewModel.fetchSubjectsResponse.value!!.results[position].courses
-            for (course in courses)
-                MAP_OF_COURSES[course._id] = course.name
-            val courseAdapter = ArrayAdapter(
-                requireActivity(),
-                android.R.layout.select_dialog_item,
-                MAP_OF_COURSES.values.toList()
-            )
-            binding.userCourse.threshold = 1
-            binding.userCourse.setAdapter(courseAdapter)
-        }
-
-        binding.spanishCheckbox.setOnCheckedChangeListener { buttonView, isChecked ->
-            accountViewModel.availabilityList[0] = if (isChecked) 1 else 0
-        }
-
-        binding.englishCheckbox.setOnCheckedChangeListener { buttonView, isChecked ->
-            accountViewModel.availabilityList[1] = if (isChecked) 1 else 0
-        }
-
-        binding.actionConvertForm.setOnClickListener {
-            if (!accountViewModel.verifyDropdownInputs()) {
-                Toast.makeText(
-                    requireContext(),
-                    "Selecciona una materia y curso",
-                    Toast.LENGTH_SHORT
-                ).show()
-                return@setOnClickListener
-            }
-
-            if (accountViewModel.verifyAvailability()) {
-                Toast.makeText(
-                    requireContext(),
-                    "Selecciona una forma de dar clases",
-                    Toast.LENGTH_SHORT
-                ).show()
-                return@setOnClickListener
-
-            }
-
-            val idSubject = getKeyValue(MAP_OF_SUBJECT, accountViewModel.subject.value!!)
-            val idCourse = getKeyValue(MAP_OF_COURSES, accountViewModel.course.value!!)
-
-            accountViewModel.idCourse.value = mutableListOf(idCourse)
-            accountViewModel.idSubject.value = mutableListOf(idSubject)
-
-            val dialog = DialogConfirmFragment()
-            dialog.show(requireActivity().supportFragmentManager, "ConvertToTutor")
-
-        }
-    }
-
-    private fun getKeyValue(hashMap: MutableMap<String, String>, value: String) =
-        hashMap.filterValues { it == value }.keys.first()
-
-    data class SimpleSubject(val id: String, val name: String)
+  data class SimpleSubject(val id: String, val name: String)
 
 }

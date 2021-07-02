@@ -40,6 +40,6 @@ class Prefs(val context: Context) {
     fun getFavTutors() = storage.getString(PREFERENCES, "")
 
     fun wipe() {
-        storage.edit().clear()
+        storage.edit().clear().apply()
     }
 }

@@ -42,7 +42,7 @@
                 android:text="@={availabilityViewModel.subject}"
                 android:layout_height="wrap_content"
                 android:background="@drawable/shape_input"
-                android:inputType="text" />
+                android:inputType="none" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -71,7 +71,7 @@
                 android:layout_height="wrap_content"
                 android:text="@={availabilityViewModel.course}"
                 android:background="@drawable/shape_input"
-                android:inputType="text" />
+                android:inputType="none" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -100,7 +100,7 @@
                 android:text="@={availabilityViewModel.responseTime}"
                 android:layout_height="wrap_content"
                 android:background="@drawable/shape_input"
-                android:inputType="text" />
+                android:inputType="none" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -114,19 +114,19 @@
             android:textSize="@dimen/h4" />
 
         <CheckBox
-            android:id="@+id/spanish_checkbox"
+            android:id="@+id/virtual_checkbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/default_gap"
-            android:checked="true"
+            android:checked="false"
             android:text="@string/check_availability_virtual" />
 
         <CheckBox
-            android:id="@+id/english_checkbox"
+            android:id="@+id/onsite_checkbox"
             android:layout_width="wrap_content"
             android:layout_marginStart="@dimen/default_gap"
             android:layout_height="wrap_content"
-            android:checked="true"
+            android:checked="false"
             android:text="@string/check_availability_onsite" />
 
         <RelativeLayout

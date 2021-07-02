@@ -20,6 +20,16 @@
     <string name="tool_category_description">Formando a los mejores universitarios del pais sino del mundo</string>
     <string name="tool_subject_tutor">Matematicas Sociales</string>
     <string name="available_tutor">Tutores disponibles</string>
+    <string name="btn_text_onboarding">Siguiente</string>
+    <string name="titleapp_uppercase">TEARN</string>
+    <string name="home_theme_interest_title">Temas de Interés</string>
+    <string name="action_theme_interest_title">Ver Todo</string>
+    <string name="reco_tutors_title_text">Tutores recomendados</string>
+    <string name="action_reco_title_text">Buscar tutores</string>
+    <string name="comment_box_text">Escribe una reseña al tutor</string>
+    <string name="info_tutor_text">Información del tutor</string>
+    <string name="account_text">Account</string>
+    <string name="chats_text">Chats</string>
     <string name="fav_tutors">Tutores favoritos</string>
     <string name="logout">Cerrar sesión</string>
     <string name="convert_to_tutor">Conviertete en tutor</string>
@@ -51,6 +61,7 @@
     <string name="button_tutor">¡Quiero ser tutor!</string>
     <string name="title_activity_maps">Map</string>
     <string name="web_client">704366497875-bnmdtr17a45qv2dlmjdq0ob81tf7vem1.apps.googleusercontent.com</string>
+
     <string name="tearn_text">TEARN</string>
     <string name="temas_de_interes_text">Temas de Interés</string>
     <string name="ver_todo_text">Ver Todo</string>

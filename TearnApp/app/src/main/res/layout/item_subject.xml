@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/default_margin"
+        android:background="@drawable/shape_course_search">
+
+        <ImageView
+            android:id="@+id/action_delete"
+            android:layout_width="60sp"
+            android:layout_height="60sp"
+            android:layout_alignParentStart="true"
+            android:padding="@dimen/default_gap"
+            android:src="@drawable/ic_baseline_close_24" />
+
+        <TextView
+            android:id="@+id/subject_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:layout_marginEnd="@dimen/default_gap"
+            android:textColor="@color/black"
+            android:textSize="@dimen/h3"
+            tools:text="Matematicas" />
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>
