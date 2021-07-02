@@ -117,7 +117,7 @@
             android:textSize="@dimen/h2" />
 
         <CheckBox
-            android:id="@+id/spanish_checkbox"
+            android:id="@+id/virtual_checkbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/default_gap"
@@ -126,7 +126,7 @@
             android:text="@string/check_availability_virtual" />
 
         <CheckBox
-            android:id="@+id/english_checkbox"
+            android:id="@+id/onsite_checkbox"
             android:layout_width="wrap_content"
             android:layout_marginStart="@dimen/default_gap"
             android:layout_height="wrap_content"

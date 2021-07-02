@@ -18,6 +18,14 @@ xmlns:tools="http://schemas.android.com/tools">
     android:orientation="vertical"
     tools:context=".ui.account.AccountFragment">
 
+    <ProgressBar
+        android:id="@+id/progress_circular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout3"
@@ -28,6 +36,7 @@ xmlns:tools="http://schemas.android.com/tools">
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -47,20 +56,22 @@ xmlns:tools="http://schemas.android.com/tools">
 
     <TextView
         android:id="@+id/username_email"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:layout_marginTop="@dimen/default_margin"
+        android:gravity="center"
         android:text="@{accountViewModel.fetchUserAccountResponse.username}"
         android:textColor="@color/white"
         android:textSize="50sp"
         android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/username_image"
         app:layout_constraintTop_toTopOf="@+id/username_image"
-        app:layout_constraintRight_toRightOf="@+id/username_image"
         tools:text="Henry Cortez" />
 
     <LinearLayout
-        android:id="@+id/linearLayout4"
+        android:id="@+id/linear_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/default_gap"
@@ -104,6 +115,7 @@ xmlns:tools="http://schemas.android.com/tools">
 
 
         <RelativeLayout
+            android:id="@+id/layout_no_tutor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/default_gap">
@@ -129,12 +141,14 @@ xmlns:tools="http://schemas.android.com/tools">
         </RelativeLayout>
 
         <View
+            android:id="@+id/view_tutor"
             android:layout_width="match_parent"
             android:layout_height="@dimen/hr_line"
             android:layout_marginHorizontal="@dimen/default_gap"
             android:background="@color/black" />
 
         <RelativeLayout
+            android:id="@+id/layout_is_tutor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/default_gap">
@@ -160,6 +174,7 @@ xmlns:tools="http://schemas.android.com/tools">
         </RelativeLayout>
 
         <View
+            android:id="@+id/view_tutor_info"
             android:layout_width="match_parent"
             android:layout_height="@dimen/hr_line"
             android:layout_marginHorizontal="@dimen/default_gap"
@@ -194,15 +209,16 @@ xmlns:tools="http://schemas.android.com/tools">
 
     <TextView
         android:id="@+id/username"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@{accountViewModel.fetchUserAccountResponse.email}"
         android:textColor="@color/gray"
         android:textSize="48sp"
         android:textStyle="italic"
+        app:layout_constraintStart_toEndOf="@id/username_image"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username_email"
-        tools:layout_editor_absoluteX="0dp"
         tools:text="Henry200amaya@gmail.com" />
 
 
