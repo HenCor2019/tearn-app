@@ -22,7 +22,7 @@
             <LinearLayout
                 android:id="@+id/linearLayout3"
                 android:layout_width="match_parent"
-                android:layout_height="166dp"
+                android:layout_height="match_parent"
                 android:background="@color/purple_black"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -31,8 +31,8 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/image_tutor_perfil"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
                 android:layout_marginTop="50dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -42,8 +42,8 @@
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/floating_action_chat_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
                 android:layout_gravity="bottom|right"
                 android:layout_margin="16dp"
                 app:backgroundTint="@color/blue_black"
@@ -54,7 +54,7 @@
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/floating_action_fav_btn"
-                android:layout_width="wrap_content"
+                android:layout_width="400dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|right"
                 android:layout_margin="16dp"
@@ -66,8 +66,8 @@
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/floating_action_report_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
                 android:layout_gravity="bottom|right"
                 app:backgroundTint="@color/yellow_alert"
                 android:layout_margin="16dp"
@@ -78,8 +78,8 @@
                 app:tint="@color/white" />
 
             <ProgressBar
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginTop="@dimen/default_gap"
                 android:visibility="@{viewModel.loading}"
                 app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
@@ -105,7 +105,7 @@
                     android:layout_marginStart="4dp"
                     android:text="Tiempo de respuesta promedio"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/h3_tablet"
                     android:textStyle="italic"
                     app:layout_constraintBottom_toBottomOf="@+id/imageView4"
                     app:layout_constraintStart_toEndOf="@+id/imageView4"
@@ -117,7 +117,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/h4_tablet"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="@+id/textView5"
                     app:layout_constraintTop_toBottomOf="@+id/textView5"
@@ -149,7 +149,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/h4_tablet"
                     android:textStyle="bold"
                     app:layout_constraintStart_toEndOf="@+id/imageView2"
                     app:layout_constraintTop_toBottomOf="@+id/textView8"
@@ -161,8 +161,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
                     android:text="Idiomas"
+                    android:layout_marginTop="@dimen/default_margin"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/h3_tablet"
                     android:textStyle="italic"
                     app:layout_constraintBottom_toBottomOf="@+id/imageView2"
                     app:layout_constraintStart_toEndOf="@+id/imageView2"
@@ -173,7 +174,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
-                    android:textSize="25sp"
+                    android:textSize="@dimen/h2_tablet"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -184,37 +185,39 @@
                     android:id="@+id/textView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="28dp"
                     android:text="Tutor"
                     android:textColor="@color/black"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/h3_tablet"
                     app:layout_constraintEnd_toStartOf="@+id/icon_active"
-                    app:layout_constraintHorizontal_bias="0.953"
+                    app:layout_constraintHorizontal_bias="0.989"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/label_tutor_perfil_name" />
 
                 <ImageView
                     android:id="@+id/icon_active"
-                    android:layout_width="24dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="156dp"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginEnd="164dp"
                     android:src="@drawable/ic_baseline_lens_24"
                     app:layout_constraintBottom_toBottomOf="@+id/textView4"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/textView4"
-                    app:layout_constraintVertical_bias="0.0" />
+                    app:layout_constraintVertical_bias="1.0" />
 
                 <TextView
                     android:id="@+id/tutor_description"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/default_gap"
-                    android:text="Información del tutor"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="28dp"
+                    android:text="@string/info_tutor_text"
                     android:textColor="@color/black"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/h2_tablet"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView4" />
+                    app:layout_constraintTop_toBottomOf="@+id/label_tutor_perfil_name"
+                    tools:ignore="MissingConstraints" />
 
                 <LinearLayout
                     android:id="@+id/linearLayout"
@@ -231,9 +234,9 @@
                     android:id="@+id/label_tutor_perfil_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/default_gap"
+                    android:layout_marginTop="32dp"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/h3_tablet"
                     android:textStyle="italic"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -257,7 +260,7 @@
                     android:layout_marginStart="4dp"
                     android:text="Disponibilidad"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/h3_tablet"
                     android:textStyle="italic"
                     app:layout_constraintBottom_toBottomOf="@+id/imageView5"
                     app:layout_constraintStart_toEndOf="@+id/imageView5"
@@ -269,7 +272,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/h4_tablet"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="@+id/textView12"
                     app:layout_constraintTop_toBottomOf="@+id/textView12"
@@ -282,7 +285,7 @@
                     android:layout_marginTop="@dimen/default_gap"
                     android:text="Valoraciones"
                     android:textColor="@color/black"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/h3_tablet"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/label_tutor_perfil_disponibility" />
@@ -293,7 +296,7 @@
                     android:layout_height="wrap_content"
                     android:text="Ver todos"
                     android:textColor="@color/green_black"
-                    android:textSize="15sp"
+                    android:textSize="@dimen/h3_tablet"
                     app:layout_constraintBottom_toBottomOf="@+id/tutor_valorations"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/tutor_valorations" />
@@ -326,7 +329,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
-                        android:textSize="35sp"
+                        android:textSize="@dimen/h1_tablet"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
 
@@ -384,7 +387,7 @@
                         android:onClick="@{()-> viewModel.openValoration()}"
                         android:text="Agregar Valoración"
                         android:textColor="@color/green_black"
-                        android:textSize="10sp"
+                        android:textSize="@dimen/h4_tablet"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/icon_star_3"
@@ -443,24 +446,25 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView2"
+                        android:id="@+id/no_result_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="¡Puntúa al tutor!"
-                        android:textSize="20sp"
+                        android:textSize="@dimen/h4_tablet"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <EditText
                         android:id="@+id/input_valoration"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="@dimen/comment_box_height_tablet"
                         android:layout_marginTop="@dimen/default_gap"
                         android:backgroundTint="@color/green_black"
-                        android:hint="Escribe una reseña al tutor"
+                        android:hint="@string/comment_box_text"
                         android:text="@={viewModel.valoration}"
                         android:textColor="@color/black"
                         android:textColorHint="@color/gray"
+                        android:textSize="@dimen/h4_tablet"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/valoration_star_1" />
@@ -474,7 +478,7 @@
                         android:onClick="@{()->viewModel.closeValoration()}"
                         android:text="Cancelar"
                         android:textColor="@color/black"
-                        android:textSize="10sp"
+                        android:textSize="@dimen/h4"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/input_valoration"
                         app:strokeColor="@color/green_black" />
@@ -488,7 +492,7 @@
                         android:onClick="@{()-> viewModel.addValoration()}"
                         android:text="Enviar"
                         android:textColor="@color/black"
-                        android:textSize="10sp"
+                        android:textSize="@dimen/h4"
                         app:layout_constraintStart_toEndOf="@+id/action_cancel_valoration_btn"
                         app:layout_constraintTop_toTopOf="@+id/action_cancel_valoration_btn"
                         app:strokeColor="@color/green_black" />

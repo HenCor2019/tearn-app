@@ -2,15 +2,71 @@
 <resources>
     <dimen name="default_gap">16dp</dimen>
     <dimen name="default_radius">15dp</dimen>
+
     <dimen name="no_result_size">35sp</dimen>
+    <dimen name="no_result_size_tablet_portrait">75sp</dimen>
+
     <dimen name="default_margin">10sp</dimen>
+
     <dimen name="tutor_search_size">23sp</dimen>
     <dimen name="hr_line">1sp</dimen>
+
     <dimen name="category_name_size">32sp</dimen>
+    <dimen name="category_name_size_tablet_portrait">60sp</dimen>
+
     <dimen name="view_height">1sp</dimen>
 
     <dimen name="h1">25sp</dimen>
+    <dimen name="h1_tablet">60sp</dimen>
+
     <dimen name="h2">23sp</dimen>
+    <dimen name="h2_tablet">40sp</dimen>
+
     <dimen name="h3">20sp</dimen>
+    <dimen name="h3_tablet">30sp</dimen>
+
     <dimen name="h4">18sp</dimen>
+    <dimen name="h4_tablet">25sp</dimen>
+
+    <dimen name="gap_img_subtitle_empty_cont"> 32dp</dimen>
+    <dimen name="gap_title_top_category_tablet">32dp</dimen>
+    <dimen name="img_category_sz_tablet">200sp</dimen>
+    <dimen name="gap_img_title_category">25sp</dimen>
+    <dimen name="gap_subtitle_frag_category">50dp</dimen>
+    <dimen name="onboarding_circle_size_tablet">50dp</dimen>
+    <dimen name="gap_onboarding_btn">24dp</dimen>
+    <dimen name="progressbar_size_tablet">150dp</dimen>
+    <dimen name="default_profile_pic_size_tablet">90dp</dimen>
+    <dimen name="star_size_tablet">50dp</dimen>
+
+    <dimen name="height_gap_0">0dp</dimen>
+
+    <dimen name="nav_controller_height_tablet">100dp</dimen>
+    <dimen name="img_size_category_phone">100sp</dimen>
+
+
+    <dimen name="empty_container_img_width">600dp</dimen>
+    <dimen name="empty_container_img_height">567dp</dimen>
+    <dimen name="icon_category_width">70dp</dimen>
+    <dimen name="icon_category_height">77dp</dimen>
+    <dimen name="gap_category_subjects">40dp</dimen>
+    <dimen name="img_size_category">220dp</dimen>
+
+    <dimen name="img_size_frag_course_tablet">150sp</dimen>
+    <dimen name="img_size_frag_course">50sp</dimen>
+    <dimen name="gap_subitle_course">60sp</dimen>
+    <dimen name="home_icon_size_tablet">100dp</dimen>
+    <dimen name="bar_height_1">1dp</dimen>
+    <dimen name="bar_gap_home">8dp</dimen>
+    <dimen name="gap_items_title_home_tablet">32dp</dimen>
+    <dimen name="home_icon_size">30dp</dimen>
+    <dimen name="img_height_onboarding_tablet">500dp</dimen>
+    <dimen name="gap_img_top_onboarding_tablet">456dp</dimen>
+    <dimen name="btn_onboarding_width_tablet">220dp</dimen>
+    <dimen name="btn_onboarding_height_tablet">80dp</dimen>
+    <dimen name="img_onboarding_height">245dp</dimen>
+    <dimen name="gap_img_top_onboarding">116dp</dimen>
+    <dimen name="gap_process_btn">8dp</dimen>
+    <dimen name="comment_box_height_tablet">80dp</dimen>
+
 </resources>
