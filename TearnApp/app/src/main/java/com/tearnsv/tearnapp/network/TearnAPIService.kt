@@ -1,7 +1,9 @@
 package com.tearnsv.tearnapp.network
 
 import com.tearnsv.tearnapp.data.*
+import com.tearnsv.tearnapp.data.entity.User
 import retrofit2.http.*
+
 
 interface TearnAPIService {
 
@@ -32,6 +34,12 @@ interface TearnAPIService {
     suspend fun getOneCategory(@Path("id") id: String): CategoryResponse
 
     @GET("user/{id}")
+    suspend fun getUser(@Path("id") id: String): User
+
+    @PUT("user/")
+    suspend fun addOrRemoveFavTutor(@Body favTutor : FavTutorPetition) : FavTutorResponse
+
+    @GET("user/{id}")
     suspend fun getOneUserAccount(@Path("id") id: String): Account
 
     @GET("user/tutor/user/{id}")
@@ -46,7 +54,5 @@ interface TearnAPIService {
 
     // POST SERVICES
     @POST("user/login")
-    suspend fun loginWithGoogle(@Body user: User): LoginResponse
-
-
+    suspend fun loginWithGoogle(@Body user: UserGoogle): LoginResponse
 }

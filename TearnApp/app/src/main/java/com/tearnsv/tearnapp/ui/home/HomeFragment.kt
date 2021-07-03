@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
@@ -16,6 +17,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.tearnsv.tearnapp.R
 import com.tearnsv.tearnapp.TearnApplication
 import com.tearnsv.tearnapp.databinding.FragmentHomeBinding
+import com.tearnsv.tearnapp.ui.tutorPerfil.TutorFavoriteViewModel
+import com.tearnsv.tearnapp.ui.tutorPerfil.TutorFavoriteViewModelFactory
 import com.tearnsv.tearnapp.ui.bookadapter.BooksRVAdapter
 
 /**
@@ -23,18 +26,27 @@ import com.tearnsv.tearnapp.ui.bookadapter.BooksRVAdapter
  * Use the [HomeFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class HomeFragment : Fragment(), BooksRVAdapter.ItemClickListener {
+class HomeFragment : Fragment(), TutorsRVAdapter.OnClickHandler, BooksRVAdapter.ItemClickListener{
 
-    private var _binding: FragmentHomeBinding? = null
-    private val binding get() = _binding!!
+    private var _binding : FragmentHomeBinding? = null
+    private val binding get() =_binding!!
 
-    private val application by lazy {
+    private val application by lazy{
         requireActivity().application as TearnApplication
     }
 
-    private val homeViewModelFactory: HomeViewModelFactory by lazy {
+    private val homeViewModelFactory: HomeViewModelFactory by lazy{
         val repository = application.tearnRepository
         HomeViewModelFactory(repository)
+    }
+
+    private val tutorFavoriteViewModelFactory: TutorFavoriteViewModelFactory by lazy {
+        val repository = application.tearnRepository
+        TutorFavoriteViewModelFactory(repository)
+    }
+
+    private val tutorFavoriteViewModel: TutorFavoriteViewModel by activityViewModels {
+        tutorFavoriteViewModelFactory
     }
 
     private val homeViewModel: HomeViewModel by viewModels {
@@ -44,10 +56,10 @@ class HomeFragment : Fragment(), BooksRVAdapter.ItemClickListener {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-            .apply {
+            .apply{
                 lifecycleOwner = viewLifecycleOwner
                 viewModel = homeViewModel
             }
@@ -57,22 +69,29 @@ class HomeFragment : Fragment(), BooksRVAdapter.ItemClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val navHostFragment =
+            requireActivity()
+                .supportFragmentManager
+                .findFragmentById(R.id.nav_host_controller_fragment)
+                    as NavHostFragment
+        val navController = navHostFragment.navController
 
         var topicsRVAdapter = TopicsRVAdapter()
         val booksRVAdapter = BooksRVAdapter(this)
-        var tutorsRVAdapter = TutorsRVAdapter{
-            var bundle = Bundle()
-            bundle.putString(TUTOR_ID,it)
-            findNavController().navigate(R.id.tutorPerfilFragment,bundle)
-        }
+//        var tutorsRVAdapter = TutorsRVAdapter{
+//            var bundle = Bundle()
+//            bundle.putString(TUTOR_ID,it)
+//            findNavController().navigate(R.id.tutorPerfilFragment,bundle)
+//        }
+        var tutorsRVAdapter = TutorsRVAdapter(this)
 
-        binding.topicsRecycleView.apply {
+        binding.topicsRecycleView.apply{
             layoutManager =
                 LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             adapter = topicsRVAdapter
         }
 
-        binding.tutorsRecycleView.apply {
+        binding.tutorsRecycleView.apply{
             layoutManager =
                 LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             adapter = tutorsRVAdapter
@@ -99,23 +118,40 @@ class HomeFragment : Fragment(), BooksRVAdapter.ItemClickListener {
             requireActivity().findViewById<BottomNavigationView>(R.id.bottom_navigation)
 
         binding.actionCategories.setOnClickListener {
-            findNavController().navigate(R.id.categoriesFragment)
+            navController.navigate(R.id.categoriesFragment)
         }
 
-        binding.actionSearchTopics.setOnClickListener {
-            findNavController().navigate(R.id.searchFragment)
+        binding.actionSearchTopics.setOnClickListener{
+            navController.navigate(R.id.searchFragment)
             bottomNav.selectedItemId = R.id.page_1
         }
 
-        binding.actionSearchTutors.setOnClickListener {
-            findNavController().navigate(R.id.searchFragment)
+        binding.actionSearchTutors.setOnClickListener{
+            navController.navigate(R.id.searchFragment)
             bottomNav.selectedItemId = R.id.page_1
         }
+
+        tutorFavoriteViewModel.favTutors.observe(viewLifecycleOwner){
+            var favTutors = mutableListOf<String>()
+            it.forEach { favTutor ->
+                favTutors.add(favTutor.idTutor)
+            }
+            tutorsRVAdapter.setFavTutors(favTutors.toList())
+        }
+    }
+
+    override fun onClickFavButton(id: String){
+        tutorFavoriteViewModel.addOrRemoveFav(id)
+    }
+
+    override fun onCLickItem(id: String) {
+        var bundle = Bundle()
+        bundle.putString(TUTOR_ID, id)
+        findNavController().navigate(R.id.tutorPerfilFragment, bundle)
     }
 
     companion object {
         const val TUTOR_ID = "TUTOR_ID"
-        const val AUTHOR_ID = "AUTHOR_ID"
     }
 
     override fun onClickItem(url: String) {

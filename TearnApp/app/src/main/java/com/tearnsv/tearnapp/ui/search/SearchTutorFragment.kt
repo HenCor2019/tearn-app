@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.tearnsv.tearnapp.R
 import com.tearnsv.tearnapp.TearnApplication
 import com.tearnsv.tearnapp.databinding.FragmentSearchTutorBinding
-import com.tearnsv.tearnapp.ui.home.HomeFragment.Companion.AUTHOR_ID
 import com.tearnsv.tearnapp.ui.home.HomeFragment.Companion.TUTOR_ID
 import com.tearnsv.tearnapp.ui.search.adapter.SearchTutorRecyclerViewAdapter
 import com.tearnsv.tearnapp.ui.search.viewmodel.SearchVMFactory
