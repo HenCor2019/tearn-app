@@ -12,8 +12,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_marginTop="20sp"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="20sp">
 
         <include
             android:id="@+id/empty_container"
@@ -36,6 +36,8 @@
             android:id="@+id/recycler_view_search_tutors"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/default_gap"
+            android:layout_marginTop="@dimen/default_gap"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"

@@ -15,12 +15,13 @@
         android:layout_height="match_parent"
         android:padding="@dimen/default_gap"
         android:background="@color/white"
+        android:layout_marginTop="@dimen/default_gap"
         tools:context=".ui.course.CourseFragment">
 
         <ImageView
             android:id="@+id/image_course"
-            android:layout_width="50sp"
-            android:layout_height="50sp"
+            android:layout_width="@dimen/img_size_frag_course"
+            android:layout_height="@dimen/img_size_frag_course"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@drawable/ic_launcher_background" />
@@ -38,14 +39,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.1"
             app:layout_constraintStart_toEndOf="@+id/image_course"
-            app:layout_constraintTop_toTopOf="@+id/image_course"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="@string/tool_course_name" />
 
         <View
             android:id="@+id/view"
             android:layout_width="match_parent"
             android:layout_height="@dimen/hr_line"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="@dimen/default_gap"
+            android:layout_margin="@dimen/default_margin"
             android:background="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -54,7 +56,8 @@
         <TextView
             android:id="@+id/recommended_tutor_result"
             android:layout_width="wrap_content"
-            android:layout_height="60sp"
+            android:layout_height="@dimen/gap_subitle_course"
+            android:layout_marginStart="@dimen/default_margin"
             android:gravity="center"
             android:text="@string/available_tutor"
             android:textColor="@color/black"
@@ -85,7 +88,6 @@
             app:spanCount="2"
             tools:itemCount="5"
             tools:listitem="@layout/item_tutors_recomended" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

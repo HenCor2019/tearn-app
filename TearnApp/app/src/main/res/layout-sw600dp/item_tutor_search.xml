@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:outlineSpotShadowColor="@color/white"
+    app:cardCornerRadius="15dp"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_course_search">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/user_image"
+            android:layout_width="70sp"
+            android:layout_height="70sp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_margin="@dimen/default_margin"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/default_photo"
+            app:shapeAppearanceOverlay="@style/roundedImage" />
+
+        <LinearLayout
+            android:layout_width="200sp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="15sp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/black"
+                android:textSize="@dimen/tutor_search_size"
+                tools:text="@string/name_tool" />
+
+            <TextView
+                android:id="@+id/user_subject"
+                android:textColor="@color/gray"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="15sp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textSize="15sp"
+                tools:text="@string/tool_subject_tutor" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/star_image"
+                android:layout_width="wrap_content"
+                android:paddingTop="1sp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_star_rate_24" />
+
+            <TextView
+                android:id="@+id/user_punctuation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20sp"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                tools:text="@string/tool_punctuation" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="searchViewModel"
+            type="com.tearnsv.tearnapp.ui.search.viewmodel.SearchViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".ui.search.SearchFragment">
+
+        <SearchView
+            android:id="@+id/search_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/default_gap"
+            android:layout_marginVertical="@dimen/default_gap"
+            android:background="@drawable/shape_search"
+            app:defaultQueryHint="@string/default_query"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:queryHint="@string/default_query"/>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/default_gap"
+            android:layout_marginBottom="@dimen/default_margin"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search_view"
+            app:layout_constraintVertical_bias="0.07"
+            app:tabIndicatorColor="@color/green_black"
+            app:tabSelectedTextColor="@color/green_black"
+            app:tabTextColor="@color/black" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/search_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="500sp"
+            android:padding="@dimen/default_gap"
+            android:layout_marginHorizontal="@dimen/default_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tab_layout"
+            app:layout_constraintVertical_bias="0.5" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

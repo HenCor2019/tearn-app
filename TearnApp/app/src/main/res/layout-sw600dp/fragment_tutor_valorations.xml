@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.tearnsv.tearnapp.ui.tutorPerfil.TutorProfileViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".ui.tutorPerfil.TutorValorationsFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/purple_black"
+            android:padding="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/name_tutor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20sp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/h2_tablet"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/image_tutor_valoration"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Carlos Roberto Cortez" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/image_tutor_valoration"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/action_back_icon"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/default_photo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="@dimen/h3_tablet"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/name_tutor"
+                app:layout_constraintTop_toBottomOf="@+id/name_tutor"
+                android:text="Valoraciones" />
+
+            <ImageView
+                android:id="@+id/action_back_icon"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_baseline_arrow_back_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:visibility="@{viewModel.loading}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycle_view_all_valorations"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/default_gap"
+            tools:listitem="@layout/item_tutor_valoration"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

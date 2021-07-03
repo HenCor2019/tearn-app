@@ -28,6 +28,8 @@
         <LinearLayout
             android:layout_width="200sp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_gap"
+            android:paddingStart="@dimen/default_gap"
             android:layout_centerInParent="true"
             android:layout_centerHorizontal="true"
             android:orientation="vertical">

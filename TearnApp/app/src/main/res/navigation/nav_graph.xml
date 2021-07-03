@@ -9,7 +9,11 @@
         android:id="@+id/onBoardingFragment"
         android:name="com.tearnsv.tearnapp.ui.onBoarding.OnBoardingFragment"
         android:label="OnBoardingFragment"
-        tools:layout="@layout/fragment_on_boarding"/>
+        tools:layout="@layout/fragment_on_boarding">
+        <action
+            android:id="@+id/action_onBoardingFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
     <fragment
         android:id="@+id/preferencesFragment"
         android:name="com.tearnsv.tearnapp.ui.preferences.PreferencesFragment"
@@ -20,4 +24,12 @@
         android:name="com.tearnsv.tearnapp.ui.home.NavControllerActivity"
         android:label="activity_nav_controller"
         tools:layout="@layout/activity_nav_controller" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.tearnsv.tearnapp.ui.login.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_preferencesFragment"
+            app:destination="@id/preferencesFragment" />
+    </fragment>
 </navigation>

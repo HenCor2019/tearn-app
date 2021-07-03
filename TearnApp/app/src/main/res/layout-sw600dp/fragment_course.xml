@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="courseViewModel"
+            type="com.tearnsv.tearnapp.ui.course.viewmodel.CourseViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/default_gap"
+        android:background="@color/white"
+        tools:context=".ui.course.CourseFragment">
+
+        <ImageView
+            android:id="@+id/image_course"
+            android:layout_width="@dimen/img_size_frag_course_tablet"
+            android:layout_height="@dimen/img_size_frag_course_tablet"
+            android:layout_marginStart="@dimen/default_gap"
+            android:layout_marginTop="@dimen/gap_title_top_category_tablet"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_launcher_background" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap_title_top_category_tablet"
+            android:gravity="center"
+            android:text="@{courseViewModel.fetchCourseResponse.name}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/h1_tablet"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/image_course"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toEndOf="@+id/image_course"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/tool_course_name" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/hr_line"
+            android:layout_marginTop="@dimen/default_gap"
+            android:background="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_course" />
+
+        <TextView
+            android:id="@+id/recommended_tutor_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap_title_top_category_tablet"
+            android:gravity="center"
+            android:text="@string/available_tutor"
+            android:textColor="@color/black"
+            android:textSize="@dimen/h2_tablet"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.029"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/view" />
+
+        <include
+            android:id="@+id/empty_container"
+            layout="@layout/empty_container"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recommended_tutor_result" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_principal_tutor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_gap"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recommended_tutor_result"
+            app:layout_constraintVertical_bias="0.0"
+            app:spanCount="3"
+            tools:itemCount="8"
+            tools:listitem="@layout/item_tutors_recomended" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

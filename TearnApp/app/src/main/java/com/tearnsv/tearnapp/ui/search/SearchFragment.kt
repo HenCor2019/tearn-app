@@ -52,11 +52,7 @@ class SearchFragment : Fragment() {
         binding.searchViewModel = searchViewModel
         binding.lifecycleOwner = viewLifecycleOwner
 
-        searchViewModel.fetchSearchResponse.observe(viewLifecycleOwner){
-            Log.d("RESPONSE", it.toString())
-        }
-
-        val TABS_NAME = listOf("Cursos", "Tutores")
+        val TABS_NAME = listOf("Cursos", "Tutores", "Libros")
         val tabLayout = view.findViewById<TabLayout>(R.id.tab_layout)
         val viewPager = view.findViewById<ViewPager2>(R.id.search_view_pager)
         viewPager.adapter = SearchAdapter(requireActivity())

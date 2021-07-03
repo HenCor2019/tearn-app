@@ -19,7 +19,20 @@
         android:id="@+id/accountFragment"
         android:name="com.tearnsv.tearnapp.ui.account.AccountFragment"
         android:label="fragment_account"
-        tools:layout="@layout/fragment_account" />
+        tools:layout="@layout/fragment_account" >
+        <action
+            android:id="@+id/action_accountFragment_to_favoriteFragment"
+            app:destination="@id/favoriteFragment" />
+        <action
+            android:id="@+id/action_accountFragment_to_landingFormFragment"
+            app:destination="@id/landingFormFragment" />
+        <action
+            android:id="@+id/action_accountFragment_to_onBoardingFragment2"
+            app:destination="@id/onBoardingFragment2" />
+        <action
+            android:id="@+id/action_accountFragment_to_informationFragment"
+            app:destination="@id/informationFragment" />
+    </fragment>
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.tearnsv.tearnapp.ui.search.SearchFragment"
@@ -56,4 +69,71 @@
         android:name="com.tearnsv.tearnapp.ui.tutorPerfil.TutorReportFragment"
         android:label="TutorReportFragment"
         tools:layout="@layout/fragment_tutor_report"/>
+        android:label="CourseFragment" />
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.tearnsv.tearnapp.ui.account.favorite.FavoriteFragment"
+        android:label="FavoriteFragment" >
+        <action
+            android:id="@+id/action_favoriteFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/personalInformationFragment"
+        android:name="com.tearnsv.tearnapp.ui.account.formtutor.PersonalInformationFragment"
+        android:label="fragment_personal_information"
+        tools:layout="@layout/fragment_personal_information" >
+        <action
+            android:id="@+id/action_personalInformationFragment_to_personalInformationTwoFragment"
+            app:destination="@id/personalInformationTwoFragment" />
+        <action
+            android:id="@+id/action_personalInformationFragment_to_landingFormFragment"
+            app:destination="@id/landingFormFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/personalInformationTwoFragment"
+        android:name="com.tearnsv.tearnapp.ui.account.formtutor.PersonalInformationTwoFragment"
+        android:label="PersonalInformationTwoFragment" >
+        <action
+            android:id="@+id/action_personalInformationTwoFragment_to_availabityFragment"
+            app:destination="@id/availabityFragment" />
+        <action
+            android:id="@+id/action_personalInformationTwoFragment_to_personalInformationFragment"
+            app:destination="@id/personalInformationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/availabityFragment"
+        android:name="com.tearnsv.tearnapp.ui.account.formtutor.AvailabilityFragment"
+        android:label="fragment_availabity"
+        tools:layout="@layout/fragment_availabity"
+        app:startDestination="@id/action_availabityFragment_to_personalInformationTwoFragment">
+        <action
+            android:id="@+id/action_availabityFragment_to_personalInformationTwoFragment"
+            app:destination="@id/personalInformationTwoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/landingFormFragment"
+        android:name="com.tearnsv.tearnapp.ui.account.formtutor.LandingFormFragment"
+        android:label="fragment_landing_form"
+        tools:layout="@layout/fragment_landing_form" >
+        <action
+            android:id="@+id/action_landingFormFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+        <action
+            android:id="@+id/action_landingFormFragment_to_personalInformationFragment"
+            app:destination="@id/personalInformationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onBoardingFragment2"
+        android:name="com.tearnsv.tearnapp.ui.onBoarding.OnBoardingFragment"
+        android:label="OnBoardingFragment" />
+    <fragment
+        android:id="@+id/informationFragment"
+        android:name="com.tearnsv.tearnapp.ui.account.information.InformationFragment"
+        android:label="fragment_information"
+        tools:layout="@layout/fragment_information" >
+        <action
+            android:id="@+id/action_informationFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+    </fragment>
 </navigation>

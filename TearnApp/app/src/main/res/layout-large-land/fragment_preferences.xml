@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.tearnsv.tearnapp.ui.preferences.PreferencesViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/default_gap"
+        tools:context=".ui.preferences.PreferencesFragment"
+        android:background="@color/purple_black">
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="¡Ya casi empiezas!"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_gap"
+            android:layout_marginEnd="16dp"
+            android:textColor="@color/white"
+            android:text="De las siguientes categorías, escoge tres que sean de tu interés"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycle_view_categories"
+            android:layout_width="match_parent"
+            android:layout_height="338dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
+            app:layout_constraintVertical_bias="0.01"
+            tools:layout_editor_absoluteX="7dp"
+            tools:listitem="@layout/item_preferences" />
+
+        <LinearLayout
+            android:id="@+id/linear_separation"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/green_selection"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/recycle_view_categories"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recycle_view_categories" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycle_view_preferences"
+            android:layout_width="match_parent"
+            android:layout_height="115dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recycle_view_categories"
+            tools:listitem="@layout/item_preferences_selected" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="@{viewModel.loading}"
+            app:layout_constraintBottom_toBottomOf="@+id/recycle_view_categories"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:backgroundTint="@color/white"
+            android:text="Comenzar"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Omitir"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

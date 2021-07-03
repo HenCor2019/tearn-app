@@ -51,7 +51,6 @@ class CourseFragment : Fragment(), CourseRecyclerViewAdapter.OnClickHandler {
         arguments?.let {
             idCourse = it.getString(COURSE_ID).toString()
         }
-        courseViewModel.setId(idCourse)
     }
 
     override fun onCreateView(
@@ -59,6 +58,7 @@ class CourseFragment : Fragment(), CourseRecyclerViewAdapter.OnClickHandler {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentCourseBinding.inflate(inflater, container, false)
+        courseViewModel.setId(idCourse)
         return binding.root
     }
 
@@ -84,14 +84,13 @@ class CourseFragment : Fragment(), CourseRecyclerViewAdapter.OnClickHandler {
                 return@observe
 
             if (it.tutorsCount == 0) {
-                binding.emptyContainer.visibility = View.VISIBLE
+
                 binding.recyclerViewPrincipalTutor.visibility = View.GONE
                 return@observe
 
             }
 
             rvAdapter.setData(it.tutors)
-            binding.emptyContainer.visibility = View.GONE
             binding.recyclerViewPrincipalTutor.visibility = View.VISIBLE
         }
 
@@ -113,6 +112,7 @@ class CourseFragment : Fragment(), CourseRecyclerViewAdapter.OnClickHandler {
         bundle.putString(HomeFragment.TUTOR_ID, id)
         findNavController().navigate(R.id.tutorPerfilFragment, bundle)
     }
+
 
     companion object {
         const val COURSE_ID = "COURSE_ID"
