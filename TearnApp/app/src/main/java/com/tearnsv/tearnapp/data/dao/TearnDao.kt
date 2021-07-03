@@ -30,4 +30,6 @@ interface TearnDao {
 
     @Query("DELETE FROM fav_tutors WHERE idTutor = :idTutor")
     suspend fun deleteFavTutor(idTutor: String)
+
+
 }

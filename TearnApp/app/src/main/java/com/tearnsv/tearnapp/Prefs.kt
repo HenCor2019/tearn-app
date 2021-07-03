@@ -23,10 +23,12 @@ class Prefs(val context: Context) {
 
     fun savePreferences(preferences: List<String>) {
         storage.edit().putString(PREFERENCES, preferences.reduce { acc, pref -> "$acc $pref" })
+            .apply()
     }
 
     fun saveFavTutors(favTutors: List<String>) {
         storage.edit().putString(FAV_TUTORS, favTutors.reduce { acc, tutor -> "$acc $tutor" })
+            .apply()
     }
 
     fun saveAccessToken(accessToken: String) {
@@ -38,6 +40,7 @@ class Prefs(val context: Context) {
     fun getAccessToken() = storage.getString(ACCESS_TOKEN, "")
     fun getPreferences() = storage.getString(PREFERENCES, "")
     fun getFavTutors() = storage.getString(PREFERENCES, "")
+
 
     fun wipe() {
         storage.edit().clear().apply()

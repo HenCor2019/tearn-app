@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.tearnsv.tearnapp.TearnApplication
 import com.tearnsv.tearnapp.data.FavTutorPetition
 import com.tearnsv.tearnapp.data.entity.User
 import com.tearnsv.tearnapp.data.entity.UserWithFavTutor
@@ -13,11 +14,12 @@ import kotlinx.coroutines.launch
 class TutorFavoriteViewModel(private var repository: TearnRepository): ViewModel() {
     var user = MutableLiveData<User>()
     var favTutors = repository.getFavTutors()
-    val ID = MutableLiveData("60b0a724b4099b13d593ce39")
+    var ID = MutableLiveData("")
 
 
     //Va a cambiar
     init {
+        ID.value = TearnApplication.prefs.getId().toString()
         viewModelScope.launch {
             try {
                 user.value = repository.getUser(ID.value!!)

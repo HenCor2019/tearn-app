@@ -15,12 +15,15 @@ class LoginViewModel(private val repository: TearnRepository) : ViewModel() {
             try {
                 val response = repository.loginWithGoogle(UserGoogle(username, email, imgUrl))
                 TearnApplication.prefs.saveId(response.id)
+                Log.e("id", response.id)
                 TearnApplication.prefs.saveAccessToken(response.accessToken)
                 TearnApplication.prefs.savePreferences(response.preferences)
+                Log.e("preferences", response.preferences.toString())
                 TearnApplication.prefs.saveFavTutors(response.favTutors)
+                Log.e("favTutor", response.favTutors.toString())
                 TearnApplication.prefs.saveIsTutor(response.isTutor)
-
-                Log.d("RESPONSE", response.toString())
+                Log.e("isTutor", response.isTutor.toString())
+                //Log.d("RESPONSE", response.toString())
 
             } catch (error: Exception) {
                 Log.e("INSERT_ERROR", error.toString())
