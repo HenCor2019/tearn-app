@@ -4,6 +4,7 @@ import com.tearnsv.tearnapp.data.*
 import com.tearnsv.tearnapp.data.entity.User
 import retrofit2.http.*
 
+
 interface TearnAPIService {
 
     @GET("category/")
@@ -53,7 +54,5 @@ interface TearnAPIService {
 
     // POST SERVICES
     @POST("user/login")
-    suspend fun loginWithGoogle(@Body user: User): LoginResponse
-
-
+    suspend fun loginWithGoogle(@Body user: UserGoogle): LoginResponse
 }

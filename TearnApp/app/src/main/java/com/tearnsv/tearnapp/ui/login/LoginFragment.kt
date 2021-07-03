@@ -41,10 +41,6 @@ class LoginFragment : Fragment() {
 
     private val loginViewModel: LoginViewModel by viewModels { loginVMFactory }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

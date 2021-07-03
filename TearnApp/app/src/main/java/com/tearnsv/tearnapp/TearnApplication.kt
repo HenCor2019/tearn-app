@@ -11,8 +11,7 @@ class TearnApplication : Application(){
     private val database by lazy { TearnDatabase.getDatabase(this) }
     val tearnRepository by lazy {
         val tearnDao = database.getTearnDao()
-        TearnRepository(TearnAPI,tearnDao)
-        TearnRepository(TearnAPI, BookAPI)
+        TearnRepository(TearnAPI,tearnDao, BookAPI)
     }
 
     companion object {

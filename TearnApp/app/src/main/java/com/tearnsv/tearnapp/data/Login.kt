@@ -13,7 +13,7 @@ data class LoginResponse(
     val preferences: List<String>
 )
 
-data class User(
+data class UserGoogle(
     val username: String,
     val email: String,
     val imgUrl: String

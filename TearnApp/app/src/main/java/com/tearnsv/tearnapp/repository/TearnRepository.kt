@@ -1,14 +1,10 @@
 package com.tearnsv.tearnapp.repository
 
-import com.tearnsv.tearnapp.data.Commentary
-import com.tearnsv.tearnapp.data.Report
-import com.tearnsv.tearnapp.data.ResponseApi
+import com.tearnsv.tearnapp.data.*
 import com.tearnsv.tearnapp.data.dao.TearnDao
 import com.tearnsv.tearnapp.data.entity.FavTutor
-import com.tearnsv.tearnapp.data.entity.User
+import com.tearnsv.tearnapp.data.UserGoogle
 import com.tearnsv.tearnapp.data.entity.UserWithFavTutor
-import com.tearnsv.tearnapp.data.NewTutor
-import com.tearnsv.tearnapp.data.User
 import com.tearnsv.tearnapp.network.BookAPI
 import com.tearnsv.tearnapp.network.TearnAPI
 import kotlinx.coroutines.Dispatchers
@@ -96,6 +92,6 @@ class TearnRepository(
     suspend fun convertToTutor(newTutor: NewTutor) = api.service.convertToTutor(newTutor)
 
     // post user
-    suspend fun loginWithGoogle(user: User) = api.service.loginWithGoogle(user)
+    suspend fun loginWithGoogle(user: UserGoogle) = api.service.loginWithGoogle(user)
 
 }
