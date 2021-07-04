@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/default_gap"
+    app:cardElevation="3sp"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:id="@+id/book_image"
+            android:layout_width="@dimen/book_img_size_tablet"
+            android:layout_height="@dimen/book_img_size_tablet"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="@dimen/default_gap"
+            android:layout_marginTop="0dp"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/default_book" />
+
+        <LinearLayout
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="38dp"
+            android:layout_marginEnd="77dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/book_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:textColor="@color/black"
+                android:textSize="@dimen/h2_tablet"
+                android:textStyle="bold"
+                tools:text="Matematicas Puras" />
+
+            <TextView
+                android:id="@+id/book_authors"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/default_gap"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxWidth="120sp"
+                android:maxLines="1"
+                android:textSize="@dimen/h3_tablet"
+                tools:text="Manuel Cortez Cherta Juan Maldonado Sierra" />
+
+            <TextView
+                android:id="@+id/book_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/default_gap"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxWidth="120sp"
+                android:maxLines="1"
+                android:textSize="@dimen/h3_tablet"
+                tools:text="2015" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

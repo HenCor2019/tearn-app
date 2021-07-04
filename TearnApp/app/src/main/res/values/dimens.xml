@@ -68,5 +68,8 @@
     <dimen name="gap_img_top_onboarding">116dp</dimen>
     <dimen name="gap_process_btn">8dp</dimen>
     <dimen name="comment_box_height_tablet">80dp</dimen>
+    <dimen name="availability_boarding_circles">40dp</dimen>
+    <dimen name="book_img_size_tablet">280dp</dimen>
+    <dimen name="item_subject_x_size">120dp</dimen>
 
 </resources>

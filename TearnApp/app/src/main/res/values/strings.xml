@@ -64,4 +64,20 @@
     <string name="title_activity_maps">Map</string>
     <string name="web_client">704366497875-bnmdtr17a45qv2dlmjdq0ob81tf7vem1.apps.googleusercontent.com</string>
 
+    <string name="info_frag_edit_text">Editar</string>
+    <string name="personal_info_text">Información personal</string>
+    <string name="info_frag_name_Text">Nombres</string>
+    <string name="input_text_name_example">e. g. Henry Alexander</string>
+    <string name="surname_info_text">Apellidos</string>
+    <string name="input_text_surname_example">e. g. Cortez Amaya</string>
+    <string name="dob_inf_frag">Fecha de nacimiento</string>
+    <string name="input_text_dob_example">e. g. 17/5/2000</string>
+    <string name="info_frag_about_you_text">Sobre ti</string>
+    <string name="info_frag_tutor">Información de tutor</string>
+    <string name="info_frag_assignments_tutor">Materias que posees</string>
+    <string name="info_frag_time_response">Tiempo de respuesta</string>
+    <string name="info_frag_refresh">Actualizar</string>
+    <string name="info_frag_response_time_ex">1h</string>
+    <string name="landing_frag_title_text">Aporta a la comunidad</string>
+
 </resources>
