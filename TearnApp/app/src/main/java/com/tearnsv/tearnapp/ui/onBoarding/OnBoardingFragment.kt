@@ -30,8 +30,11 @@ class OnBoardingFragment : Fragment() {
     savedInstanceState: Bundle?
   ): View {
 
-    if (!TearnApplication.prefs.getId().isNullOrEmpty())
-      findNavController().navigate(R.id.preferencesFragment)
+    if (!TearnApplication.prefs.getId().isNullOrEmpty()) {
+      if (TearnApplication.prefs.getPreferences().isNullOrEmpty()) {
+        findNavController().navigate(R.id.preferencesFragment)
+      }else findNavController().navigate(R.id.navControllerActivity)
+    }
 
     _binding = FragmentOnBoardingBinding.inflate(inflater, container, false)
       .apply {

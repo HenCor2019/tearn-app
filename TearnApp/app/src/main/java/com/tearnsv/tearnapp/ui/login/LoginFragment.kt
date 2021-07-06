@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.viewModelScope
 import androidx.navigation.fragment.findNavController
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -22,6 +23,8 @@ import com.tearnsv.tearnapp.TearnApplication
 import com.tearnsv.tearnapp.databinding.FragmentLoginBinding
 import com.tearnsv.tearnapp.ui.login.viewmodel.LoginVMFactory
 import com.tearnsv.tearnapp.ui.login.viewmodel.LoginViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 const val RC_SIGN_IN = 123
 const val DEFAULT_IMG =
@@ -67,6 +70,12 @@ class LoginFragment : Fragment() {
             startActivityForResult(signInIntent, RC_SIGN_IN)
         }
 
+//        loginViewModel.preferences.observe(viewLifecycleOwner){
+//            if(loginViewModel.ID.value.isNullOrEmpty()) return@observe
+//            if(it.isEmpty())  findNavController().navigate(R.id.preferencesFragment)
+//            else findNavController().navigate(R.id.navControllerActivity)
+//        }
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -82,23 +91,28 @@ class LoginFragment : Fragment() {
     }
 
     private fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) {
-        try {
-            val account = completedTask.getResult(ApiException::class.java)
+        loginViewModel.viewModelScope.launch {
+            try {
+                val account = completedTask.getResult(ApiException::class.java)
 
-            val imgUrl = account?.photoUrl ?: DEFAULT_IMG
-            loginViewModel.saveUser(
-                account!!.displayName.toString(),
-                imgUrl.toString(),
-                account.email.toString()
-            )
+                val imgUrl = account?.photoUrl ?: DEFAULT_IMG
 
-            findNavController().navigate(R.id.preferencesFragment)
+                loginViewModel.saveUser(
+                    account!!.displayName.toString(),
+                    imgUrl.toString(),
+                    account.email.toString()
+                )
 
-        } catch (e: ApiException) {
-            // The ApiException status code indicates the detailed failure reason.
-            // Please refer to the GoogleSignInStatusCodes class reference for more information.
-            Log.e("LOGIN_ERROR", e.toString())
-            Toast.makeText(requireContext(), "Algo malo sucedio", Toast.LENGTH_SHORT).show()
+                if(TearnApplication.prefs.getPreferences().isNullOrEmpty()){
+                    findNavController().navigate(R.id.preferencesFragment)
+                }else findNavController().navigate(R.id.navControllerActivity)
+
+            } catch (e: ApiException) {
+                // The ApiException status code indicates the detailed failure reason.
+                // Please refer to the GoogleSignInStatusCodes class reference for more information.
+                Log.e("LOGIN_ERROR", e.toString())
+                Toast.makeText(requireContext(), "Algo malo sucedio", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

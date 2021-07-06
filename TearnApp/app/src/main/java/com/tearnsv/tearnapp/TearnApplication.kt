@@ -20,7 +20,6 @@ class TearnApplication : Application(){
 
     override fun onCreate() {
         super.onCreate()
-
         prefs = Prefs(applicationContext)
     }
 }

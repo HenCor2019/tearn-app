@@ -26,6 +26,7 @@ class AccountFragment : Fragment() {
   private val binding get() = _binding!!
 
   private val application by lazy { requireActivity().application as TearnApplication }
+
   private val accountVMFactory: AccountVMFactory by lazy {
     val repository = application.tearnRepository
     AccountVMFactory(repository)
@@ -110,6 +111,7 @@ class AccountFragment : Fragment() {
         val intent = Intent(requireContext(), MainActivity::class.java)
         requireActivity().startActivity(intent)
         requireActivity().finish()
+        accountViewModel.cleanDatabase()
         TearnApplication.prefs.wipe()
       }
 

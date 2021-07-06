@@ -14,17 +14,17 @@ class HomeViewModel(private val repository: TearnRepository) : ViewModel() {
     var recommendations = MutableLiveData<Recommendations>()
     var loading = MutableLiveData(View.GONE)
     //val ID = MutableLiveData("60b0a724b4099b13d593ce39")
-    var ID = ""
+    var ID = MutableLiveData("")
     val pattern = MutableLiveData("")
 
     init {
-        ID = TearnApplication.prefs.getId().toString()
+        ID.value = TearnApplication.prefs.getId().toString()
         loading.value = View.VISIBLE
         pattern.value = randomBooks()
 
         viewModelScope.launch {
             try {
-                recommendations.value = repository.findAllRecommendations(ID)
+                recommendations.value = repository.findAllRecommendations(ID.value!!)
             }catch (e: Exception){
                 Log.e("error", e.toString())
             } finally {
