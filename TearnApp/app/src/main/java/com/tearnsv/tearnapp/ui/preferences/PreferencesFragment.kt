@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.tearnsv.tearnapp.R
 import com.tearnsv.tearnapp.TearnApplication
@@ -57,8 +58,11 @@ class PreferencesFragment : Fragment(), PreferencesAdapter.OnClickSuccess {
         val navController = navHostFragment.navController
 
         binding.button.setOnClickListener {
+            preferencesViewModel.setPreferences()
             navController.navigate(R.id.navControllerActivity)
         }
+
+        //TODO("Omitir")
 
         binding.recycleViewPreferences.apply {
             layoutManager = LinearLayoutManager(requireContext())

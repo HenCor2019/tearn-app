@@ -176,6 +176,15 @@ class AccountViewModel(private val repository: TearnRepository) : ViewModel() {
       return false
 
     return true
+  }
 
+  fun cleanDatabase(){
+    viewModelScope.launch {
+     try {
+         repository.deleteDatabase()
+     } catch (e: Exception){
+       Log.e("error",e.toString())
+     }
+    }
   }
 }

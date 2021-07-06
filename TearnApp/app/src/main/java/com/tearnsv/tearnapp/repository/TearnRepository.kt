@@ -1,9 +1,11 @@
 package com.tearnsv.tearnapp.repository
 
+import android.util.Log
 import com.tearnsv.tearnapp.data.*
 import com.tearnsv.tearnapp.data.dao.TearnDao
 import com.tearnsv.tearnapp.data.entity.FavTutor
 import com.tearnsv.tearnapp.data.UserGoogle
+import com.tearnsv.tearnapp.data.entity.User
 import com.tearnsv.tearnapp.data.entity.UserWithFavTutor
 import com.tearnsv.tearnapp.network.BookAPI
 import com.tearnsv.tearnapp.network.TearnAPI
@@ -46,22 +48,27 @@ class TearnRepository(
     // Category
     suspend fun getOneCategory(id: String) = api.service.getOneCategory(id)
 
-    suspend fun getUser(id: String) = withContext(Dispatchers.IO){
+    // Save user when the app start
+    suspend fun saveUser(id: String, favs: String) = withContext(Dispatchers.IO){
         var user = dao.getUser()
-        if(user.id.isNullOrEmpty()){
-            val newUser = api.service.getUser(id)
-            val favTutor = mutableListOf<FavTutor>()
-            newUser.favTutors.forEach {
-                favTutor.add(FavTutor(it))
+        if(user == null){
+            val favTutor = favs.split(",")
+            Log.e("favs",favs)
+            Log.e("favTutor",favTutor.toString())
+            val favTutorArray = mutableListOf<FavTutor>()
+            favTutor.forEach {
+                favTutorArray.add(FavTutor(it))
             }
-            var userWithFavTutor = UserWithFavTutor(newUser, favTutor.toList())
-            dao.insert(userWithFavTutor)
+            Log.e("favTutorArray",favTutorArray.toString())
+            var newUser = UserWithFavTutor(User(id),favTutorArray.toList())
+            dao.insert(newUser)
         }
-        user
     }
 
+    // Get all tutors
     fun getFavTutors() = dao.getFavTutors()
 
+    // Add or remove tutors favs
     suspend fun addOrRemoveFavTutor(favTutor: FavTutorPetition) = withContext(Dispatchers.IO){
         var response = api.service.addOrRemoveFavTutor(favTutor)
         if(!response.error){
@@ -71,10 +78,21 @@ class TearnRepository(
             }
             if (response.favTutors.contains(favTutor.favTutor)){
                 dao.insertFavTutors(favTutors.toList())
-            } else dao.deleteFavTutor(favTutor.favTutor)
+            } else dao.deleteFavTutor(favTutor.favTutor!!)
         }
         response
     }
+
+    suspend fun updateUser(user : FavTutorPetition) = withContext(Dispatchers.IO){
+        var response = api.service.updateUser(user)
+        if(response.error){
+            Log.e("error",response.error.toString())
+        }
+        response
+    }
+
+    //delete all tables from database
+    suspend fun deleteDatabase() = dao.deleteDatabase()
 
     //getAllBooks
     suspend fun getBooks(pattern: String) = bookApi.bookService.getBooks(pattern)

@@ -20,14 +20,14 @@ class TutorFavoriteViewModel(private var repository: TearnRepository): ViewModel
     //Va a cambiar
     init {
         ID.value = TearnApplication.prefs.getId().toString()
-        viewModelScope.launch {
-            try {
-                user.value = repository.getUser(ID.value!!)
-                if(user.value!!.error) throw Exception()
-            }catch (e: Exception){
-                Log.e("error", e.toString())
-            }
-        }
+//        viewModelScope.launch {
+//            try {
+//                user.value = repository.getUser(ID.value!!)
+//                if(user.value!!.error) throw Exception()
+//            }catch (e: Exception){
+//                Log.e("error", e.toString())
+//            }
+//        }
     }
 
     fun addOrRemoveFav(idTutor:String){

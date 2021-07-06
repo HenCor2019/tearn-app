@@ -39,6 +39,9 @@ interface TearnAPIService {
     @PUT("user/")
     suspend fun addOrRemoveFavTutor(@Body favTutor : FavTutorPetition) : FavTutorResponse
 
+    @PUT("user/")
+    suspend fun updateUser(@Body body : FavTutorPetition) : FavTutorResponse
+
     @GET("user/{id}")
     suspend fun getOneUserAccount(@Path("id") id: String): Account
 

@@ -5,8 +5,10 @@ import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.tearnsv.tearnapp.TearnApplication
 import com.tearnsv.tearnapp.data.CategoriesResponse
 import com.tearnsv.tearnapp.data.Category
+import com.tearnsv.tearnapp.data.FavTutorPetition
 import com.tearnsv.tearnapp.data.Preference
 import com.tearnsv.tearnapp.repository.TearnRepository
 import kotlinx.coroutines.launch
@@ -48,5 +50,17 @@ class PreferencesViewModel(private val repository: TearnRepository) : ViewModel(
 
         preferencesLiveData.value = preferences
         return true
+    }
+
+    fun setPreferences(){
+        viewModelScope.launch {
+            try {
+                var response = repository
+                    .updateUser(FavTutorPetition(TearnApplication.prefs.getId()!!, preferences = preferencesLiveData.value?.map { it.id }))
+                if(response.error) throw Exception()
+            }catch (e: Exception){
+                Log.e("error", e.toString())
+            }
+        }
     }
 }

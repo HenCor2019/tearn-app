@@ -23,7 +23,7 @@ interface TearnDao {
 
     @Transaction
     @Query("SELECT * FROM user")
-    suspend fun getUser(): User
+    suspend fun getUser(): User?
 
     @Query("SELECT * FROM fav_tutors")
     fun getFavTutors(): LiveData<List<FavTutor>>
@@ -31,5 +31,15 @@ interface TearnDao {
     @Query("DELETE FROM fav_tutors WHERE idTutor = :idTutor")
     suspend fun deleteFavTutor(idTutor: String)
 
+    @Transaction
+    suspend fun deleteDatabase(){
+        deleteUserTable()
+        deleteFavTutorsTable()
+    }
 
+    @Query("DELETE FROM user")
+    suspend fun deleteUserTable()
+
+    @Query("DELETE FROM fav_tutors")
+    suspend fun deleteFavTutorsTable()
 }
