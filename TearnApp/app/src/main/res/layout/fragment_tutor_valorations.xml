@@ -80,12 +80,13 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycle_view_all_valorations"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:padding="@dimen/default_gap"
-            tools:listitem="@layout/item_tutor_valoration"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+            tools:listitem="@layout/item_tutor_valoration" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

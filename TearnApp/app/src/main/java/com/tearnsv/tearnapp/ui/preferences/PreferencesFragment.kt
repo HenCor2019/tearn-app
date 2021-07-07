@@ -62,7 +62,9 @@ class PreferencesFragment : Fragment(), PreferencesAdapter.OnClickSuccess {
             navController.navigate(R.id.navControllerActivity)
         }
 
-        //TODO("Omitir")
+        binding.actionSkip.setOnClickListener {
+            navController.navigate(R.id.navControllerActivity)
+        }
 
         binding.recycleViewPreferences.apply {
             layoutManager = LinearLayoutManager(requireContext())

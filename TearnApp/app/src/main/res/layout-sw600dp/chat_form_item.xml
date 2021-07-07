@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="8sp"
+    app:cardCornerRadius="15dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/shape_course_search">
+
+        <TextView
+            android:id="@+id/form_mail_reciever"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginHorizontal="@dimen/default_gap"
+            android:gravity="center_vertical"
+            android:textColor="@color/black"
+            android:textSize="@dimen/h2_tablet"
+            tools:text="@string/user_mail_name" />
+
+
+        <TextView
+            android:id="@+id/form_topic_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginHorizontal="@dimen/default_gap"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="300dp"
+            android:layout_marginBottom="0dp"
+            android:gravity="top"
+            android:textColor="@color/semi_black"
+            android:textSize="@dimen/h3_tablet"
+            tools:text="@string/user_mail_topic" />
+
+        <TextView
+            android:id="@+id/course_search_tutors"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginHorizontal="@dimen/default_gap"
+            android:layout_marginTop="-1dp"
+            android:layout_marginEnd="333dp"
+            android:layout_marginBottom="1dp"
+            android:gravity="bottom"
+            android:textColor="@color/semi_black"
+            android:textSize="@dimen/h3_tablet"
+            tools:text="@string/user_mail_content" />
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

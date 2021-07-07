@@ -16,8 +16,6 @@ class TutorFavoriteViewModel(private var repository: TearnRepository): ViewModel
     var favTutors = repository.getFavTutors()
     var ID = MutableLiveData("")
 
-
-    //Va a cambiar
     init {
         ID.value = TearnApplication.prefs.getId().toString()
 //        viewModelScope.launch {

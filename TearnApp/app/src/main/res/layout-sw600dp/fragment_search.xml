@@ -24,6 +24,7 @@
             android:layout_marginHorizontal="62dp"
             android:layout_marginVertical="32dp"
             android:layout_marginTop="@dimen/default_gap"
+            android:theme="@style/textSearchView"
             android:background="@drawable/shape_search"
             app:defaultQueryHint="@string/default_query"
             app:layout_constraintStart_toStartOf="parent"

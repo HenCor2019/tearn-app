@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="principalInformationViewModel"
+            type="com.tearnsv.tearnapp.ui.account.viewmodel.AccountViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="30sp"
+        android:orientation="vertical"
+        tools:context=".ui.account.formtutor.PersonalInformationTwoFragment">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_gap"
+            android:layout_marginBottom="@dimen/default_gap"
+            android:text="@string/text_dob"
+            android:textColor="@color/green_black"
+            android:textSize="@dimen/h2_tablet" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/user_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/default_margin"
+            app:boxBackgroundMode="none"
+            app:hintEnabled="false">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_input"
+                android:text="@={principalInformationViewModel.dob}"
+                android:textSize="@dimen/h2_tablet"
+                android:hint="@string/hint_form_date"
+                android:inputType="date" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/default_margin"
+            android:layout_marginStart="@dimen/default_gap"
+            android:text="@string/text_form_language"
+            android:textColor="@color/green_black"
+            android:textSize="@dimen/h2_tablet" />
+
+        <CheckBox
+            android:id="@+id/spanish_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_gap"
+            android:checked="false"
+            android:text="@string/check_spanish"
+            android:textSize="@dimen/h3_tablet"/>
+
+        <CheckBox
+            android:id="@+id/english_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="@dimen/default_gap"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="@string/check_english"
+            android:textSize="@dimen/h3_tablet"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/default_margin"
+            android:layout_marginStart="@dimen/default_gap"
+            android:layout_marginBottom="@dimen/default_gap"
+            android:text="@string/text_form_email"
+            android:textColor="@color/green_black"
+            android:textSize="@dimen/h2_tablet" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/user_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/default_margin"
+            app:boxBackgroundMode="none"
+            app:counterEnabled="true"
+            app:counterMaxLength="120"
+            app:hintEnabled="false">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="150sp"
+                android:background="@drawable/shape_input"
+                android:text="@={principalInformationViewModel.description}"
+                android:textSize="@dimen/h2_tablet"
+                android:gravity="top"
+                android:hint="@string/hint_form_description" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/default_gap"
+            android:gravity="bottom">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="@dimen/default_margin"
+                android:orientation="horizontal">
+
+
+                <ImageView
+                    android:id="@+id/on_boarding_1"
+                    android:layout_width="@dimen/onboarding_circle_size_tablet"
+                    android:layout_height="@dimen/onboarding_circle_size_tablet"
+                    android:layout_marginBottom="@dimen/default_gap"
+                    android:layout_marginStart="8dp"
+                    android:src="@drawable/ic_baseline_panorama_fish_eye_24" />
+
+                <ImageView
+                    android:id="@+id/on_boarding_2"
+                    android:layout_width="@dimen/onboarding_circle_size_tablet"
+                    android:layout_height="@dimen/onboarding_circle_size_tablet"
+                    android:layout_marginHorizontal="@dimen/default_gap"
+                    android:layout_marginStart="8dp"
+                    android:src="@drawable/ic_baseline_panorama_fish_eye_24" />
+
+                <ImageView
+                    android:id="@+id/on_boarding_3"
+                    android:layout_width="@dimen/onboarding_circle_size_tablet"
+                    android:layout_height="@dimen/onboarding_circle_size_tablet"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:src="@drawable/ic_baseline_lens_24" />
+
+                <ImageView
+                    android:id="@+id/on_boarding_4"
+                    android:layout_width="@dimen/onboarding_circle_size_tablet"
+                    android:layout_height="@dimen/onboarding_circle_size_tablet"
+                    android:layout_marginHorizontal="@dimen/default_gap"
+                    android:layout_marginStart="8dp"
+                    android:src="@drawable/ic_baseline_panorama_fish_eye_24" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/action_next_form"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="@dimen/default_gap"
+                android:gravity="bottom"
+                android:text="@string/text_form_next"
+                android:textSize="@dimen/h3_tablet"
+                android:textColor="@color/black" />
+        </RelativeLayout>
+
+    </LinearLayout>
+</layout>

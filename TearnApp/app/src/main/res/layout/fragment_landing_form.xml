@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="30sp"
+    android:background="@color/white"
     android:orientation="vertical"
     tools:context=".ui.account.formtutor.LandingFormFragment">
 
@@ -17,8 +18,9 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="300dp"
         android:layout_margin="@dimen/default_gap"
+        android:scaleType="centerInside"
         android:src="@drawable/home_form" />
 
     <TextView
