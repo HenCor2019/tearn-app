@@ -71,5 +71,7 @@
     <dimen name="availability_boarding_circles">40dp</dimen>
     <dimen name="book_img_size_tablet">280dp</dimen>
     <dimen name="item_subject_x_size">120dp</dimen>
+    <dimen name="gap_reciever_topic">70dp</dimen>
+    <dimen name="email_icon_size">100dp</dimen>
 
 </resources>

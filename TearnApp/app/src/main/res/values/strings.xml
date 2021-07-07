@@ -79,5 +79,14 @@
     <string name="info_frag_refresh">Actualizar</string>
     <string name="info_frag_response_time_ex">1h</string>
     <string name="landing_frag_title_text">Aporta a la comunidad</string>
+    <string name="form_frag_btn_text">Enviar</string>
+    <string name="form_frag_msg_hint_text">MENSAJE</string>
+    <string name="form_frag_hint_topic_txt">ASUNTO</string>
+    <string name="form_frag_reciever_btn">Destinatario</string>
+    <string name="form_frag_title">Enviar Correo</string>
+    <string name="form_msg_frag_title">Correos</string>
+    <string name="user_mail_name">Carlos Cortez</string>
+    <string name="user_mail_topic">Ayuda en matematicas</string>
+    <string name="user_mail_content">hola carlos veo que..</string>
 
 </resources>

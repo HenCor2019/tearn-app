@@ -7,14 +7,13 @@
 
     <ImageView
         android:id="@+id/imageView6"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="@dimen/email_icon_size"
+        android:layout_height="@dimen/email_icon_size"
         android:layout_marginStart="@dimen/default_gap"
         android:layout_marginTop="@dimen/default_gap"
         android:src="@drawable/ic_baseline_email"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView6"
@@ -23,7 +22,7 @@
         android:layout_marginStart="@dimen/default_gap"
         android:layout_marginTop="24dp"
         android:text="@string/form_frag_title"
-        android:textSize="@dimen/h1"
+        android:textSize="@dimen/h1_tablet"
         app:layout_constraintStart_toEndOf="@+id/imageView6"
         app:layout_constraintTop_toTopOf="parent"
         />
@@ -41,23 +40,29 @@
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="148dp"
         android:layout_marginTop="52dp"
         android:background="@color/gray"
         android:padding="10dp"
         android:text="@string/form_frag_reciever_btn"
         android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@+id/view5"
-        tools:layout_editor_absoluteX="82dp" />
+        android:textSize="@dimen/h2_tablet"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view5" />
 
     <TextView
         android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
         android:hint="@string/input_text_name_example"
         android:padding="10dp"
+        android:textSize="@dimen/h2_tablet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView14"
-        tools:layout_editor_absoluteY="127dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="173dp" />
 
     <TextView
         android:id="@+id/textView16"
@@ -67,11 +72,13 @@
         android:gravity="center"
         android:hint="@string/form_frag_hint_topic_txt"
         android:textColor="@color/gray"
+        android:textSize="@dimen/h2_tablet"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="213dp"
-        tools:ignore="MissingConstraints" />
+        tools:layout_editor_absoluteY="326dp" />
 
     <TextView
+        android:id="@+id/textView17"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/default_gap"
@@ -79,26 +86,29 @@
         android:gravity="center"
         android:hint="@string/form_frag_msg_hint_text"
         android:textColor="@color/gray"
+        android:textSize="@dimen/h2_tablet"
         app:layout_constraintTop_toBottomOf="@+id/textView16"
         tools:layout_editor_absoluteX="16dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="432dp"
         android:backgroundTint="@color/gray"
         android:text="@string/form_frag_btn_text"
-        android:textSize="@dimen/h3"
-        tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="577dp"
-        tools:ignore="MissingConstraints" />
+        android:textSize="@dimen/h2_tablet"
+        app:layout_constraintTop_toBottomOf="@+id/textView17"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="353dp" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:background="@color/purple_black"
         app:itemIconTint="@color/white"
         app:itemTextColor="@color/white"
+        app:itemIconSize="@dimen/h4_tablet"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
