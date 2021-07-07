@@ -23,9 +23,19 @@ data class Tutor(
   var active: Boolean?
 )
 
+data class TutorSearch(
+  val id: String,
+  val username: String,
+  val imgUrl: String,
+  val subjects: List<String>,
+  val puntuation: Int
+
+)
+
 data class Author(
-  var username: String,
-  var imgUrl: String
+  val id: String,
+  val username: String,
+  val imgUrl: String
 )
 
 data class Tutors(

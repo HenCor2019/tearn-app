@@ -20,9 +20,6 @@ class SearchTutorFragment : Fragment() , SearchTutorRecyclerViewAdapter.ItemClic
 
     private var _binding: FragmentSearchTutorBinding? = null
     private val binding get() = _binding!!
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     private val application by lazy { requireActivity().application as TearnApplication }
     private val searchVMFactory: SearchVMFactory by lazy {
@@ -66,7 +63,7 @@ class SearchTutorFragment : Fragment() , SearchTutorRecyclerViewAdapter.ItemClic
     }
 
     override fun onClickListener(id: String) {
-        var bundle = Bundle()
+        val bundle = Bundle()
         bundle.putString(TUTOR_ID,id)
         findNavController().navigate(R.id.tutorPerfilFragment,bundle)
     }

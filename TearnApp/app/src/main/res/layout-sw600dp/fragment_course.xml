@@ -13,16 +13,17 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/default_gap"
+        android:layout_margin="@dimen/default_gap"
         android:background="@color/white"
+        android:padding="@dimen/default_gap"
         tools:context=".ui.course.CourseFragment">
 
         <ImageView
             android:id="@+id/image_course"
             android:layout_width="@dimen/img_size_frag_course_tablet"
             android:layout_height="@dimen/img_size_frag_course_tablet"
+            android:layout_marginVertical="@dimen/gap_title_top_category_tablet"
             android:layout_marginStart="@dimen/default_gap"
-            android:layout_marginTop="@dimen/gap_title_top_category_tablet"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@drawable/ic_launcher_background" />
@@ -47,7 +48,7 @@
         <View
             android:id="@+id/view"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/hr_line"
+            android:layout_height="@dimen/hr_line_tablet"
             android:layout_marginTop="@dimen/default_gap"
             android:background="@color/black"
             app:layout_constraintEnd_toEndOf="parent"

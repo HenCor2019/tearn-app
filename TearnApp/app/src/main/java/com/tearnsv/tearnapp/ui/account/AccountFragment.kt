@@ -37,7 +37,7 @@ class AccountFragment : Fragment() {
   override fun onCreateView(
     inflater: LayoutInflater, container: ViewGroup?,
     savedInstanceState: Bundle?
-  ): View? {
+  ): View {
     _binding = FragmentAccountBinding.inflate(inflater, container, false)
     accountViewModel.setIdUser(TearnApplication.prefs.getId()!!)
     return binding.root
@@ -119,7 +119,6 @@ class AccountFragment : Fragment() {
     binding.actionInformation.setOnClickListener {
       findNavController().navigate(R.id.informationFragment)
     }
-
 
   }
 

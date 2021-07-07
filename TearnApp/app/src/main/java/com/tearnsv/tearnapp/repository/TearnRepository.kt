@@ -34,6 +34,8 @@ class TearnRepository(
         response
     }
 
+    suspend fun updateUserCommentary(commentary: Commentary) = api.service.updateUserCommentary(commentary)
+
     suspend fun createReport(report: Report) = withContext(Dispatchers.IO){
         var response = api.service.createReport(report)
         response

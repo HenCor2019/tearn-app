@@ -100,7 +100,7 @@
                     tools:layout_editor_absoluteX="16dp" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/topics_recycle_view"
+                    android:id="@+id/courses_recycler_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/default_gap"
@@ -121,7 +121,7 @@
                     android:textSize="23sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/topics_recycle_view" />
+                    app:layout_constraintTop_toBottomOf="@+id/courses_recycler_view" />
 
                 <TextView
                     android:id="@+id/action_search_tutors"
