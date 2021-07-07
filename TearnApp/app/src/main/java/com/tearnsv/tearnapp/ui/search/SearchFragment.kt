@@ -20,7 +20,6 @@ import com.tearnsv.tearnapp.ui.search.viewmodel.SearchViewModel
 
 class SearchFragment : Fragment() {
 
-
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
 

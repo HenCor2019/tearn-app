@@ -23,6 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/default_gap"
             android:layout_marginVertical="@dimen/default_gap"
+            android:theme="@style/textSearchView"
             android:background="@drawable/shape_search"
             app:defaultQueryHint="@string/default_query"
             app:layout_constraintStart_toStartOf="parent"

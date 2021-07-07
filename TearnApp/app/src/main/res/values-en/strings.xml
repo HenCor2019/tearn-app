@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TearnApp</string>
+    <string name="titleapp_uppercase">TEARN</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="label_on_boarding_title1">Professional Teaching</string>
+    <string name="label_on_boarding_title2">Books for you</string>
+    <string name="label_on_boarding_title3">Exclusive Recomendations</string>
+
+    <string name="label_on_boarding_description">Lorem ipmsum que no se que pone aca xd, Lorem ipmsum que no se que pone aca xd, Lorem ipmsum que no se que pone aca xd</string>
+    <string name="course_tab">Assignments</string>
+    <string name="tutor_tab">Tutors</string>
+    <string name="default_query">Calculus</string>
+    <string name="tool_name">Calculus II</string>
+    <string name="tool_count_tutors">3 Tutors</string>
+    <string name="no_results">No Results</string>
+    <string name="name_tool">Carlos Cortez</string>
+    <string name="tool_punctuation">3</string>
+
+    <string name="tool_course_name">Calculus II</string>
+    <string name="tool_category_name">Categories</string>
+    <string name="category_name">Categories</string>
+
+    <string name="tool_name_category">Engineer and Architecture</string>
+    <string name="tool_category_description">Better Students for a Better World</string>
+    <string name="tool_subject_tutor">Social Math</string>
+
+    <string name="available_tutor">Tutors available</string>
+    <string name="action_reco_title_text">Search Tutors</string>
+    <string name="reco_tutors_title_text">Recommended Tutors</string>
+    <string name="comment_box_text">Write a review about the Tutor</string>
+    <string name="info_tutor_text">Tutor Information</string>
+    <string name="fav_tutors">Favorite Tutors</string>
+
+    <string name="btn_next_text">Next</string>
+
+
+    <string name="home_theme_interest_title">Topics of Interest</string>
+    <string name="action_theme_interest_title">See All</string>
+
+    <string name="account_text">Account</string>
+    <string name="chats_text">Chats</string>
+
+    <string name="logout">Log out</string>
+    <string name="convert_to_tutor">Become a Tutor</string>
+    <string name="text_tutor_information">My Info</string>
+    <string name="text_complete_form">Fill the Form</string>
+    <string name="lorem_3_sentences">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Posuere morbi leo urna molestie at elementum eu facilisis. Et pharetra pharetra massa massa ultricies mi quis hendrerit. Fames ac turpis egestas maecenas pharetra.</string>
+    <string name="text_form_warning">The info you are going to add its going to be shown so the students can know you better</string>
+    <string name="hint_input_name">e.g. Carlos Roberto</string>
+    <string name="hint_input_lastname">e. g. Cortez Iraheta</string>
+    <string name="hint_input_email">myEmail@gmail.com</string>
+    <string name="text_form_next">Siguiente</string>
+
+    <string name="text_form_names">Name</string>
+    <string name="text_form_lastname">Surname</string>
+    <string name="text_form_email">Email</string>
+    <string name="text_dob">BirthDate</string>
+    <string name="text_form_language">Language</string>
+    <string name="hint_form_description">Write what are you up to, hobbies, etc</string>
+    <string name="hint_form_date">dd/mm/yy</string>
+    <string name="hint_form_subjects">Choose an Assignment</string>
+    <string name="check_spanish">Spanish</string>
+    <string name="check_english">English</string>
+    <string name="hint_form_dropdown">Assignment you want to enroll</string>
+    <string name="hint_form_course">Course you want to teach</string>
+    <string name="text_form_time_response">Average response time</string>
+    <string name="hint_form_time">Select a time</string>
+    <string name="text_form_availability">Availability</string>
+    <string name="check_availability_virtual">Virtual</string>
+    <string name="check_availability_onsite">Face-to-Face</string>
+    <string name="button_tutor">¡I want to become a tutor!</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="web_client">704366497875-bnmdtr17a45qv2dlmjdq0ob81tf7vem1.apps.googleusercontent.com</string>
+</resources>

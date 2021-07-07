@@ -23,8 +23,10 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/default_gap"
             android:layout_marginVertical="@dimen/default_gap"
+            android:theme="@style/textSearchView"
             android:background="@drawable/shape_search"
             app:defaultQueryHint="@string/default_query"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:queryHint="@string/default_query"/>
@@ -34,11 +36,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/default_gap"
-            android:layout_marginBottom="@dimen/default_margin"
+            android:layout_marginTop="16dp"
             android:background="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/search_view"
-            app:layout_constraintVertical_bias="0.07"
             app:tabIndicatorColor="@color/green_black"
             app:tabSelectedTextColor="@color/green_black"
             app:tabTextColor="@color/black" />
@@ -46,10 +48,13 @@
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/search_view_pager"
             android:layout_width="match_parent"
-            android:layout_height="500sp"
-            android:padding="@dimen/default_gap"
+            android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/default_margin"
+            android:layout_marginTop="16dp"
+            android:padding="@dimen/default_gap"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tab_layout"
             app:layout_constraintVertical_bias="0.5" />
 

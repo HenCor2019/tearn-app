@@ -67,4 +67,29 @@
     <string name="ver_todo_text">Ver Todo</string>
     <string name="tutor_text">Tutor</string>
     <string name="about_you">Acerca de ti</string>
+    <string name="info_frag_edit_text">Editar</string>
+    <string name="personal_info_text">Información personal</string>
+    <string name="info_frag_name_Text">Nombres</string>
+    <string name="input_text_name_example">e. g. Henry Alexander</string>
+    <string name="surname_info_text">Apellidos</string>
+    <string name="input_text_surname_example">e. g. Cortez Amaya</string>
+    <string name="dob_inf_frag">Fecha de nacimiento</string>
+    <string name="input_text_dob_example">e. g. 17/5/2000</string>
+    <string name="info_frag_about_you_text">Sobre ti</string>
+    <string name="info_frag_tutor">Información de tutor</string>
+    <string name="info_frag_assignments_tutor">Materias que posees</string>
+    <string name="info_frag_time_response">Tiempo de respuesta</string>
+    <string name="info_frag_refresh">Actualizar</string>
+    <string name="info_frag_response_time_ex">1h</string>
+    <string name="landing_frag_title_text">Aporta a la comunidad</string>
+    <string name="form_frag_btn_text">Enviar</string>
+    <string name="form_frag_msg_hint_text">MENSAJE</string>
+    <string name="form_frag_hint_topic_txt">ASUNTO</string>
+    <string name="form_frag_reciever_btn">Destinatario</string>
+    <string name="form_frag_title">Enviar Correo</string>
+    <string name="form_msg_frag_title">Correos</string>
+    <string name="user_mail_name">Carlos Cortez</string>
+    <string name="user_mail_topic">Ayuda en matematicas</string>
+    <string name="user_mail_content">hola carlos veo que..</string>
+
 </resources>

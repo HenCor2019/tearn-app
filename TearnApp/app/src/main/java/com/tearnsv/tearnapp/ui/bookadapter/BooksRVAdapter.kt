@@ -22,16 +22,12 @@ class BooksRVAdapter(private val itemClickListener: ItemClickListener) :
       val bookDate = itemView.findViewById<TextView>(R.id.book_date)
       val bookAuthors = itemView.findViewById<TextView>(R.id.book_authors)
 
-      if (book.volumeInfo.imageLinks?.thumbnail == null)
-        thumbnail.setImageResource(DEFAULT_PHOTO)
-      else
-        Glide.with(itemView).load(book.volumeInfo.imageLinks.thumbnail)
-          .placeholder(DEFAULT_PHOTO).into(thumbnail)
-
-      bookName.text = book.volumeInfo.title ?: DEFAULT_TITLE
-      bookDate.text = book.volumeInfo.publishedDate ?: DEFAULT_YEAR
-      bookAuthors.text = book.volumeInfo.authors?.reduce { acc, author -> "$acc $author" }
-        ?: DEFAULT_AUTHORS
+            Glide.with(itemView).load(book.volumeInfo.imageLinks?.thumbnail)
+                .placeholder(R.drawable.default_book).into(thumbnail)
+            bookName.text = book.volumeInfo.title
+            bookDate.text = book.volumeInfo.publishedDate ?: "Año desconocido"
+            bookAuthors.text = book.volumeInfo.authors?.reduce { acc, author -> "$acc $author" }
+                ?: "Autores desconocidos"
 
       itemView.setOnClickListener {
         itemClickListener.onClickItem(book.volumeInfo.previewLink)

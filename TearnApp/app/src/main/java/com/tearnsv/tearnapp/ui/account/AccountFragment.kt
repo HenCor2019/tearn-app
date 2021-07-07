@@ -19,7 +19,6 @@ import com.tearnsv.tearnapp.databinding.FragmentAccountBinding
 import com.tearnsv.tearnapp.ui.account.viewmodel.AccountVMFactory
 import com.tearnsv.tearnapp.ui.account.viewmodel.AccountViewModel
 
-
 class AccountFragment : Fragment() {
 
   private var _binding: FragmentAccountBinding? = null

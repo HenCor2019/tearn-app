@@ -142,32 +142,32 @@
 
                 <ImageView
                     android:id="@+id/on_boarding_1"
-                    android:layout_width="60sp"
-                    android:layout_height="60sp"
-                    android:layout_marginStart="8dp"
+                    android:layout_width="@dimen/onboarding_circle_size_tablet"
+                    android:layout_height="@dimen/onboarding_circle_size_tablet"
+                    android:layout_marginStart="@dimen/default_gap"
                     android:src="@drawable/ic_baseline_panorama_fish_eye_24" />
-
                 <ImageView
                     android:id="@+id/on_boarding_2"
-                    android:layout_width="60sp"
-                    android:layout_height="60sp"
-                    android:layout_marginHorizontal="@dimen/default_gap"
-                    android:layout_marginStart="8dp"
+                    android:layout_width="@dimen/onboarding_circle_size_tablet"
+                    android:layout_height="@dimen/onboarding_circle_size_tablet"
+                    android:layout_marginStart="@dimen/default_gap"
                     android:src="@drawable/ic_baseline_lens_24" />
 
                 <ImageView
                     android:id="@+id/on_boarding_3"
-                    android:layout_width="60sp"
-                    android:layout_height="60sp"
+                    android:layout_width="@dimen/onboarding_circle_size_tablet"
+                    android:layout_height="@dimen/onboarding_circle_size_tablet"
                     android:layout_marginHorizontal="@dimen/default_gap"
-                    android:layout_marginStart="8dp"
+                    android:layout_marginStart="@dimen/default_gap"
                     android:src="@drawable/ic_baseline_panorama_fish_eye_24" />
 
                 <ImageView
                     android:id="@+id/on_boarding_4"
-                    android:layout_width="60sp"
-                    android:layout_height="60sp"
-                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_width="@dimen/onboarding_circle_size_tablet"
+                    android:layout_height="@dimen/onboarding_circle_size_tablet"
+                    android:layout_marginHorizontal="@dimen/default_gap"
+                    android:layout_marginStart="@dimen/default_gap"
+                    android:layout_marginBottom="@dimen/default_gap"
                     android:src="@drawable/ic_baseline_panorama_fish_eye_24" />
             </LinearLayout>
 
