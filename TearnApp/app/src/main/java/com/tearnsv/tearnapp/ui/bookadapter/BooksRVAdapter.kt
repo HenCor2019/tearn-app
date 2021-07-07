@@ -21,7 +21,7 @@ class BooksRVAdapter(private val itemClickListener: ItemClickListener) : Recycle
             val bookDate = itemView.findViewById<TextView>(R.id.book_date)
             val bookAuthors = itemView.findViewById<TextView>(R.id.book_authors)
 
-            Glide.with(itemView).load(book.volumeInfo.imageLinks.thumbnail)
+            Glide.with(itemView).load(book.volumeInfo.imageLinks?.thumbnail)
                 .placeholder(R.drawable.default_book).into(thumbnail)
             bookName.text = book.volumeInfo.title
             bookDate.text = book.volumeInfo.publishedDate ?: "Año desconocido"

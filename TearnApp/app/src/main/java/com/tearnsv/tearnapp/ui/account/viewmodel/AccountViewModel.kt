@@ -4,6 +4,8 @@ import android.util.Log
 import androidx.lifecycle.*
 import com.tearnsv.tearnapp.TearnApplication
 import com.tearnsv.tearnapp.data.NewTutor
+import com.tearnsv.tearnapp.data.Tutor
+import com.tearnsv.tearnapp.data.Tutors
 import com.tearnsv.tearnapp.repository.TearnRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -39,6 +41,8 @@ class AccountViewModel(private val repository: TearnRepository) : ViewModel() {
   var responseInformation = MutableLiveData("")
   var languageInformation = mutableListOf<String>()
   var availabilityInformation = mutableListOf<String>()
+  var favTutors = repository.getFavTutors()
+  var favTutorsResponse = MutableLiveData<List<Tutor>>()
 
   //HANDLE ERROR
   var error = false
@@ -67,6 +71,20 @@ class AccountViewModel(private val repository: TearnRepository) : ViewModel() {
       }
     }
   }
+
+  fun getFavoriteTutors(){
+    viewModelScope.launch {
+      try {
+        val response = repository.getFavoriteUserFromUser(idUser.value!!)
+        if (response.error) throw Exception()
+        favTutorsResponse.value = response.favTutors
+
+      }catch (error: Exception){
+        Log.e("ERROR_USER", error.toString())
+      }
+    }
+  }
+
   val fetchSubjectsResponse = idUser.distinctUntilChanged().switchMap {
     liveData(Dispatchers.IO) {
       try {
