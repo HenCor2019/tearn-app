@@ -12,7 +12,6 @@ import androidx.navigation.fragment.findNavController
 import com.tearnsv.tearnapp.R
 import com.tearnsv.tearnapp.TearnApplication
 import com.tearnsv.tearnapp.databinding.FragmentPersonalInformationBinding
-import com.tearnsv.tearnapp.databinding.FragmentPreferencesBinding
 import com.tearnsv.tearnapp.ui.account.viewmodel.AccountVMFactory
 import com.tearnsv.tearnapp.ui.account.viewmodel.AccountViewModel
 

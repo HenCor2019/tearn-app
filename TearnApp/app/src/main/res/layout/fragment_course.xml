@@ -47,7 +47,6 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/hr_line"
             android:layout_marginTop="@dimen/default_gap"
-            android:layout_margin="@dimen/default_margin"
             android:background="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

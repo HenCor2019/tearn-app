@@ -18,29 +18,30 @@
 
         <com.google.android.gms.common.SignInButton
             android:id="@+id/sign_in_button"
-            android:layout_width="200sp"
-            android:layout_height="wrap_content"
+            android:layout_width="400sp"
+            android:layout_height="100dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.908" />
+            app:layout_constraintVertical_bias="0.95" />
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="600sp"
             android:src="@drawable/ic_login"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.535" />
+            app:layout_constraintVertical_bias="0.498" />
 
         <TextView
             android:id="@+id/appTitleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Bienvenido a \n TEARN !"
+            android:text="@string/login_welcome"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="@dimen/h1_tablet"
@@ -49,14 +50,13 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.1"
-            tools:ignore="HardcodedText" />
+            app:layout_constraintVertical_bias="0.1" />
 
         <TextView
             android:id="@+id/subtitleTxtId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Aprende algo nuevo cada día"
+            android:text="@string/slogan"
             android:textColor="@color/black"
             android:textSize="@dimen/h2_tablet"
             app:layout_constraintBottom_toBottomOf="parent"

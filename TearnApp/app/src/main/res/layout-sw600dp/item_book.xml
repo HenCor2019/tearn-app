@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="450sp"
+    android:layout_width="800sp"
     android:layout_height="wrap_content"
     app:cardElevation="3sp"
     app:cardUseCompatPadding="true">
@@ -10,14 +10,16 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/default_gap"
         android:layout_alignParentLeft="true">
 
         <ImageView
             android:id="@+id/book_image"
-            android:layout_width="210sp"
-            android:layout_height="230sp"
+            android:layout_width="260sp"
+            android:layout_height="290sp"
             android:layout_alignParentTop="true"
             android:padding="5sp"
+            android:layout_marginEnd="@dimen/default_gap"
             android:scaleType="centerCrop"
             tools:src="@drawable/default_book" />
 
@@ -25,19 +27,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
+            android:paddingStart="35sp"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="@dimen/default_gap"
+            android:layout_marginHorizontal="25sp"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/book_name"
-                android:layout_width="200sp"
+                android:layout_width="400sp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="top"
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:textColor="@color/black"
-                android:textSize="@dimen/h1"
+                android:textSize="@dimen/h2_tablet"
                 android:textStyle="bold"
                 tools:text="Matematicas Puras" />
 
@@ -49,7 +52,7 @@
                 android:ellipsize="end"
                 android:maxWidth="120sp"
                 android:maxLines="1"
-                android:textSize="@dimen/h2"
+                android:textSize="@dimen/h3_tablet"
                 tools:text="Manuel Cortez Cherta Juan Maldonado Sierra" />
 
             <TextView
@@ -60,7 +63,7 @@
                 android:ellipsize="end"
                 android:maxWidth="120sp"
                 android:maxLines="1"
-                android:textSize="18sp"
+                android:textSize="@dimen/h4_tablet"
                 tools:text="2015" />
         </LinearLayout>
 

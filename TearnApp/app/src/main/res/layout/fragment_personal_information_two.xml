@@ -76,7 +76,7 @@
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/default_margin"
             android:layout_marginStart="@dimen/default_gap"
-            android:text="@string/text_form_email"
+            android:text="@string/about_you"
             android:textColor="@color/green_black"
             android:textSize="@dimen/h4" />
 

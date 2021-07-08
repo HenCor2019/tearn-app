@@ -18,7 +18,7 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="550sp"
         android:layout_margin="@dimen/default_gap"
         android:src="@drawable/home_form" />
 
@@ -85,10 +85,11 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="@dimen/default_gap"
+            android:layout_marginEnd="@dimen/default_gap"
             android:gravity="bottom"
+            android:padding="@dimen/default_gap"
             android:text="@string/text_form_next"
-            android:textSize="@dimen/h2_tablet"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:textSize="35sp" />
     </RelativeLayout>
 </LinearLayout>

@@ -44,11 +44,12 @@ xmlns:tools="http://schemas.android.com/tools">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/username_image"
-        android:layout_width="350dp"
-        android:layout_height="350dp"
+        android:layout_width="210dp"
+        android:layout_height="210dp"
         android:src="@drawable/default_photo"
         app:layout_constraintVertical_bias="0.1"
-        android:layout_marginHorizontal="80dp"
+        android:layout_marginStart="75dp"
+        android:paddingHorizontal="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintCircleRadius="@dimen/cardview_default_radius"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,13 +63,13 @@ xmlns:tools="http://schemas.android.com/tools">
         android:gravity="center"
         android:text="@{accountViewModel.fetchUserAccountResponse.username}"
         android:textColor="@color/white"
-        android:textSize="50sp"
+        android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/username_image"
         app:layout_constraintTop_toTopOf="@+id/username_image"
-        tools:text="Henry Cortez" />
+        tools:text="@string/tool_username" />
 
     <LinearLayout
         android:id="@+id/linear_container"
@@ -214,12 +215,13 @@ xmlns:tools="http://schemas.android.com/tools">
         android:gravity="center"
         android:text="@{accountViewModel.fetchUserAccountResponse.email}"
         android:textColor="@color/gray"
-        android:textSize="48sp"
+        android:textSize="35sp"
         android:textStyle="italic"
+        app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toEndOf="@id/username_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username_email"
-        tools:text="Henry200amaya@gmail.com" />
+        tools:text="@string/tool_email" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

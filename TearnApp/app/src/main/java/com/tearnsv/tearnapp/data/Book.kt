@@ -11,11 +11,11 @@ data class ItemsBook(
 )
 
 data class VolumeInfo(
-    val title: String,
+    val title: String?,
     val authors: List<String>?,
     val publishedDate: String?,
     val previewLink: String,
-    val imageLinks: ImageLink
+    val imageLinks: ImageLink?
 )
 
 data class ImageLink(

@@ -44,6 +44,10 @@ class AccountViewModel(private val repository: TearnRepository) : ViewModel() {
   var favTutors = repository.getFavTutors()
   var favTutorsResponse = MutableLiveData<List<Tutor>>()
 
+  // MUTABLE LIST WITH ID
+  var mapOfSubjects = MutableLiveData<MutableMap<String, String>>(mutableMapOf())
+  var mapOfCourses = MutableLiveData<MutableMap<String, String>>(mutableMapOf())
+
   //HANDLE ERROR
   var error = false
 

@@ -20,7 +20,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50sp"
+            android:layout_marginTop="35sp"
             android:text="@string/text_complete_form"
             android:textAlignment="center"
             android:textColor="@color/black"
@@ -31,10 +31,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/default_gap"
-            android:layout_marginVertical="@dimen/default_gap"
+            android:layout_marginVertical="25sp"
             android:text="@string/text_form_warning"
             android:textAlignment="center"
-            android:textSize="@dimen/h3_tablet" />
+            android:textSize="@dimen/h2_tablet" />
 
 
         <TextView
@@ -44,23 +44,27 @@
             android:layout_marginBottom="@dimen/default_margin"
             android:text="@string/text_form_names"
             android:textColor="@color/green_black"
-            android:textSize="@dimen/h3_tablet" />
+            android:textSize="40sp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/user_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/default_margin"
+            android:layout_marginTop="@dimen/default_gap"
             app:boxBackgroundMode="none"
             app:hintEnabled="false">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@={principalViewModel.names}"
-                android:textSize="@dimen/h3_tablet"
                 android:background="@drawable/shape_input"
-                android:hint="@string/hint_input_name" />
+                android:hint="@string/hint_input_name"
+                android:text="@={principalViewModel.names}"
+                android:padding="35sp"
+                android:textSize="35sp"
+
+                />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -70,23 +74,25 @@
             android:layout_marginStart="@dimen/default_gap"
             android:text="@string/text_form_lastname"
             android:textColor="@color/green_black"
-            android:textSize="@dimen/h3_tablet" />
+            android:textSize="40sp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/user_lastname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/default_margin"
+            android:layout_marginTop="@dimen/default_gap"
             app:boxBackgroundMode="none"
             app:hintEnabled="false">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@={principalViewModel.lastnames}"
-                android:textSize="@dimen/h3_tablet"
                 android:background="@drawable/shape_input"
-                android:hint="@string/hint_input_lastname" />
+                android:hint="@string/hint_input_lastname"
+                android:padding="35sp"
+                android:text="@={principalViewModel.lastnames}"
+                android:textSize="35sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -97,24 +103,26 @@
             android:layout_marginStart="@dimen/default_gap"
             android:text="@string/text_form_email"
             android:textColor="@color/green_black"
-            android:textSize="@dimen/h3_tablet" />
+            android:textSize="40sp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/user_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/default_margin"
+            android:layout_marginTop="@dimen/default_gap"
             app:boxBackgroundMode="none"
             app:hintEnabled="false">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@={principalViewModel.email}"
-                android:textSize="@dimen/h3_tablet"
-                android:inputType="textEmailAddress"
                 android:background="@drawable/shape_input"
-                android:hint="@string/hint_input_email" />
+                android:hint="@string/hint_input_email"
+                android:inputType="textEmailAddress"
+                android:padding="35sp"
+                android:text="@={principalViewModel.email}"
+                android:textSize="35sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <RelativeLayout
@@ -170,11 +178,12 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
+                android:layout_marginEnd="@dimen/default_gap"
                 android:gravity="bottom"
-                android:layout_marginBottom="@dimen/default_gap"
+                android:padding="@dimen/default_gap"
                 android:text="@string/text_form_next"
-                android:textSize="@dimen/h3_tablet"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="35sp" />
         </RelativeLayout>
 
     </LinearLayout>

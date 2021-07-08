@@ -17,11 +17,12 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="@dimen/hr_line"
+        android:layout_height="@dimen/hr_line_tablet"
         android:layout_marginBottom="@dimen/default_gap"
         android:background="@color/black" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginStart="@dimen/default_gap"
         android:id="@+id/recycler_view_courses"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

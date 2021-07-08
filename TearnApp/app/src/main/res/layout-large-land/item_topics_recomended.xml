@@ -3,32 +3,32 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="10dp"
+    app:cardCornerRadius="20dp"
     app:cardUseCompatPadding="true">
 
     <LinearLayout
-        android:layout_width="250dp"
-        android:layout_height="215dp"
+        android:layout_width="410dp"
+        android:layout_height="150dp"
         android:background="@color/green_black"
         android:gravity="center"
-        android:minWidth="200dp"
+        android:minWidth="140dp"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/label_course_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Calculo"
+            android:text="Calculo II"
             android:textColor="@color/black"
-            android:textSize="@dimen/h3_tablet" />
+            android:textSize="30sp" />
 
         <TextView
             android:id="@+id/label_counter_courses"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="3 cursos"
+            android:text="3 tutores"
             android:textColor="@color/black"
-            android:textSize="@dimen/h4_tablet" />
+            android:textSize="25sp" />
 
     </LinearLayout>
 

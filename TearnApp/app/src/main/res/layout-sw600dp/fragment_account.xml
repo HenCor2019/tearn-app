@@ -19,8 +19,8 @@
 
         <ProgressBar
             android:id="@+id/progress_circular"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -29,7 +29,7 @@
         <LinearLayout
             android:id="@+id/linearLayout3"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="360dp"
             android:layout_gravity="center"
             android:background="@color/purple_black"
             android:gravity="center"
@@ -57,15 +57,16 @@
             android:id="@+id/username_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="404dp"
+            android:layout_marginTop="@dimen/default_gap"
             android:gravity="center"
             android:text="@{accountViewModel.fetchUserAccountResponse.username}"
             android:textColor="@color/black"
             android:textSize="50sp"
             android:textStyle="bold"
-            app:layout_constraintRight_toRightOf="@+id/username_image"
-            app:layout_constraintTop_toTopOf="@+id/username_image"
-            tools:text="Henry Cortez" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/username_image"
+            tools:text="@string/tool_username" />
 
         <LinearLayout
             android:id="@+id/linear_container"
@@ -76,7 +77,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+            app:layout_constraintVertical_bias="0.4">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -87,17 +89,17 @@
                 <TextView
                     android:id="@+id/action_favorite_tutors"
                     android:layout_width="wrap_content"
-                    android:layout_height="50sp"
+                    android:layout_height="@dimen/icon_account"
                     android:layout_alignParentStart="true"
                     android:gravity="center"
                     android:text="@string/fav_tutors"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/h1" />
+                    android:textSize="@dimen/size_account" />
 
                 <ImageView
                     android:id="@+id/icon_favorite_tutors"
-                    android:layout_width="50sp"
-                    android:layout_height="50sp"
+                    android:layout_width="@dimen/icon_account"
+                    android:layout_height="@dimen/icon_account"
                     android:layout_alignParentEnd="true"
                     android:layout_marginEnd="@dimen/default_gap"
                     android:scaleType="fitCenter"
@@ -125,12 +127,12 @@
                     android:gravity="center"
                     android:text="@string/convert_to_tutor"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/h1" />
+                    android:textSize="@dimen/size_account" />
 
                 <ImageView
                     android:id="@+id/icon_convert_to_tutor"
-                    android:layout_width="50sp"
-                    android:layout_height="50sp"
+                    android:layout_width="@dimen/icon_account"
+                    android:layout_height="@dimen/icon_account"
                     android:layout_alignParentEnd="true"
                     android:layout_marginEnd="@dimen/default_gap"
                     android:scaleType="fitCenter"
@@ -158,12 +160,12 @@
                     android:gravity="center"
                     android:text="@string/text_tutor_information"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/h1" />
+                    android:textSize="@dimen/size_account" />
 
                 <ImageView
                     android:id="@+id/icon_information"
-                    android:layout_width="50sp"
-                    android:layout_height="50sp"
+                    android:layout_width="@dimen/icon_account"
+                    android:layout_height="@dimen/icon_account"
                     android:layout_alignParentEnd="true"
                     android:layout_marginEnd="@dimen/default_gap"
                     android:scaleType="fitCenter"
@@ -185,17 +187,17 @@
                 <TextView
                     android:id="@+id/action_logout"
                     android:layout_width="wrap_content"
-                    android:layout_height="50sp"
+                    android:layout_height="@dimen/icon_account"
                     android:layout_alignParentStart="true"
                     android:gravity="center"
                     android:text="@string/logout"
                     android:textColor="@color/red_200"
-                    android:textSize="@dimen/h1" />
+                    android:textSize="@dimen/size_account" />
 
                 <ImageView
                     android:id="@+id/icon_logout"
-                    android:layout_width="50sp"
-                    android:layout_height="50sp"
+                    android:layout_width="@dimen/icon_account"
+                    android:layout_height="@dimen/icon_account"
                     android:layout_alignParentEnd="true"
                     android:layout_marginEnd="@dimen/default_gap"
                     android:scaleType="fitCenter"
@@ -208,15 +210,15 @@
             android:id="@+id/username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="@dimen/default_gap"
             android:gravity="center"
             android:text="@{accountViewModel.fetchUserAccountResponse.email}"
             android:textColor="@color/gray"
-            android:textSize="48sp"
+            android:textSize="@dimen/h4_tablet"
             android:textStyle="italic"
             app:layout_constraintTop_toBottomOf="@+id/username_email"
             tools:layout_editor_absoluteX="36dp"
-            tools:text="Henry200amaya@gmail.com" />
+            tools:text="@string/tool_email" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

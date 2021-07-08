@@ -55,6 +55,9 @@ interface TearnAPIService {
     @PUT("user/tutor/")
     suspend fun convertToTutor(@Body newTutor: NewTutor)
 
+    @PUT("commentary/")
+    suspend fun updateUserCommentary(@Body newCommentary: Commentary)
+
     // POST SERVICES
     @POST("user/login")
     suspend fun loginWithGoogle(@Body user: UserGoogle): LoginResponse

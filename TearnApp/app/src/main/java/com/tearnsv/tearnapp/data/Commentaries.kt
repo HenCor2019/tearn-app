@@ -1,14 +1,17 @@
 package com.tearnsv.tearnapp.data
 
 data class Commentaries(
-    var description: String,
-    var puntuation: Int,
-    var author: Author
+  val description: String,
+  val puntuation: Int,
+  val author: Author
 )
 
 data class Commentary(
-    var author: String,
-    var description: String,
-    var puntuation: Int,
-    var adressedId: String
+  val id: String? = null,
+  val author: String? = null,
+  val description: String? = null,
+  val puntuation: Int? = 0,
+  val adressedId: String? = null,
 )
+
+

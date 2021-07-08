@@ -22,10 +22,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/default_gap"
-            android:layout_marginBottom="@dimen/default_gap"
+            android:layout_marginBottom="@dimen/default_margin"
             android:text="@string/text_dob"
             android:textColor="@color/green_black"
-            android:textSize="@dimen/h2_tablet" />
+            android:textSize="40sp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/user_date"
@@ -39,8 +39,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/shape_input"
+                android:padding="35sp"
+                android:textSize="35sp"
                 android:text="@={principalInformationViewModel.dob}"
-                android:textSize="@dimen/h2_tablet"
                 android:hint="@string/hint_form_date"
                 android:inputType="date" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -52,7 +53,7 @@
             android:layout_marginStart="@dimen/default_gap"
             android:text="@string/text_form_language"
             android:textColor="@color/green_black"
-            android:textSize="@dimen/h2_tablet" />
+            android:textSize="40sp" />
 
         <CheckBox
             android:id="@+id/spanish_checkbox"
@@ -60,8 +61,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/default_gap"
             android:checked="false"
-            android:text="@string/check_spanish"
-            android:textSize="@dimen/h3_tablet"/>
+            android:textSize="35sp"
+            android:text="@string/check_spanish" />
 
         <CheckBox
             android:id="@+id/english_checkbox"
@@ -69,8 +70,8 @@
             android:layout_marginStart="@dimen/default_gap"
             android:layout_height="wrap_content"
             android:checked="false"
-            android:text="@string/check_english"
-            android:textSize="@dimen/h3_tablet"/>
+            android:textSize="35sp"
+            android:text="@string/check_english" />
 
 
         <TextView
@@ -78,10 +79,9 @@
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/default_margin"
             android:layout_marginStart="@dimen/default_gap"
-            android:layout_marginBottom="@dimen/default_gap"
             android:text="@string/text_form_email"
             android:textColor="@color/green_black"
-            android:textSize="@dimen/h2_tablet" />
+            android:textSize="40sp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/user_description"
@@ -95,10 +95,11 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="150sp"
+                android:layout_height="450sp"
+                android:padding="35sp"
+                android:textSize="35sp"
                 android:background="@drawable/shape_input"
                 android:text="@={principalInformationViewModel.description}"
-                android:textSize="@dimen/h2_tablet"
                 android:gravity="top"
                 android:hint="@string/hint_form_description" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -120,33 +121,32 @@
 
                 <ImageView
                     android:id="@+id/on_boarding_1"
-                    android:layout_width="@dimen/onboarding_circle_size_tablet"
-                    android:layout_height="@dimen/onboarding_circle_size_tablet"
-                    android:layout_marginBottom="@dimen/default_gap"
+                    android:layout_width="60sp"
+                    android:layout_height="60sp"
                     android:layout_marginStart="8dp"
                     android:src="@drawable/ic_baseline_panorama_fish_eye_24" />
 
                 <ImageView
                     android:id="@+id/on_boarding_2"
-                    android:layout_width="@dimen/onboarding_circle_size_tablet"
-                    android:layout_height="@dimen/onboarding_circle_size_tablet"
+                    android:layout_width="60sp"
+                    android:layout_height="60sp"
                     android:layout_marginHorizontal="@dimen/default_gap"
                     android:layout_marginStart="8dp"
                     android:src="@drawable/ic_baseline_panorama_fish_eye_24" />
 
                 <ImageView
                     android:id="@+id/on_boarding_3"
-                    android:layout_width="@dimen/onboarding_circle_size_tablet"
-                    android:layout_height="@dimen/onboarding_circle_size_tablet"
-                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_width="60sp"
+                    android:layout_height="60sp"
+                    android:layout_marginHorizontal="@dimen/default_gap"
+                    android:layout_marginStart="8dp"
                     android:src="@drawable/ic_baseline_lens_24" />
 
                 <ImageView
                     android:id="@+id/on_boarding_4"
-                    android:layout_width="@dimen/onboarding_circle_size_tablet"
-                    android:layout_height="@dimen/onboarding_circle_size_tablet"
-                    android:layout_marginHorizontal="@dimen/default_gap"
-                    android:layout_marginStart="8dp"
+                    android:layout_width="60sp"
+                    android:layout_height="60sp"
+                    android:layout_marginStart="@dimen/default_margin"
                     android:src="@drawable/ic_baseline_panorama_fish_eye_24" />
             </LinearLayout>
 
@@ -157,11 +157,12 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginBottom="@dimen/default_gap"
+                android:layout_marginEnd="@dimen/default_gap"
                 android:gravity="bottom"
+                android:padding="@dimen/default_gap"
                 android:text="@string/text_form_next"
-                android:textSize="@dimen/h3_tablet"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="35sp" />
         </RelativeLayout>
 
     </LinearLayout>

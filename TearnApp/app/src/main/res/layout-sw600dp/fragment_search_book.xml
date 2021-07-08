@@ -13,7 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
+        android:layout_margin="@dimen/default_gap"
         tools:context=".ui.search.SearchBookFragment">
 
         <include
@@ -38,9 +38,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            tools:itemCount="3"
+            tools:itemCount="5"
             tools:listitem="@layout/item_book" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
