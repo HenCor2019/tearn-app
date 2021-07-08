@@ -129,5 +129,6 @@
     <string name="on_boarding_2_desc">Selección de libros de tus materias preferidas para impulsarte a mejorar tu aprendizaje y fomentar la lectura</string>
     <string name="on_boarding_3_desc">Tienes la posibilidad de seleccionar tus materias preferidas, de las cuales se harán recomendaciones de tutores, libros y cursos</string>
     <string name="landing_description">¡Da el siguiente paso convirtiendote en tutor y apoya a la comunidad del mundo con tu conocimiento!</string>
+    <string name="string_inbox">Bandeja de entrada</string>
 
 </resources>

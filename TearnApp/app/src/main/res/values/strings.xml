@@ -138,4 +138,5 @@
     <string name="on_boarding_2_desc">Selection of books from your favorite subjects to encourage you to improve your learning and encourage reading</string>
     <string name="on_boarding_3_desc">You have the possibility to select your favorite subjects, from which recommendations of tutors, books and courses will be made</string>
     <string name="landing_description">Take the next step by becoming a tutor and support the world community with your knowledge!</string>
+    <string name="string_inbox">Inbox</string>
 </resources>
