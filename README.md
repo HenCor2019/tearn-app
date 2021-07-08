@@ -71,7 +71,7 @@ URL_SEARCH=https://tearn.herokuapp.com/api/v1/search?pattern=
 TOKEN_KEY=dfsalklnñlaksdfjnas
 ```
 -**Rutas dentro de la aplicación**
-## PETICION PARA CATEGORIAS
+## PETICIÓN PARA CATEGORIAS
 
 #### Url base: https://tearn.herokuapp.com/api/v1/category
 
@@ -79,14 +79,10 @@ TOKEN_KEY=dfsalklnñlaksdfjnas
 
 ## POST
 
-Campo | Descripcion
-
+Campo | Descripción
 ------|------------
-
 **name** | Nombre de la categoría
-
 **description** | Breve descripción de la categoría
-
 **imgUrl** | Imagen local
 
   
@@ -129,7 +125,7 @@ Campo | Descripcion
 
 ## Obtener todas las categorias
 
-####  Esta petición no necesita parametros
+####  Esta petición no necesita parámetros
 
 ### Respuesta
 
@@ -230,9 +226,7 @@ Campo | Descripcion
   
 
 Params | Descripción
-
 ------|------------
-
 **id** | Id de la categoría
 
   
@@ -415,7 +409,7 @@ Params | Descripción
 
 ```
 
-## SUBJECT URL
+## PETICIÓN PARA LAS MATERIAS
 
 #### Url: https://tearn.herokuapp.com/api/v1/subject
 
@@ -423,12 +417,9 @@ Params | Descripción
 
 ## POST
 
-Field | Description
-
+Field | Descripción
 ------|------------
-
 name | nombre de la materia
-
 categoryId | id de la categoría a la que pertenece
 
   
@@ -465,11 +456,10 @@ categoryId | id de la categoría a la que pertenece
 
   
   
-
-## GET ALL SUBJECT
+## GET
+### OBTENER TODAS LAS MATERIAS
 
   
-
 ### Estas rutas no necesitan headers ni body
 
 ### Respuesta
@@ -518,20 +508,18 @@ categoryId | id de la categoría a la que pertenece
 
   
   
-
-## GET ONE SUBJECT
+## GET
+### OBTENER UNA MATERIA
 
   
 
-Field | Description
-
+Params | Descripción
 ------|------------
-
 id | el id de la materia a buscar
 
   
 
-### new url: https://tearn.herokuapp.com/api/v1/subject/60e63eff0272da001588f40e
+### Nuevo url: https://tearn.herokuapp.com/api/v1/subject/60e63eff0272da001588f40e
 
 ### Respuesta
 
@@ -577,7 +565,7 @@ id | el id de la materia a buscar
 
   
 
-# PETICION PARA CURSOS
+# PETICIÓN PARA CURSOS
 
 ### Url base: https://tearn.herokuapp.com/api/v1/course
 
@@ -586,13 +574,9 @@ id | el id de la materia a buscar
 ## POST
 
 Campo | Descripción
-
 ------|------------
-
 **name** | Nombre del curso
-
 **subjectId** | Id de la materia a la que pertenece el curso
-
 **imgUrl** | Imagen local
 
   
@@ -785,10 +769,8 @@ Campo | Descripción
 
   
 
-Parametro | Description
-
+Params | Descripción
 ------|------------
-
 **id** | id del curso
 
   
@@ -833,10 +815,8 @@ Parametro | Description
 
   
 
-Query | Description
-
+Query | Descripción
 ------|------------
-
 **pattern** | Patrón de lo que se desea mostrar
 
   
@@ -979,9 +959,7 @@ Url base: https://tearn.herokuapp.com/api/v1/search/?pattern=ca
   
 
 Params | Descripción
-
 ------|------------
-
 **id** | Id del usuario a obtener
 
   
@@ -1318,13 +1296,9 @@ Url base: https://tearn.herokuapp.com/api/v1/home/60aff9e2be471114bc9abee3
   
 
 Field | Descripción
-
 ------|------------
-
 **username** | Nombre de usuario
-
 **email** | Correo del usuario
-
 **imgUrl** | Url de la imagen de la persona
 
   
@@ -1401,16 +1375,11 @@ Url base: https://tearn.herokuapp.com/api/v1/user/login
 
   
 
-Field | Descripción
-
+Campo | Descripción
 ------|------------
-
 **author** | Nombre de autor del comentario
-
 **descriptio** | Descripcion del comentario
-
 **puntuation** | Puntuación de un commentario
-
 **adressedId** | Id del tutor
 
   
@@ -1461,10 +1430,8 @@ Url base: https://tearn.herokuapp.com/api/v1/commentary
 
   
 
-Params | Description
-
+Params | Descripción
 ------|------------
-
 **id** | Id del tutor
 
   
@@ -1540,7 +1507,7 @@ Para desarrollar la aplicación se utilizo el lenguaje de programación [Kotlin]
 
 El modelo MVVM fue el seleccionado para la implementación, ya que permite organizar los componentes de una forma adecuada y realizar pruebas con mayor facilidad en la aplicación.
 ### Fragmentos utilizados
-Field | Description
+Fragmento | Descripción
  ------|------------
  FavoriteFragment| Muestra los tutores favoritos
  AvailabilityFragment| Muestra la disponibilidad para ser tutor
@@ -1566,7 +1533,7 @@ Field | Description
  TutorValorationsFragment| Muestra las puntuaciones de un tutor
 
 ### Viewmodels utilizados
-Field | Description
+ViewModel | Descripción
  ------|------------
  AccountViewModel|Administra los datos de la cuenta
  CategoryViewModel|Administra las diferentes categorías en la aplicación
@@ -1580,7 +1547,7 @@ Field | Description
 
 ### Activities
 
-Field | Description
+Actividades | Descripción
  ------|------------
  MainActivity|Es la principal actividad de la aplicación
  NavControllerActivity|Es la actividad que se utiliza para navegar en la aplicación
