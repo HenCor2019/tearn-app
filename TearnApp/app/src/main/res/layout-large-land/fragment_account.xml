@@ -69,7 +69,7 @@ xmlns:tools="http://schemas.android.com/tools">
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/username_image"
         app:layout_constraintTop_toTopOf="@+id/username_image"
-        tools:text="Henry Cortez" />
+        tools:text="@string/tool_username" />
 
     <LinearLayout
         android:id="@+id/linear_container"
@@ -221,7 +221,7 @@ xmlns:tools="http://schemas.android.com/tools">
         app:layout_constraintStart_toEndOf="@id/username_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username_email"
-        tools:text="Henry200amaya@gmail.com" />
+        tools:text="@string/tool_email" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Aporta a la comunidad"
+        android:text="@string/community"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="@dimen/category_name_size_tablet" />

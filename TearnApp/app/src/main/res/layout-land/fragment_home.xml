@@ -28,7 +28,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/default_gap"
-                android:text="TEARN"
+                android:text="@string/tearn"
                 android:textColor="@color/white"
                 android:textSize="@dimen/h1"
                 android:textStyle="bold"
@@ -71,7 +71,7 @@
                     android:id="@+id/label_topics"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Temas de Interés"
+                    android:text="@string/home_theme_interest_title"
                     android:textColor="@color/black"
                     android:textSize="23sp"
                     android:textStyle="bold"
@@ -82,7 +82,7 @@
                     android:id="@+id/action_search_topics"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Ver Todo"
+                    android:text="@string/home_see_all"
                     android:textColor="@color/green_black"
                     android:textSize="15sp"
                     app:layout_constraintBottom_toBottomOf="@+id/label_topics"
@@ -100,7 +100,7 @@
                     tools:layout_editor_absoluteX="16dp" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/topics_recycle_view"
+                    android:id="@+id/courses_recycler_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/default_gap"
@@ -116,18 +116,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/default_gap"
-                    android:text="Tutores recomendados"
+                    android:text="@string/home_tutor_recommended"
                     android:textColor="@color/black"
                     android:textSize="23sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/topics_recycle_view" />
+                    app:layout_constraintTop_toBottomOf="@+id/courses_recycler_view" />
 
                 <TextView
                     android:id="@+id/action_search_tutors"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Buscar tutores"
+                    android:text="@string/home_search_tutor"
                     android:textColor="@color/green_black"
                     android:textSize="15sp"
                     app:layout_constraintBottom_toBottomOf="@+id/label_tutors"
@@ -162,7 +162,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/default_gap"
-                    android:text="Libros recomendados"
+                    android:text="@string/home_book_recommend"
                     android:textColor="@color/black"
                     android:textSize="23sp"
                     android:textStyle="bold"
@@ -170,10 +170,11 @@
                     app:layout_constraintTop_toBottomOf="@+id/tutors_recycle_view" />
 
                 <TextView
+                    android:id="@+id/action_search_book"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="11dp"
-                    android:text="Buscar libros"
+                    android:text="@string/home_search_book"
                     android:textColor="@color/green_black"
                     android:textSize="15sp"
                     app:layout_constraintBottom_toBottomOf="@+id/recommended_book_result"

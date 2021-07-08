@@ -54,21 +54,21 @@ class OnBoardingFragment : Fragment() {
       when (it) {
         0 -> {
           binding.onBoardingTitle.text = getString(R.string.label_on_boarding_title1)
-          binding.onBoardingDescription.setText(R.string.label_on_boarding_description)
+          binding.onBoardingDescription.setText(R.string.on_boarding_1_desc)
           binding.onBoarding1.setImageResource(R.drawable.ic_baseline_lens_24)
           binding.onBoarding2.setImageResource(R.drawable.ic_baseline_panorama_fish_eye_24)
           binding.onBoarding3.setImageResource(R.drawable.ic_baseline_panorama_fish_eye_24)
         }
         1 -> {
           binding.onBoardingTitle.text = getString(R.string.label_on_boarding_title2)
-          binding.onBoardingDescription.setText(R.string.label_on_boarding_description)
+          binding.onBoardingDescription.setText(R.string.on_boarding_2_desc)
           binding.onBoarding2.setImageResource(R.drawable.ic_baseline_lens_24)
           binding.onBoarding1.setImageResource(R.drawable.ic_baseline_panorama_fish_eye_24)
           binding.onBoarding3.setImageResource(R.drawable.ic_baseline_panorama_fish_eye_24)
         }
         2 -> {
           binding.onBoardingTitle.text = getString(R.string.label_on_boarding_title3)
-          binding.onBoardingDescription.setText(R.string.label_on_boarding_description)
+          binding.onBoardingDescription.setText(R.string.on_boarding_3_desc)
           binding.onBoarding3.setImageResource(R.drawable.ic_baseline_lens_24)
           binding.onBoarding1.setImageResource(R.drawable.ic_baseline_panorama_fish_eye_24)
           binding.onBoarding2.setImageResource(R.drawable.ic_baseline_panorama_fish_eye_24)

@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -28,6 +29,13 @@ import com.tearnsv.tearnapp.ui.course.CourseFragment
  */
 class HomeFragment : Fragment(), TutorsRVAdapter.OnClickHandler, BooksRVAdapter.ItemClickListener,
   CourseRVAdapter.CourseItemListener {
+
+  private lateinit var coursesRVAdapter: CourseRVAdapter
+  private lateinit var booksRVAdapter: BooksRVAdapter
+  private lateinit var tutorsRVAdapter: TutorsRVAdapter
+
+  private lateinit var navHostFragment: NavHostFragment
+  private lateinit var navController: NavController
 
   private var _binding: FragmentHomeBinding? = null
   private val binding get() = _binding!!
@@ -57,7 +65,7 @@ class HomeFragment : Fragment(), TutorsRVAdapter.OnClickHandler, BooksRVAdapter.
   override fun onCreateView(
     inflater: LayoutInflater, container: ViewGroup?,
     savedInstanceState: Bundle?
-  ): View? {
+  ): View {
 
     _binding = FragmentHomeBinding.inflate(inflater, container, false)
       .apply {
@@ -69,23 +77,27 @@ class HomeFragment : Fragment(), TutorsRVAdapter.OnClickHandler, BooksRVAdapter.
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
+    initialized()
+    setupRecyclerView()
+    observers()
+    handlerEvents()
+  }
 
-    val navHostFragment =
+  private fun initialized() {
+    coursesRVAdapter = CourseRVAdapter(this)
+    booksRVAdapter = BooksRVAdapter(this)
+    tutorsRVAdapter = TutorsRVAdapter(this)
+
+    navHostFragment =
       requireActivity()
         .supportFragmentManager
         .findFragmentById(R.id.nav_host_controller_fragment)
           as NavHostFragment
-    val navController = navHostFragment.navController
+    navController = navHostFragment.navController
 
-    val coursesRVAdapter = CourseRVAdapter(this)
-    val booksRVAdapter = BooksRVAdapter(this)
-//        var tutorsRVAdapter = TutorsRVAdapter{
-//            var bundle = Bundle()
-//            bundle.putString(TUTOR_ID,it)
-//            findNavController().navigate(R.id.tutorPerfilFragment,bundle)
-//        }
-    val tutorsRVAdapter = TutorsRVAdapter(this)
+  }
 
+  private fun setupRecyclerView() {
     binding.coursesRecyclerView.apply {
       layoutManager =
         LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
@@ -98,11 +110,6 @@ class HomeFragment : Fragment(), TutorsRVAdapter.OnClickHandler, BooksRVAdapter.
       adapter = tutorsRVAdapter
     }
 
-    homeViewModel.recommendations.observe(viewLifecycleOwner) {
-      coursesRVAdapter.setData(it.courses)
-      tutorsRVAdapter.setData(it.tutors)
-    }
-
     binding.booksRecyclerView.apply {
       layoutManager =
         LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
@@ -110,12 +117,28 @@ class HomeFragment : Fragment(), TutorsRVAdapter.OnClickHandler, BooksRVAdapter.
 
     }
 
+  }
+
+  private fun observers() {
+    tutorFavoriteViewModel.favTutors.observe(viewLifecycleOwner) {
+      val favTutors = mutableListOf<String>()
+      it.forEach { favTutor ->
+        favTutors.add(favTutor.idTutor)
+      }
+      tutorsRVAdapter.setFavTutors(favTutors.toList())
+    }
+    homeViewModel.recommendations.observe(viewLifecycleOwner) {
+      coursesRVAdapter.setData(it.courses)
+      tutorsRVAdapter.setData(it.tutors)
+    }
     homeViewModel.fetchBookResponse.observe(viewLifecycleOwner) {
       booksRVAdapter.setData(it.items)
     }
 
+  }
 
-    var bottomNav =
+  private fun handlerEvents() {
+    val bottomNav =
       requireActivity().findViewById<BottomNavigationView>(R.id.bottom_navigation)
 
     binding.actionCategories.setOnClickListener {
@@ -132,12 +155,9 @@ class HomeFragment : Fragment(), TutorsRVAdapter.OnClickHandler, BooksRVAdapter.
       bottomNav.selectedItemId = R.id.page_1
     }
 
-    tutorFavoriteViewModel.favTutors.observe(viewLifecycleOwner) {
-      var favTutors = mutableListOf<String>()
-      it.forEach { favTutor ->
-        favTutors.add(favTutor.idTutor)
-      }
-      tutorsRVAdapter.setFavTutors(favTutors.toList())
+    binding.actionSearchBook.setOnClickListener {
+      navController.navigate(R.id.searchFragment)
+      bottomNav.selectedItemId = R.id.page_1
     }
   }
 

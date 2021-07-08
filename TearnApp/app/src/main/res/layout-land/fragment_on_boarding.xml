@@ -38,7 +38,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/img_on_boarding"
-            tools:text="Recommendations" />
+            android:text="@string/text_recommendations"
+            tools:text="@string/tool_recommendations" />
 
         <TextView
             android:id="@+id/on_boarding_description"
@@ -59,7 +60,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/white"
-            android:text="Siguiente"
+            android:text="@string/text_form_next"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />

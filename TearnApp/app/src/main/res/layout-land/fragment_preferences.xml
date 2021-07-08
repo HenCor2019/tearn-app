@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.tearnsv.tearnapp.ui.preferences.PreferencesViewModel" />
@@ -12,19 +13,19 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/purple_black"
         android:padding="@dimen/default_gap"
-        tools:context=".ui.preferences.PreferencesFragment"
-        android:background="@color/purple_black">
+        tools:context=".ui.preferences.PreferencesFragment">
 
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="¡Ya casi empiezas!"
+            android:text="@string/text_title"
+            android:textColor="@color/white"
             android:textSize="35sp"
             android:textStyle="bold"
-            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -35,8 +36,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/default_gap"
             android:layout_marginEnd="16dp"
+            android:text="@string/categories"
             android:textColor="@color/white"
-            android:text="De las siguientes categorías, escoge tres que sean de tu interés"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -88,7 +89,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:backgroundTint="@color/white"
-            android:text="Comenzar"
+            android:text="@string/preferences_begin"
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.518"
@@ -100,7 +101,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Omitir"
+            android:text="@string/preferences_pass"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="15sp"

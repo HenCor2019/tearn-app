@@ -25,8 +25,6 @@ class AvailabilityFragment : Fragment() {
   private var _binding: FragmentAvailabityBinding? = null
   private val binding get() = _binding!!
 
-  private var MAP_OF_SUBJECT: MutableMap<String, String> = mutableMapOf()
-  private var MAP_OF_COURSES: MutableMap<String, String> = mutableMapOf()
 
   private val application by lazy { requireActivity().application as TearnApplication }
   private val accountVMFactory: AccountVMFactory by lazy {
@@ -63,7 +61,7 @@ class AvailabilityFragment : Fragment() {
 
   private fun setupMaps(subjects: List<SimpleSubject>) {
     for (subject in subjects)
-      MAP_OF_SUBJECT[subject.id] = subject.name
+      accountViewModel.mapOfSubjects.value!![subject.id] = subject.name
 
   }
 
@@ -71,7 +69,7 @@ class AvailabilityFragment : Fragment() {
     val subjectAdapter = ArrayAdapter(
       requireActivity(),
       android.R.layout.select_dialog_item,
-      MAP_OF_SUBJECT.values.toList()
+      accountViewModel.mapOfSubjects.value!!.values.toList()
     )
     val responseTimeAdapter = ArrayAdapter(
       requireActivity(),
@@ -87,14 +85,14 @@ class AvailabilityFragment : Fragment() {
 
   private fun handleEvents() {
     binding.userSubject.setOnItemClickListener { parent, view, position, id ->
-      MAP_OF_COURSES.clear()
+      accountViewModel.mapOfCourses.value!!.clear()
       val courses = accountViewModel.fetchSubjectsResponse.value!!.results[position].courses
       for (course in courses)
-        MAP_OF_COURSES[course._id] = course.name
+        accountViewModel.mapOfCourses.value!![course._id] = course.name
       val courseAdapter = ArrayAdapter(
         requireActivity(),
         android.R.layout.select_dialog_item,
-        MAP_OF_COURSES.values.toList()
+        accountViewModel.mapOfCourses.value!!.values.toList()
       )
       binding.userCourse.threshold = 1
       binding.userCourse.setAdapter(courseAdapter)
@@ -140,8 +138,8 @@ class AvailabilityFragment : Fragment() {
 
       }
 
-      val idSubject = getKeyValue(MAP_OF_SUBJECT, accountViewModel.subject.value!!)
-      val idCourse = getKeyValue(MAP_OF_COURSES, accountViewModel.course.value!!)
+      val idSubject = getKeyValue(accountViewModel.mapOfSubjects.value!!, accountViewModel.subject.value!!)
+      val idCourse = getKeyValue(accountViewModel.mapOfCourses.value!!, accountViewModel.course.value!!)
 
       accountViewModel.idCourse.value = mutableListOf(idCourse)
       accountViewModel.idSubject.value = mutableListOf(idSubject)

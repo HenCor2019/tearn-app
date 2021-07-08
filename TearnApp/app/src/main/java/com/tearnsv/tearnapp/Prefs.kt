@@ -17,6 +17,12 @@ class Prefs(val context: Context) {
         storage.edit().putString(ID_LOGIN_USER, id).apply()
     }
 
+    fun getId() = storage.getString(ID_LOGIN_USER, "")
+
+    fun wipe() {
+        storage.edit().clear().apply()
+    }
+
     fun saveIsTutor(isTutor: Boolean) {
         storage.edit().putBoolean(IS_TUTOR, isTutor).apply()
     }
@@ -43,14 +49,10 @@ class Prefs(val context: Context) {
         storage.edit().putString(ACCESS_TOKEN, accessToken).apply()
     }
 
-    fun getId() = storage.getString(ID_LOGIN_USER, "")
     fun getIsTutor() = storage.getBoolean(IS_TUTOR, false)
     fun getAccessToken() = storage.getString(ACCESS_TOKEN, "")
     fun getPreferences() = storage.getString(PREFERENCES, "")
     fun getFavTutors() = storage.getString(FAV_TUTORS, "")
 
 
-    fun wipe() {
-        storage.edit().clear().apply()
-    }
 }
